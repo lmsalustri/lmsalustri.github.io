@@ -1,1 +1,460 @@
+/* =====================================
+   CSS Variables 
+   ===================================== */
+:root {
+    --primary-color: #cc0000; /* Red */
+    --secondary-color: #ffffff; /* White */
+    --hover-color: #007bff; /* Blue */
+    --border-color: #333; /* Dark Border */
+    --text-muted: #888888; /* Muted Gray */
+}
 
+/* =====================================
+   General Styles 
+   ===================================== */
+body {
+    font-family: sans-serif;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0; /* Remove default margin */
+}
+
+main {
+    flex: 1; /* Ensure the main content stretches to fill the remaining space */
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 40px;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+main h1, section h1 {
+    font-size: 36px;
+}
+
+/* =====================================
+   Header Styles 
+   ===================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    background-color: var(--primary-color);
+    padding: 20px;
+    color: var(--secondary-color);
+}
+
+.header-left {
+    display: flex;
+    align-items: left;
+}
+
+.header-left img {
+    margin-right: 20px;
+}
+
+.header-left h1 {
+    color: var(--secondary-color);
+    font-size: 30px;
+    margin: 0;
+}
+
+/* =====================================
+   Navigation Styles 
+   ===================================== */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+nav a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav a:hover {
+    color: var(--hover-color);
+}
+
+nav {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+    padding: 0 0 8px 0;
+    margin: 0;
+    outline: 0;
+    text-align: left;
+}
+
+div.menu_dropdown {
+    width: auto;
+    margin: 3px 0 0 0;
+    padding-left: 4px;
+    border-radius: 3px;
+    border: 1px solid var(--border-color);
+    pointer-events: auto;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    background: var(--secondary-color);
+}
+
+div.menu_dropdown a {
+    background: transparent;
+    border: none;
+    outline: 0;
+    display: block;
+    text-decoration: none;
+    width: 100px;
+    padding: 5px;
+    color: var(--primary-color);
+}
+
+nav:focus .menu_dropdown {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =====================================
+   Main Content Styles 
+   ===================================== */
+
+h1.welcome {
+    color: var(--primary-color);
+    margin: 0;
+    margin-top: 200px;
+    font-size: 50px;
+}
+
+p.tagline {
+    font-size: 24px;
+    text-align: center;
+}
+
+p.subtagline {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+p.button {
+    text-align: center;
+    margin-bottom: 200px;
+}
+
+p.button a {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 36px;
+    display: inline-block;
+}
+
+p.button a:hover {
+    background-color: var(--hover-color);
+}
+
+/* Event and Blog Section */
+#events h2, #blog h2 {
+    color: var(--primary-color);
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Container for the events and blog sections */
+.event-blog-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 50px;
+    justify-content: space-around;
+}
+
+.event-box, .blog-box {
+    flex: 1;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px solid var(--primary-color);
+}
+
+.event-box h2, .blog-box h2 {
+    color: var(--primary-color);
+    font-size: 28px;
+}
+
+/* Officer Section */
+.officer-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.officer-container img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.officer-info {
+    margin-left: 20px;
+}
+
+p.name {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 5px 0;
+}
+
+p.major {
+    font-size: 18px;
+    font-style: italic;
+    color: var(--text-muted);
+    margin: 5px 0;
+}
+
+p.bio {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 5px 0;
+}
+
+h2 {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 0;
+}
+
+p.author {
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0;
+}
+
+p.event {
+    text-align: center;
+}
+
+a.resource {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Styling for the contents container */
+.contents-container {
+    border: 2px solid var(--primary-color);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 350px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.contents-container h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.contents-container ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.contents-container ul li {
+    margin-bottom: 10px;
+}
+
+.contents-container ul li a {
+    text-decoration: none;
+    color: var(--hover-color);
+    font-weight: bold;
+}
+
+.contents-container ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* =====================================
+   Footer Styles 
+   ===================================== */
+footer {
+    background-color: var(--primary-color);
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer p {
+    font-size: 12px !important;
+    color: var(--secondary-color);
+}
+
+/* =====================================
+   Media Queries 
+   ===================================== */
+
+/* Responsive styles for screens smaller than 900px */
+@media screen and (max-width: 900px) {
+    .event-blog-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .event-box, .blog-box {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        word-wrap: break-word;
+    }
+
+    header {
+        justify-content: flex-start;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    div.menu_dropdown {
+        display: block;
+        right: 0;
+        top: 100%;
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        left: 0;
+        right: auto;
+    }
+
+    nav {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    nav:focus-within .menu_dropdown {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    div.menu_dropdown a {
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+    }
+
+    .officer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .officer-container img {
+        margin-bottom: 10px;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .officer-info {
+        margin-left: 0;
+    }
+}
+
+/* Hide the hamburger menu on larger screens */
+@media screen and (min-width: 901px) {
+    nav ul {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
+}
+
+/* Further reduce the heading size for very small screens */
+@media screen and (max-width: 600px) {
+    .header-left h1 {
+        font-size: 22px;
+    }
+}
+
+/* Media query for print */
+@media print {
+    body {
+        font-family: serif;
+    }
+
+    header, nav, footer {
+        display: none;
+    }
+
+    h1, h2, h3 {
+        color: black;
+    }
+
+    p {
+        font-size: 12px;
+        line-height: 1.2;
+    }
+
+    h1.welcome {
+        margin-top: 0;
+    }
+
+    img {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .officer-container {
+        break-inside: avoid;
+    }
+
+    .officer-container img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+}
