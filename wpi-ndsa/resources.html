@@ -9,56 +9,37 @@
 
 <body>
 <header>
-        <div class="header-left">
-            <a href="index.html"><img src="images/ndsa.png" width="64" height="64" alt="NDSA"></a>
-            <h1>Neurodivergent Student Association</h1>
-        </div>
-
-        <!-- Normal navigation for larger screens, and dropdown for smaller screens -->
-        <nav>
-            <!-- Hamburger menu button for smaller screens -->
-            <button class="hamburger-menu" aria-label="Menu">&#9776; Menu</button>
-
-            <!-- Normal horizontal menu for larger screens -->
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="about_project.html">About Project</a></li>
-				<li><a href="events.html">Events</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="partnerships.html">Partnerships</a></li>
-                <li><a href="resources.html">Resources</a></li>
-            </ul>
-
-            <!-- Dropdown menu for smaller screens -->
-            <div class="menu_dropdown">
-                <p><a href="index.html">Home</a></p>
-                <p><a href="about.html">About</a></p>
-                <p><a href="about_project.html">About Project</a></p>
-				<p><a href="events.html">Events</a></p>
-                <p><a href="blog.html">Blog</a></p>
-                <p><a href="partnerships.html">Partnerships</a></p>
-                <p><a href="resources.html">Resources</a></p>
-            </div>
-        </nav>
-    </header>
+    <div class="header-left" style="display:flex; align-items:center;">
+        <a href="index.html"><img src="images/ndsa.png" alt="NDSA logo"></a>
+        <h1>Neurodivergent Student Association</h1>
+    </div>
+    <nav>
+        <button
+                class="nav__toggle"
+                aria-label="Toggle menu"
+                aria-expanded="false"
+                onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')"
+        >
+            <span class="hamburger"></span>
+        </button>
+        <ul class="nav__menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about_project.html">About Project</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+    </nav>
+</header>
 		<main>
-		<h1>Neurodivergent Creator Spotlight</h1>
-			<p><a class="resource" href="https://www.youtube.com/@imautisticnowwhat" target = "_blank">I'm Autistic, Now What?</a> is a YouTube channel that offers a wide range of content about autism, ADHD, and other related topics.
-			It features many informative videos, along with humorous ones that react to neurodivergent memes.
-			The channel is a great resource for understanding how autism can present differently in women and girls.</p>
-			<p><a class="resource" href="https://www.instagram.com/chloeshayden/" target = "_blank">Chloé Hayden</a> is an Australian actress, author, and disability advocate known for her work in raising awareness about autism and ADHD.
-			Diagnosed with autism as a teenager, she uses her platform to educate others about neurodivergence and promote acceptance and understanding.
-			Chloé played an autistic character on Heartbreak High, a show praised for its authentic and positive representation of autism.
-			Known for her vibrant fashion sense, she often wears bold, colorful outfits that reflect her lively personality and advocacy work.</p>
-			<p><a class="resource" href="https://www.instagram.com/kaelynnvp/" target = "_blank">Kaelynn Partlow</a> is an autistic advocate and therapist who is dedicated to supporting neurodivergent individuals through her professional work and public advocacy.
-			She was featured on Netflix’s Love on the Spectrum, where she shared her experiences as an autistic person, helping to raise awareness about neurodiverse relationships.
-			With a special interest in dogs, Kaelynn often shares her love for her own adorable dog, adding a personal touch to her advocacy efforts.</p>
-			<p><a class="resource" href="https://www.instagram.com/danidonovan/" target = "_blank">Dani Donovan</a> is a comic artist known for her creative and humorous illustrations about living with ADHD.
-			Her relatable comics have resonated with many in the ADHD community, offering insights into the challenges and strengths of neurodivergence.
-			She is also the author of <i>The Anti-Planner</i>, a tool designed to help people with ADHD manage their time and tasks in a way that embraces their unique thinking patterns.</p>
-			<h1>External Resources</h1>
-			<p><a class="resource" href="https://autisticadvocacy.org/" target = "_blank">Autistic Self-Advocacy Network (ASAN)</a> provides support, community, and public policy advocacy, by and for people on the autism spectrum.</p>
+			<h1>WPI Resources</h1>
+            <p><a class="resource" href="https://cdc.wpi.edu/channels/neurodiverse/" target = "_blank">Heebner Career Development Center</a> provides career resources for neurodivergent students, including the Night with Industry, which takes place the night before the semiannual career fair.
+                Students can network with recruiters in a more relaxed setting. No formal dress code is enforced.</p>
+            <p><a class="resource" href="https://www.wpi.edu/offices/diversity" target = "_blank">Office of Diversity, Inclusion, & Multicultural Education (ODIME)</a> supports students from diverse backgrounds, including neurodiversity, through programs, resources, and advocacy focused on cultural acceptance, social justice, and community building.</p>
+            <p><a class="resource" href="https://www.wpi.edu/offices/office-accessibility-services/" target = "_blank">Office of Accessibility Services (OAS)</a> coordinates accommodation services and support to assist students with documented physical, learning, sensory, psychological, and developmental disabilities during their time at WPI.</p>
+            <h1>External Resources</h1>
+            <p><a class="resource" href="https://autisticadvocacy.org/" target = "_blank">Autistic Self-Advocacy Network (ASAN)</a> provides support, community, and public policy advocacy, by and for people on the autism spectrum.</p>
 			<p><a class="resource" href="https://awnnetwork.org/" target = "_blank">Autistic Women &amp; Nonbinary Network (AWN)</a> seeks to share information which works to build acceptance and understanding of disability, while dispelling stereotypes and misinformation which perpetuate unnecessary fears surrounding an autism diagnosis.</p>
 			<p><a class="resource" href="https://sabeusa.com/" target = "_blank">Self Advocates Becoming Empowered (SABE)</a> works to ensure that people with disabilities are treated as equals and are given the same decisions, choices, rights, responsibilities, and chance to speak up to empower themselves as everyone else.</p>
 		</main>

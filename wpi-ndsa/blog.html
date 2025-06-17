@@ -9,39 +9,29 @@
 
 <body>
 <header>
-        <div class="header-left">
-            <a href="index.html"><img src="images/ndsa.png" width="64" height="64" alt="NDSA"></a>
-            <h1>Neurodivergent Student Association</h1>
-        </div>
-
-        <!-- Normal navigation for larger screens, and dropdown for smaller screens -->
-        <nav>
-            <!-- Hamburger menu button for smaller screens -->
-            <button class="hamburger-menu" aria-label="Menu">&#9776; Menu</button>
-
-            <!-- Normal horizontal menu for larger screens -->
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="about_project.html">About Project</a></li>
-				<li><a href="events.html">Events</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="partnerships.html">Partnerships</a></li>
-                <li><a href="resources.html">Resources</a></li>
-            </ul>
-
-            <!-- Dropdown menu for smaller screens -->
-            <div class="menu_dropdown">
-                <p><a href="index.html">Home</a></p>
-                <p><a href="about.html">About</a></p>
-                <p><a href="about_project.html">About Project</a></p>
-				<p><a href="events.html">Events</a></p>
-                <p><a href="blog.html">Blog</a></p>
-                <p><a href="partnerships.html">Partnerships</a></p>
-                <p><a href="resources.html">Resources</a></p>
-            </div>
-        </nav>
-    </header>
+	<div class="header-left" style="display:flex; align-items:center;">
+		<a href="index.html"><img src="images/ndsa.png" alt="NDSA logo"></a>
+		<h1>Neurodivergent Student Association</h1>
+	</div>
+	<nav>
+		<button
+				class="nav__toggle"
+				aria-label="Toggle menu"
+				aria-expanded="false"
+				onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')"
+		>
+			<span class="hamburger"></span>
+		</button>
+		<ul class="nav__menu">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="about.html">About</a></li>
+			<li><a href="about_project.html">About Project</a></li>
+			<li><a href="events.html">Events</a></li>
+			<li><a href="blog.html">Blog</a></li>
+			<li><a href="resources.html">Resources</a></li>
+		</ul>
+	</nav>
+</header>
 		<main>
 			<h1>Blog</h1>
 			<div class="contents-container">

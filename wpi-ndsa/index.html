@@ -4,45 +4,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Neurodivergent Student Association</title>
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 <header>
-        <div class="header-left">
-            <a href="index.html"><img src="images/ndsa.png" width="64" height="64" alt="NDSA"></a>
-            <h1>Neurodivergent Student Association</h1>
-        </div>
-
-        <!-- Normal navigation for larger screens, and dropdown for smaller screens -->
-        <nav>
-            <!-- Hamburger menu button for smaller screens -->
-            <button class="hamburger-menu" aria-label="Menu">&#9776; Menu</button>
-
-            <!-- Normal horizontal menu for larger screens -->
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="about_project.html">About Project</a></li>
-				<li><a href="events.html">Events</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="partnerships.html">Partnerships</a></li>
-                <li><a href="resources.html">Resources</a></li>
-            </ul>
-
-            <!-- Dropdown menu for smaller screens -->
-            <div class="menu_dropdown">
-                <p><a href="index.html">Home</a></p>
-                <p><a href="about.html">About</a></p>
-                <p><a href="about_project.html">About Project</a></p>
-				<p><a href="events.html">Events</a></p>
-                <p><a href="blog.html">Blog</a></p>
-                <p><a href="partnerships.html">Partnerships</a></p>
-                <p><a href="resources.html">Resources</a></p>
-            </div>
-        </nav>
-    </header>
-        <main>
+    <div class="header-left" style="display:flex; align-items:center;">
+        <a href="index.html"><img src="images/ndsa.png" alt="NDSA logo"></a>
+        <h1>Neurodivergent Student Association</h1>
+    </div>
+    <nav>
+        <button
+                class="nav__toggle"
+                aria-label="Toggle menu"
+                aria-expanded="false"
+                onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')"
+        >
+            <span class="hamburger"></span>
+        </button>
+        <ul class="nav__menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about_project.html">About Project</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
     <!-- Main Section -->
     <section class="welcome-section">
         <h1 class="welcome">Welcome!</h1>
@@ -56,29 +45,27 @@
         <!-- Event Section -->
         <div class="event-box">
             <h2>Next Event</h2>
-            <h3>Neurodivergent Student Association GBM</h3>
-            <p>May 5, 2025 @ 5 PM</p>
-            <p>Stratton Hall 311</p>
-			<p><a href="events.html">All Events</a></p>
+            <h3>Happy Summer!</h3>
+            <p>Stay tuned for more events in the fall.</p>
+            <p><a href="events.html">All Events</a></p>
         </div>
 
         <!-- Blog Section -->
         <div class="blog-box">
             <h2>Latest Post</h2>
             <h3>Special Interest Spotlight: Classic Rock</h3>
-			<p class=author>by Laurie Salustri | October 9, 2024</p>
+            <p class="author">by Laurie Salustri | October 9, 2024</p>
             <p>
-				Classic rock is a special interest of mine that has remained constant throughout my entire life.
-				My parents grew up listening to it, and we always have 80s on 8 or Classic Rewind playing on the radio... <a href="blog.html">Read More</a>
-			</p>
+                Classic rock is a special interest of mine that has remained constant throughout my entire life.
+                My parents grew up listening to it, and we always have 80s on 8 or Classic Rewind playing on the radio... <a href="blog.html">Read More</a>
+            </p>
         </div>
     </section>
 </main>
-
-        <footer>
-            <p>Neurodivergent Student Association is the property of Worcester Polytechnic Institute.</p>
-            <p>100 Institute Rd</p>
-            <p>Worcester, MA 06109</p>
-        </footer>
-    </body>
+<footer>
+    <p>Neurodivergent Student Association is the property of Worcester Polytechnic Institute.</p>
+    <p>100 Institute Rd</p>
+    <p>Worcester, MA 06109</p>
+</footer>
+</body>
 </html>
