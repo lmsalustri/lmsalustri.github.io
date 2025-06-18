@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lmsalustri.github.io/wpi-ndsa/sitemap.xml
