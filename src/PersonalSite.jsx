@@ -124,7 +124,7 @@ export default function PersonalSite() {
           <p className="text-neutral-300">
             <a className="underline decoration-white/70 hover:text-white" href="mailto:lauriesalustri+work@proton.me">Email</a>{" "}
             · <a className="underline decoration-white/70 hover:text-white" href="https://github.com/lmsalustri" target="_blank" rel="noreferrer noopener">GitHub</a>{" "}
-            · <a className="underline decoration-white/70 hover:text-white" href="/resume.docx" target="_blank" rel="noreferrer noopener">Résumé (Download)</a>
+            · <a className="underline decoration-white/70 hover:text-white" href="/laurie_salustri_resume.docx" target="_blank" rel="noreferrer noopener">Résumé (Download)</a>
           </p>
         </section>
       </main>
@@ -135,3 +135,4 @@ export default function PersonalSite() {
     </div>
   );
 }
+
