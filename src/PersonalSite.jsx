@@ -62,7 +62,7 @@ export default function PersonalSite() {
     I’m a junior <span className="font-semibold">Computer Science student</span> at 
     Worcester Polytechnic Institute with a strong interest in 
     <span className="font-semibold"> systems, operating systems,</span> and 
-    <span className="font-semibold"> distributed infrastructure</span>.
+    <span className="font-semibold">  distributed infrastructure</span>.
   </p>
 
   <p className="mb-4 text-lg text-neutral-300">
@@ -71,7 +71,7 @@ export default function PersonalSite() {
     <span className="font-mono"> C, C++, Python,</span> and <span className="font-mono">Linux</span>.  
     I’ve also gained industry experience through internships, working on 
     <span className="italic"> embedded systems, firmware,</span> and 
-    <span className="italic"> backend tooling</span>.
+    <span className="italic">  backend tooling</span>.
   </p>
 
   <p className="mb-4 text-lg text-neutral-300">
@@ -135,4 +135,5 @@ export default function PersonalSite() {
     </div>
   );
 }
+
 
