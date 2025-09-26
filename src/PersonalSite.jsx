@@ -67,7 +67,7 @@ export default function PersonalSite() {
 
   <p className="mb-4 text-lg text-neutral-300">
     My academic work includes courses in <span className="italic">software engineering, operating systems,</span> 
-    and <span className="italic">networks</span>, where I’ve developed skills in 
+    and <span className="italic"> networks</span>, where I’ve developed skills in 
     <span className="font-mono"> C, C++, Python,</span> and <span className="font-mono">Linux</span>.  
     I’ve also gained industry experience through internships, working on 
     <span className="italic"> embedded systems, firmware,</span> and 
@@ -76,7 +76,7 @@ export default function PersonalSite() {
 
   <p className="mb-4 text-lg text-neutral-300">
     My main interests lie in building <span className="font-semibold">efficient, reliable,</span> 
-    and <span className="font-semibold">scalable systems</span>, with a focus on performance 
+    and <span className="font-semibold"> scalable systems</span>, with a focus on performance 
     optimization and software design.
   </p>
 
@@ -135,5 +135,6 @@ export default function PersonalSite() {
     </div>
   );
 }
+
 
 
