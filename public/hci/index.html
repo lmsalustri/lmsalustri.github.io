@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,153 +17,208 @@
       --focus: #86b7ff;
       --input-bg: #11121a;
       --input-border: #2a2b36;
-    }* { box-sizing: border-box; }
-html, body { height: 100%; }
-body {
-  margin: 0;
-  font-family: Inter, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  display: grid;
-  place-items: center;
-  text-align: center;
-}
+    }
 
-.app-shell {
-  width: min(420px, 100vw);
-  height: min(880px, 100vh);
-  background: var(--panel);
-  border: 1px solid #1b1c24;
-  border-radius: 36px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.55);
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
 
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 20px 22px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 5;
-}
+    .app-shell {
+      width: min(420px, 100vw);
+      height: min(880px, 100vh);
+      background: var(--panel);
+      border: 1px solid #1b1c24;
+      border-radius: 36px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.55);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
 
-.back-btn {
-  background: transparent !important;
-  border: none !important;
-  color: var(--lavender);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1;
-  cursor: pointer;
-  opacity: 0.95;
-  padding: 6px 2px;
-  transition: opacity 0.2s ease, transform 0.1s ease;
-}
-.back-btn svg {
-  width: 26px;
-  height: 26px;
-  stroke: var(--lavender);
-  fill: none;
-  stroke-width: 3.25;
-}
-.back-btn:hover { opacity: 1; transform: translateX(-2px); }
-.back-btn.hidden { display: none; }
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 5;
+    }
 
-.nav-btn {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: var(--text);
-  font-weight: 600;
-  padding: 8px 18px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-.nav-btn:hover {
-  background: rgba(255,255,255,0.15);
-  color: #ffffff;
-  border-color: rgba(255,255,255,0.35);
-}
+    .back-btn {
+      background: transparent !important;
+      border: none !important;
+      color: var(--lavender);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0.95;
+      padding: 6px 2px;
+      transition: opacity 0.2s ease, transform 0.1s ease;
+    }
+    .back-btn svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--lavender);
+      fill: none;
+      stroke-width: 3.25;
+    }
+    .back-btn:hover { opacity: 1; transform: translateX(-2px); }
+    .back-btn.hidden { display: none; }
 
-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
+    .nav-btn {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--text);
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .nav-btn:hover {
+      background: rgba(255,255,255,0.15);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.35);
+    }
 
-.screen {
-  flex: 1;
-  padding: 120px 22px 0;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  animation: fade .22s ease;
-}
-.screen.active { display: flex; }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
 
-@keyframes fade { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: translateY(0);} }
+    .screen {
+      flex: 1;
+      padding: 120px 22px 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      animation: fade .22s ease;
+    }
+    .screen.active { display: flex; }
 
-h1 { color: var(--lavender); font-size: 28px; font-weight: 700; margin: 6px 0 8px; }
-p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
+    @keyframes fade { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: translateY(0);} }
 
-.input {
-  width: 100%;
-  background: var(--input-bg);
-  border: 1px solid var(--input-border);
-  border-radius: 12px;
-  padding: 14px;
-  color: var(--text);
-  font-size: 16px;
-  text-align: center;
-}
+    h1 { color: var(--lavender); font-size: 28px; font-weight: 700; margin: 6px 0 8px; }
+    p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
 
-.cta { display: flex; justify-content: center; margin-top: 16px; }
+    .input {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 12px;
+      padding: 14px;
+      color: var(--text);
+      font-size: 16px;
+      text-align: center;
+    }
 
-.btn {
-  background: var(--pink);
-  border: none;
-  color: #120914;
-  font-weight: 700;
-  padding: 14px 16px;
-  border-radius: 14px;
-  cursor: pointer;
-}
+    .cta {
+      position: absolute;
+      bottom: 120px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+    }
 
-.option-list { display: grid; gap: 14px; }
-.chip { padding: 12px 14px; border-radius: 999px; background: #261624; border: 1px solid #3b2240; color: #ffd9ee; cursor: pointer; }
+    .btn {
+      background: var(--pink);
+      border: none;
+      color: #120914;
+      font-weight: 700;
+      padding: 14px 16px;
+      border-radius: 14px;
+      cursor: pointer;
+    }
 
-.progress-container { width: 100%; margin-top: auto; padding-bottom: 20px; }
-.progress-wrap { width: 100%; padding: 16px 18px 22px; display: grid; gap: 8px; }
-.progress { width: 100%; height: 6px; border-radius: 999px; background: #1c1d27; overflow: hidden; }
-.progress > span { display: block; height: 100%; background: linear-gradient(90deg, var(--lavender), var(--pink)); border-radius: inherit; transition: width .25s ease; }
-.step-label { color: var(--text); font-size: 12px; text-align: center; }
+    .option-list { display: grid; gap: 14px; }
+    .chip {
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: #261624;
+      border: 1px solid #3b2240;
+      color: #ffd9ee;
+      cursor: pointer;
+    }
 
-.thumb { width: 120px; height: 120px; margin: 24px auto; display: block; }
-.task-pill {
-  display: block;
-  margin-top: 10px;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--lavender);
-  background: none;
-  border: none;
-  text-shadow: 0 0 6px rgba(198,178,255,0.3);
-}
+    /* Recommended (first) option */
+    .chip:first-child {
+      background: linear-gradient(90deg, var(--lavender), var(--pink));
+      color: #120914;
+      font-weight: 700;
+      border: none;
+      box-shadow: 0 0 14px rgba(198,178,255,0.45);
+    }
 
+    .progress-container { width: 100%; margin-top: auto; padding-bottom: 20px; }
+    .progress-wrap { width: 100%; padding: 16px 18px 22px; display: grid; gap: 8px; }
+    .progress { width: 100%; height: 6px; border-radius: 999px; background: #1c1d27; overflow: hidden; }
+    .progress > span { display: block; height: 100%; background: linear-gradient(90deg, var(--lavender), var(--pink)); border-radius: inherit; transition: width .25s ease; }
+    .step-label { color: var(--text); font-size: 12px; text-align: center; }
+
+    .thumb { width: 120px; height: 120px; margin: 24px auto; display: block; }
+    .task-pill {
+      display: block;
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--lavender);
+      background: none;
+      border: none;
+      text-shadow: 0 0 6px rgba(198,178,255,0.3);
+    }
+
+    /* Task list screen */
+    .task-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+      width: 100%;
+      max-height: 420px;
+      overflow-y: auto;
+    }
+    .task-list-empty {
+      opacity: 0.7;
+      font-size: 14px;
+    }
+    .task-item {
+      padding: 10px 14px;
+      margin-bottom: 10px;
+      border-radius: 14px;
+      background: #151521;
+      border: 1px solid #242436;
+      text-align: left;
+    }
+    .task-item-title {
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .task-item-time {
+      font-size: 13px;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
   </style>
 </head>
 <body>
@@ -173,62 +229,92 @@ p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
         <span>Back</span>
       </button>
       <button id="cancelBtn" class="nav-btn">Cancel</button>
-    </header><main>
-  <section id="s1" class="screen active">
-    <div>
-      <h1>What are you working on?</h1>
-      <p class="help">Don’t worry, you can change this later.</p>
-      <input id="taskInput" class="input" type="text" placeholder="e.g., Finish biology worksheet" />
-      <div class="cta"><button id="next1" class="btn" disabled>Next</button></div>
-    </div>
-    <div class="progress-container">
-      <div class="progress-wrap"><div class="progress"><span style="width:33%"></span></div><div class="step-label">Step 1/3</div></div>
-    </div>
-  </section>
+    </header>
 
-  <section id="s2" class="screen">
-    <div>
-      <h1>When would you like to start?</h1>
-      <p class="help">Don’t worry, you can change this later.</p>
-      <div class="option-list">
-        <button class="chip" data-time="Tomorrow, 3–4 PM">Tomorrow, 3–4 PM</button>
-        <button class="chip" data-time="Thursday, 8–9 AM">Thursday, 8–9 AM</button>
-        <button class="chip" data-time="Thursday, 5–6 PM">Thursday, 5–6 PM</button>
-      </div>
-    </div>
-    <div class="progress-container">
-      <div class="progress-wrap"><div class="progress"><span style="width:66%"></span></div><div class="step-label">Step 2/3</div></div>
-    </div>
-  </section>
+    <main>
+      <!-- Task list panel (entry screen) -->
+      <section id="s0" class="screen active">
+        <div>
+          <h1>Your tasks</h1>
+          <p class="help">Tap "+" to add a new task.</p>
+          <ul id="taskList" class="task-list">
+            <li class="task-list-empty">No tasks yet</li>
+          </ul>
+        </div>
+        <div class="cta"><button id="addTaskBtn" class="btn">+ Add task</button></div>
+      </section>
 
-  <section id="s3" class="screen">
-    <div>
-      <h1>Scheduled!</h1>
-      <p id="s3-task" class="task-pill" aria-live="polite"></p>
-      <p id="s3-when" style="color:var(--text); font-weight:600; margin-top:6px;">Tomorrow, 3–4 PM</p>
-      <svg class="thumb" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><path fill="#0c0c12" d="M0 0h128v128H0z"/><path d="M76 20c4 0 6 3 6 7v14h14c8 0 12 7 10 14l-7 24c-2 6-7 9-13 9H48c-3 0-6-3-6-6V56l22-28c3-4 6-8 12-8Z" fill="url(#g)" stroke="#e9defe" stroke-width="2"/></svg>
-      <p style="color:var(--text)">You’ll get a reminder when it’s time.</p>
-      <div class="cta"><button id="addAnother" class="btn">Add another task</button></div>
-    </div>
-    <div class="progress-container">
-      <div class="progress-wrap"><div class="progress"><span style="width:100%"></span></div><div class="step-label">Step 3/3</div></div>
-    </div>
-  </section>
-</main>
+      <!-- Step 1: enter task name -->
+      <section id="s1" class="screen">
+        <div>
+          <h1>What are you working on?</h1>
+          <p class="help">Don’t worry, you can change this later.</p>
+          <input id="taskInput" class="input" type="text" placeholder="e.g., Finish biology worksheet" />
+        </div>
+        <div class="cta"><button id="next1" class="btn" disabled>Next</button></div>
+        <div class="progress-container">
+          <div class="progress-wrap"><div class="progress"><span style="width:33%"></span></div><div class="step-label">Step 1/3</div></div>
+        </div>
+      </section>
 
-  </div>  <script>
-    const screens = [document.getElementById('s1'), document.getElementById('s2'), document.getElementById('s3')];
+      <!-- Step 2: pick time -->
+      <section id="s2" class="screen">
+        <div>
+          <h1>When would you like to start?</h1>
+          <p class="help">Don’t worry, you can change this later.</p>
+          <p id="s2-task" class="task-pill" style="margin-bottom:18px;"></p>
+          <div class="option-list">
+            <button class="chip" data-time="Tomorrow, 3–4 PM">Tomorrow, 3–4 PM</button>
+            <button class="chip" data-time="Thursday, 8–9 AM">Thursday, 8–9 AM</button>
+            <button class="chip" data-time="Thursday, 5–6 PM">Thursday, 5–6 PM</button>
+          </div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-wrap"><div class="progress"><span style="width:66%"></span></div><div class="step-label">Step 2/3</div></div>
+        </div>
+      </section>
+
+      <!-- Step 3: confirmation -->
+      <section id="s3" class="screen">
+        <div>
+          <h1>Scheduled!</h1>
+          <p id="s3-task" class="task-pill" aria-live="polite"></p>
+          <p id="s3-when" style="color:var(--text); font-weight:600; margin-top:6px;">Tomorrow, 3–4 PM</p>
+          <svg class="thumb" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><path fill="#0c0c12" d="M0 0h128v128H0z"/><path d="M76 20c4 0 6 3 6 7v14h14c8 0 12 7 10 14l-7 24c-2 6-7 9-13 9H48c-3 0-6-3-6-6V56l22-28c3-4 6-8 12-8Z" fill="url(#g)" stroke="#e9defe" stroke-width="2"/></svg>
+          <p style="color:var(--text)">You’ll get a reminder when it’s time.</p>
+          <div class="cta"><button id="addAnother" class="btn">Add another task</button></div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-wrap"><div class="progress"><span style="width:100%"></span></div><div class="step-label">Step 3/3</div></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const screens = [
+      document.getElementById('s0'),
+      document.getElementById('s1'),
+      document.getElementById('s2'),
+      document.getElementById('s3')
+    ];
     let step = 0;
+
     const backBtn = document.getElementById('backBtn');
     const cancelBtn = document.getElementById('cancelBtn');
+    const addTaskBtn = document.getElementById('addTaskBtn');
+
     const next1 = document.getElementById('next1');
     const taskInput = document.getElementById('taskInput');
     const addAnother = document.getElementById('addAnother');
     const whenLabel = document.getElementById('s3-when');
     const taskLabel = document.getElementById('s3-task');
+    const s2Task = document.getElementById('s2-task');
+
+    const taskListEl = document.getElementById('taskList');
 
     function showStep(i) {
-      step = Math.max(0, Math.min(2, i));
+      step = Math.max(0, Math.min(3, i));
       screens.forEach((el, idx) => el.classList.toggle('active', idx === step));
       if (step === 0) {
         backBtn.classList.add('hidden');
@@ -237,34 +323,84 @@ p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
       }
     }
 
+    function clearTaskForm() {
+      taskInput.value = '';
+      next1.disabled = true;
+      s2Task.textContent = '';
+      taskLabel.textContent = '';
+      whenLabel.textContent = 'Tomorrow, 3–4 PM';
+    }
+
+    function addTaskToList(name, whenText) {
+      const trimmed = name.trim() || 'Untitled task';
+      const when = whenText || 'Tomorrow, 3–4 PM';
+
+      const empty = taskListEl.querySelector('.task-list-empty');
+      if (empty) empty.remove();
+
+      const li = document.createElement('li');
+      li.className = 'task-item';
+
+      const title = document.createElement('div');
+      title.className = 'task-item-title';
+      title.textContent = trimmed;
+
+      const time = document.createElement('div');
+      time.className = 'task-item-time';
+      time.textContent = when;
+
+      li.appendChild(title);
+      li.appendChild(time);
+      taskListEl.appendChild(li);
+    }
+
+    // Task list panel -> Step 1
+    addTaskBtn.addEventListener('click', () => {
+      clearTaskForm();
+      showStep(1);
+    });
+
+    // Step 1: enable Next when text present
     taskInput.addEventListener('input', () => {
       next1.disabled = taskInput.value.trim().length < 2;
     });
 
-    next1.addEventListener('click', () => showStep(1));
-
-    document.querySelectorAll('.chip').forEach(chip => chip.addEventListener('click', () => {
-      const taskName = taskInput.value.trim();
-      taskLabel.textContent = taskName || 'Untitled task';
-      whenLabel.textContent = chip.dataset.time;
+    // Step 1 -> Step 2
+    next1.addEventListener('click', () => {
+      s2Task.textContent = taskInput.value.trim() || 'Untitled task';
       showStep(2);
-    }));
+    });
 
+    // Step 2: choose time -> Step 3
+    document.querySelectorAll('.chip').forEach(chip =>
+      chip.addEventListener('click', () => {
+        const taskName = taskInput.value.trim();
+        const when = chip.dataset.time;
+        taskLabel.textContent = taskName || 'Untitled task';
+        whenLabel.textContent = when;
+        addTaskToList(taskName, when);
+        showStep(3);
+      })
+    );
+
+    // Step 3: Add another task (back to Step 1)
     addAnother.addEventListener('click', () => {
-      taskInput.value = '';
-      next1.disabled = true;
-      taskLabel.textContent = '';
-      whenLabel.textContent = 'Tomorrow, 3–4 PM';
-      showStep(0);
+      clearTaskForm();
+      showStep(1);
     });
 
-    backBtn.addEventListener('click', () => { if (step > 0) showStep(step - 1); });
+    // Back button: go to previous step (or list)
+    backBtn.addEventListener('click', () => {
+      if (step > 0) {
+        showStep(step - 1);
+      }
+    });
+
+    // Cancel: always go back to task list
     cancelBtn.addEventListener('click', () => {
-      taskInput.value = '';
-      next1.disabled = true;
-      taskLabel.textContent = '';
-      whenLabel.textContent = 'Tomorrow, 3–4 PM';
+      clearTaskForm();
       showStep(0);
     });
-  </script></body>
+  </script>
+</body>
 </html>
