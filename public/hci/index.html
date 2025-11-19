@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,223 +17,283 @@
       --focus: #86b7ff;
       --input-bg: #11121a;
       --input-border: #2a2b36;
-    }* { box-sizing: border-box; }
-html, body { height: 100%; }
-body {
-  margin: 0;
-  font-family: Inter, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  display: grid;
-  place-items: center;
-  text-align: center;
-}
+    }
 
-.app-shell {
-  width: min(420px, 100vw);
-  height: min(880px, 100vh);
-  background: var(--panel);
-  border: 1px solid #1b1c24;
-  border-radius: 36px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.55);
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
 
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 20px 22px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 5;
-}
+    .app-shell {
+      width: min(420px, 100vw);
+      height: min(880px, 100vh);
+      background: var(--panel);
+      border: 1px solid #1b1c24;
+      border-radius: 36px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.55);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
 
-.back-btn {
-  background: transparent !important;
-  border: none !important;
-  color: var(--lavender);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1;
-  cursor: pointer;
-  opacity: 0.95;
-  padding: 6px 2px;
-  transition: opacity 0.2s ease, transform 0.1s ease;
-}
-.back-btn svg {
-  width: 26px;
-  height: 26px;
-  stroke: var(--lavender);
-  fill: none;
-  stroke-width: 3.25;
-}
-.back-btn:hover { opacity: 1; transform: translateX(-2px); }
-.back-btn.hidden { display: none; }
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 5;
+    }
 
-.nav-btn {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: var(--text);
-  font-weight: 600;
-  padding: 8px 18px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-.nav-btn:hover {
-  background: rgba(255,255,255,0.15);
-  color: #ffffff;
-  border-color: rgba(255,255,255,0.35);
-}
+    .back-btn {
+      background: transparent !important;
+      border: none !important;
+      color: var(--lavender);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0.95;
+      padding: 6px 2px;
+      transition: opacity 0.2s ease, transform 0.1s ease;
+    }
+    .back-btn svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--lavender);
+      fill: none;
+      stroke-width: 3.25;
+    }
+    .back-btn:hover { opacity: 1; transform: translateX(-2px); }
+    .back-btn.hidden { display: none; }
 
-.hidden {
-  display: none !important;
-}
+    .nav-btn {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--text);
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .nav-btn:hover {
+      background: rgba(255,255,255,0.15);
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.35);
+    }
 
-main { flex: 1; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+    .end-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 100, 100, 0.4);
+      color: rgba(255, 150, 150, 0.9);
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .end-btn:hover {
+      background: rgba(255, 100, 100, 0.15);
+      color: #ff6666;
+      border-color: rgba(255, 100, 100, 0.6);
+    }
 
-.screen {
-  flex: 1;
-  padding: 120px 22px 0;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  animation: fade .22s ease;
-}
-.screen.active { display: flex; }
+    .hidden {
+      display: none !important;
+    }
 
-@keyframes fade { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: translateY(0);} }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
 
-h1 { color: var(--lavender); font-size: 28px; font-weight: 700; margin: 6px 0 8px; }
-p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
+    .screen {
+      flex: 1;
+      padding: 120px 22px 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      animation: fade .22s ease;
+    }
+    .screen.active { display: flex; }
 
-.input {
-  width: 100%;
-  background: var(--input-bg);
-  border: 1px solid var(--input-border);
-  border-radius: 12px;
-  padding: 14px;
-  color: var(--text);
-  font-size: 16px;
-  text-align: center;
-}
+    @keyframes fade { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: translateY(0);} }
 
-.cta {
-  position: absolute;
-  bottom: 120px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-}
+    h1 { color: var(--lavender); font-size: 28px; font-weight: 700; margin: 6px 0 8px; }
+    p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
 
-.btn {
-  background: var(--pink);
-  border: none;
-  color: #120914;
-  font-weight: 700;
-  padding: 14px 16px;
-  border-radius: 14px;
-  cursor: pointer;
-}
+    .input {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 12px;
+      padding: 14px;
+      color: var(--text);
+      font-size: 16px;
+      text-align: center;
+    }
 
-.option-list { display: grid; gap: 14px; }
-.chip {
-  padding: 12px 14px;
-  border-radius: 999px;
-  background: #261624;
-  border: 1px solid #3b2240;
-  color: #ffd9ee;
-  cursor: pointer;
-}
+    .cta {
+      position: absolute;
+      bottom: 120px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+    }
 
-/* Recommended (first) option */
-.chip:first-child {
-  background: linear-gradient(90deg, var(--lavender), var(--pink));
-  color: #120914;
-  font-weight: 700;
-  border: none;
-  box-shadow: 0 0 14px rgba(198,178,255,0.45);
-}
+    .btn {
+      background: var(--pink);
+      border: none;
+      color: #120914;
+      font-weight: 700;
+      padding: 14px 16px;
+      border-radius: 14px;
+      cursor: pointer;
+    }
 
-.progress-container { width: 100%; margin-top: auto; padding-bottom: 20px; }
-.progress-wrap { width: 100%; padding: 16px 18px 22px; display: grid; gap: 8px; }
-.progress { width: 100%; height: 6px; border-radius: 999px; background: #1c1d27; overflow: hidden; }
-.progress > span { display: block; height: 100%; background: linear-gradient(90deg, var(--lavender), var(--pink)); border-radius: inherit; transition: width .25s ease; }
-.step-label { color: var(--text); font-size: 12px; text-align: center; }
+    .option-list { display: grid; gap: 14px; }
+    .chip {
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: #261624;
+      border: 1px solid #3b2240;
+      color: #ffd9ee;
+      cursor: pointer;
+    }
 
-.thumb { width: 120px; height: 120px; margin: 24px auto; display: block; }
-.task-pill {
-  display: block;
-  margin-top: 10px;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--lavender);
-  background: none;
-  border: none;
-  text-shadow: 0 0 6px rgba(198,178,255,0.3);
-}
+    /* Recommended (first) option */
+    .chip:first-child {
+      background: linear-gradient(90deg, var(--lavender), var(--pink));
+      color: #120914;
+      font-weight: 700;
+      border: none;
+      box-shadow: 0 0 14px rgba(198,178,255,0.45);
+    }
 
-/* Task list screen */
-.task-list {
-  list-style: none;
-  padding: 0;
-  margin: 16px 0 0;
-  width: 100%;
-  max-height: 420px;
-  overflow-y: auto;
-  text-align: left;
-}
-.task-list-empty {
-  opacity: 0.7;
-  font-size: 14px;
-  text-align: center;
-  width: 100%;
-  display: block;
-}
-.task-day-group {
-  margin-bottom: 18px;
-}
-.task-day-label {
-  font-weight: 700;
-  font-size: 15px;
-  color: var(--lavender);
-  margin-bottom: 6px;
-}
-.task-day-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 8px;
-}
-.task-item {
-  padding: 10px 14px;
-  border-radius: 14px;
-  background: #151521;
-  border: 1px solid #242436;
-}
-.task-item-title {
-  font-weight: 600;
-  font-size: 15px;
-}
-.task-item-time {
-  font-size: 13px;
-  opacity: 0.85;
-  margin-top: 4px;
-}
+    .progress-container { width: 100%; margin-top: auto; padding-bottom: 20px; }
+    .progress-wrap { width: 100%; padding: 16px 18px 22px; display: grid; gap: 8px; }
+    .progress { width: 100%; height: 6px; border-radius: 999px; background: #1c1d27; overflow: hidden; }
+    .progress > span { display: block; height: 100%; background: linear-gradient(90deg, var(--lavender), var(--pink)); border-radius: inherit; transition: width .25s ease; }
+    .step-label { color: var(--text); font-size: 12px; text-align: center; }
 
+    .thumb { width: 120px; height: 120px; margin: 24px auto; display: block; }
+    .task-pill {
+      display: block;
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--lavender);
+      background: none;
+      border: none;
+      text-shadow: 0 0 6px rgba(198,178,255,0.3);
+    }
+
+    /* Task list screen */
+    .task-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+      width: 100%;
+      max-height: 420px;
+      overflow-y: auto;
+      text-align: left;
+    }
+    .task-list-empty {
+      opacity: 0.7;
+      font-size: 14px;
+      text-align: center;
+      width: 100%;
+      display: block;
+    }
+    .task-day-group {
+      margin-bottom: 18px;
+    }
+    .task-day-label {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--lavender);
+      margin-bottom: 6px;
+    }
+    .task-day-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .task-item {
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: #151521;
+      border: 1px solid #242436;
+    }
+    .task-item-title {
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .task-item-time {
+      font-size: 13px;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+
+    /* End simulation screen */
+    .end-screen {
+      flex: 1;
+      padding: 120px 22px 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+    }
+    .end-screen.active { display: flex; }
+    .end-screen h1 {
+      color: var(--pink);
+      margin-bottom: 16px;
+    }
+    .end-screen p {
+      margin-bottom: 24px;
+      opacity: 0.8;
+    }
+    .disabled-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(11, 11, 16, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      border-radius: 36px;
+    }
+    .disabled-overlay.active {
+      display: flex;
+    }
   </style>
 </head>
 <body>
@@ -243,88 +304,126 @@ p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
         <span>Back</span>
       </button>
       <button id="cancelBtn" class="nav-btn hidden">Cancel</button>
-    </header><main>
-  <!-- Task list panel (entry screen) -->
-  <section id="s0" class="screen active">
-    <div>
-      <h1>Your tasks</h1>
-      <p class="help">Tap "+" to add a new task.</p>
-      <ul id="taskList" class="task-list">
-        <li class="task-list-empty">No tasks yet</li>
-      </ul>
-    </div>
-    <div class="cta">
-      <button id="addTaskBtn" class="btn" style="width: 85%; border-radius: 999px; padding: 16px 0; font-size: 17px;">+ Add task</button>
-    </div>
-  </section>
+      <button id="endBtn" class="end-btn hidden">End Simulation</button>
+    </header>
 
-  <!-- Step 1: enter task name -->
-  <section id="s1" class="screen">
-    <div>
-      <h1>What are you working on?</h1>
-      <p class="help">Don’t worry, you can change this later.</p>
-      <input id="taskInput" class="input" type="text" placeholder="e.g., Finish biology worksheet" />
-    </div>
-    <div class="cta">
-      <button id="next1" class="btn" disabled style="width: 85%; border-radius: 999px; padding: 16px 0; font-size: 17px;">Next</button>
-    </div>
-    <div class="progress-container">
-      <div class="progress-wrap"><div class="progress"><span style="width:33%"></span></div><div class="step-label">Step 1/3</div></div>
-    </div>
-  </section>
+    <main>
+      <!-- Task list panel (entry screen) -->
+      <section id="s0" class="screen active">
+        <div>
+          <h1>Your tasks</h1>
+          <p class="help">Tap "+" to add a new task.</p>
+          <ul id="taskList" class="task-list">
+            <li class="task-list-empty">No tasks yet</li>
+          </ul>
+        </div>
+        <div class="cta">
+          <button id="addTaskBtn" class="btn" style="width: 85%; border-radius: 999px; padding: 16px 0; font-size: 17px;">+ Add task</button>
+        </div>
+      </section>
 
-  <!-- Step 2: pick time -->
-  <section id="s2" class="screen">
-    <div>
-      <h1>When would you like to start?</h1>
-      <p class="help">Don’t worry, you can change this later.</p>
-      <p id="s2-task" class="task-pill" style="margin-bottom:18px;"></p>
-      <div class="option-list">
-        <button class="chip" data-time="Tomorrow, 3–4 PM">Tomorrow, 3–4 PM</button>
-        <button class="chip" data-time="Thursday, 8–9 AM">Thursday, 8–9 AM</button>
-        <button class="chip" data-time="Thursday, 5–6 PM">Thursday, 5–6 PM</button>
+      <!-- Step 1: enter task name -->
+      <section id="s1" class="screen">
+        <div>
+          <h1>What are you working on?</h1>
+          <p class="help">Don't worry, you can change this later.</p>
+          <input id="taskInput" class="input" type="text" placeholder="e.g., Finish biology worksheet" />
+        </div>
+        <div class="cta">
+          <button id="next1" class="btn" disabled style="width: 85%; border-radius: 999px; padding: 16px 0; font-size: 17px;">Next</button>
+        </div>
+        <div class="progress-container">
+          <div class="progress-wrap"><div class="progress"><span style="width:33%"></span></div><div class="step-label">Step 1/3</div></div>
+        </div>
+      </section>
+
+      <!-- Step 2: pick time -->
+      <section id="s2" class="screen">
+        <div>
+          <h1>When would you like to start?</h1>
+          <p class="help">Don't worry, you can change this later.</p>
+          <p id="s2-task" class="task-pill" style="margin-bottom:18px;"></p>
+          <div class="option-list">
+            <button class="chip" data-time="Tomorrow, 3-4 PM">Tomorrow, 3-4 PM</button>
+            <button class="chip" data-time="Thursday, 8-9 AM">Thursday, 8-9 AM</button>
+            <button class="chip" data-time="Thursday, 5-6 PM">Thursday, 5-6 PM</button>
+          </div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-wrap"><div class="progress"><span style="width:66%"></span></div><div class="step-label">Step 2/3</div></div>
+        </div>
+      </section>
+
+      <!-- Step 3: confirmation -->
+      <section id="s3" class="screen">
+        <div>
+          <h1>Scheduled!</h1>
+          <p id="s3-task" class="task-pill" aria-live="polite"></p>
+          <p id="s3-when" style="color:var(--text); font-weight:600; margin-top:6px;">Tomorrow, 3-4 PM</p>
+          <svg class="thumb" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><path fill="#0c0c12" d="M0 0h128v128H0z"/><path d="M76 20c4 0 6 3 6 7v14h14c8 0 12 7 10 14l-7 24c-2 6-7 9-13 9H48c-3 0-6-3-6-6V56l22-28c3-4 6-8 12-8Z" fill="url(#g)" stroke="#e9defe" stroke-width="2"/></svg>
+          <p style="color:var(--text)">You'll get a reminder when it's time.</p>
+          <div class="cta" style="flex-direction: column; gap: 14px; align-items: center;">
+            <button id="backToList" class="btn" style="width: 85%; border-radius: 999px; padding: 16px 0; font-size: 17px;">Back to task list</button>
+            <button id="addAnother" class="nav-btn" style="width: 85%; border-radius: 999px; padding: 16px 0; font-size: 17px;">Add another task</button>
+          </div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-wrap"><div class="progress"><span style="width:100%"></span></div><div class="step-label">Step 3/3</div></div>
+        </div>
+      </section>
+
+      <!-- End simulation screen -->
+      <section id="endScreen" class="end-screen">
+        <div>
+          <h1>Simulation Ended</h1>
+          <svg class="thumb" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" style="filter: grayscale(0.3); opacity: 0.7;">
+            <path fill="#0c0c12" d="M0 0h128v128H0z"/>
+            <path d="M76 20c4 0 6 3 6 7v14h14c8 0 12 7 10 14l-7 24c-2 6-7 9-13 9H48c-3 0-6-3-6-6V56l22-28c3-4 6-8 12-8Z" fill="url(#g)" stroke="#666" stroke-width="2"/>
+          </svg>
+          <p>Thank you for participating in the study.</p>
+          <p>The CSV file with your results has been downloaded.</p>
+          <div class="cta">
+            <button id="downloadAgain" class="nav-btn" style="width: 85%; border-radius: 999px; padding: 16px 0; font-size: 17px; margin-top: 20px;">Download CSV Again</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Disabled overlay -->
+    <div id="disabledOverlay" class="disabled-overlay">
+      <div style="text-align: center; padding: 20px;">
+        <h1 style="color: var(--pink);">Simulation Ended</h1>
+        <p>This prototype is no longer active.</p>
       </div>
     </div>
-    <div class="progress-container">
-      <div class="progress-wrap"><div class="progress"><span style="width:66%"></span></div><div class="step-label">Step 2/3</div></div>
-    </div>
-  </section>
+  </div>
 
-  <!-- Step 3: confirmation -->
-  <section id="s3" class="screen">
-    <div>
-      <h1>Scheduled!</h1>
-      <p id="s3-task" class="task-pill" aria-live="polite"></p>
-      <p id="s3-when" style="color:var(--text); font-weight:600; margin-top:6px;">Tomorrow, 3–4 PM</p>
-      <svg class="thumb" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><path fill="#0c0c12" d="M0 0h128v128H0z"/><path d="M76 20c4 0 6 3 6 7v14h14c8 0 12 7 10 14l-7 24c-2 6-7 9-13 9H48c-3 0-6-3-6-6V56l22-28c3-4 6-8 12-8Z" fill="url(#g)" stroke="#e9defe" stroke-width="2"/></svg>
-      <p style="color:var(--text)">You’ll get a reminder when it’s time.</p>
-      <div class="cta" style="flex-direction: column; gap: 14px; align-items: center;">
-        <button id="backToList" class="btn" style="width: 85%; border-radius: 999px; padding: 16px 0; font-size: 17px;">Back to task list</button>
-        <button id="addAnother" class="nav-btn" style="width: 85%; border-radius: 999px; padding: 16px 0; font-size: 17px;">Add another task</button>
-      </div>
-    </div>
-    <div class="progress-container">
-      <div class="progress-wrap"><div class="progress"><span style="width:100%"></span></div><div class="step-label">Step 3/3</div></div>
-    </div>
-  </section>
-</main>
-
-  </div>  <script>
+  <script>
     const screens = [
       document.getElementById('s0'),
       document.getElementById('s1'),
       document.getElementById('s2'),
-      document.getElementById('s3')
+      document.getElementById('s3'),
+      document.getElementById('endScreen')
     ];
     let step = 0;
+    let simulationEnded = false;
 
     // --- Instrumentation state for KPIs & research questions ---
     let runCounter = 0;              // number of task runs
     let currentRun = null;           // current run object
     const studyRuns = [];            // all completed / aborted runs
     let lastInteractionTime = null;  // last interaction timestamp for pause detection
+    let pauseCheckInterval = null;   // interval for checking pauses
+    let isCurrentlyPaused = false;   // track if we're currently in a pause period
+    let hasLoggedTyping = false;     // track if typing has been logged for current input session
+
+    // Track the current task being scheduled to avoid duplicates
+    let currentTaskBeingScheduled = null;
 
     function startRun() {
+      if (simulationEnded) return;
+      
       runCounter += 1;
       currentRun = {
         id: runCounter,
@@ -341,21 +440,64 @@ p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
       };
       lastInteractionTime = currentRun.startTime;
       currentRun.navigation.push('start_from_list');
+      isCurrentlyPaused = false;
+      hasLoggedTyping = false;
+      
+      // Start checking for pauses every 500ms
+      if (pauseCheckInterval) {
+        clearInterval(pauseCheckInterval);
+      }
+      pauseCheckInterval = setInterval(checkForPause, 500);
+    }
+
+    function checkForPause() {
+      if (!currentRun || !lastInteractionTime || simulationEnded) return;
+      
+      const now = performance.now();
+      const timeSinceLastInteraction = now - lastInteractionTime;
+      
+      // If it's been 2 seconds or more since the last interaction and we're not already tracking a pause
+      if (timeSinceLastInteraction >= 2000 && !isCurrentlyPaused) {
+        // Count this as one pause
+        currentRun.pauses += 1;
+        isCurrentlyPaused = true;
+        
+        // Add pause to navigation path with context about where it occurred
+        const pauseEvent = `pause_on_s${step}`;
+        currentRun.navigation.push(pauseEvent);
+        
+        console.log(`Pause detected: ${timeSinceLastInteraction}ms since last interaction. Total pauses: ${currentRun.pauses}`);
+      }
+      
+      // If user interacts again (time since last interaction is small), reset pause tracking
+      if (timeSinceLastInteraction < 2000 && isCurrentlyPaused) {
+        isCurrentlyPaused = false;
+      }
     }
 
     function trackInteraction(tag) {
+      if (simulationEnded) return;
+      
       const now = performance.now();
       if (currentRun) {
-        if (lastInteractionTime && now - lastInteractionTime >= 2000) {
-          currentRun.pauses += 1; // RQ1: pauses ≥2s
-        }
+        // Reset pause state when user interacts
+        isCurrentlyPaused = false;
+        
+        // Update the last interaction time
         lastInteractionTime = now;
         if (tag) currentRun.navigation.push(`interaction:${tag}`);
       }
     }
 
     function finishRun({ completed, reason }) {
-      if (!currentRun) return;
+      if (!currentRun || simulationEnded) return;
+      
+      // Stop checking for pauses
+      if (pauseCheckInterval) {
+        clearInterval(pauseCheckInterval);
+        pauseCheckInterval = null;
+      }
+      
       currentRun.completed = !!completed;         // for task completion rate
       currentRun.reason = reason || null;         // 'confirmed', 'cancel', 'back_to_list', etc.
       if (!currentRun.endTime) {
@@ -371,6 +513,8 @@ p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
 
       currentRun = null;
       lastInteractionTime = null;
+      isCurrentlyPaused = false;
+      hasLoggedTyping = false;
     }
 
     // Expose runs so you can export them after a session
@@ -379,6 +523,9 @@ p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
     const backBtn = document.getElementById('backBtn');
     const cancelBtn = document.getElementById('cancelBtn');
     const addTaskBtn = document.getElementById('addTaskBtn');
+    const endBtn = document.getElementById('endBtn');
+    const downloadAgainBtn = document.getElementById('downloadAgain');
+    const disabledOverlay = document.getElementById('disabledOverlay');
 
     const next1 = document.getElementById('next1');
     const taskInput = document.getElementById('taskInput');
@@ -390,14 +537,42 @@ p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
     const taskListEl = document.getElementById('taskList');
 
     function showStep(i) {
+      if (simulationEnded) return;
+      
       step = Math.max(0, Math.min(3, i));
       screens.forEach((el, idx) => el.classList.toggle('active', idx === step));
+      
       if (step === 0) {
+        // On task list screen: show End button only if there are tasks, hide Back and Cancel
         backBtn.classList.add('hidden');
-        cancelBtn.classList.add('hidden'); // hide cancel on task list
+        cancelBtn.classList.add('hidden');
+        updateEndButtonVisibility();
       } else {
+        // On other screens: show Back and Cancel, hide End button
         backBtn.classList.remove('hidden');
         cancelBtn.classList.remove('hidden');
+        endBtn.classList.add('hidden');
+      }
+    }
+
+    function showEndScreen() {
+      screens.forEach(screen => screen.classList.remove('active'));
+      document.getElementById('endScreen').classList.add('active');
+      // Hide all header buttons when showing end screen
+      backBtn.classList.add('hidden');
+      cancelBtn.classList.add('hidden');
+      endBtn.classList.add('hidden');
+    }
+
+    // Function to update End button visibility based on task count
+    function updateEndButtonVisibility() {
+      // Check if there are any tasks (excluding the empty message)
+      const hasTasks = taskListEl.querySelector('.task-item') !== null;
+      
+      if (hasTasks) {
+        endBtn.classList.remove('hidden');
+      } else {
+        endBtn.classList.add('hidden');
       }
     }
 
@@ -409,14 +584,18 @@ p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
       next1.disabled = true;
       s2Task.textContent = '';
       taskLabel.textContent = '';
-      whenLabel.textContent = 'Tomorrow, 3–4 PM';
+      whenLabel.textContent = 'Tomorrow, 3-4 PM';
+      currentTaskBeingScheduled = null;
+      hasLoggedTyping = false;
     }
 
-    function addTaskToList(name, whenText) {
+    function addOrUpdateTaskInList(name, whenText) {
+      if (simulationEnded) return;
+      
       const trimmed = (name || '').trim() || 'Untitled task';
-      const rawWhen = whenText || 'Tomorrow, 3–4 PM';
+      const rawWhen = whenText || 'Tomorrow, 3-4 PM';
 
-      // Split into day vs time, e.g. "Tomorrow, 3–4 PM" -> "Tomorrow" / "3–4 PM"
+      // Split into day vs time, e.g. "Tomorrow, 3-4 PM" -> "Tomorrow" / "3-4 PM"
       const parts = rawWhen.split(',');
       const dayLabel = (parts[0] || '').trim() || 'Someday';
       const timeLabel = (parts.slice(1).join(',') || '').trim();
@@ -424,59 +603,193 @@ p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
       const empty = taskListEl.querySelector('.task-list-empty');
       if (empty) empty.remove();
 
-      // Find or create a group for this day
-      let dayGroup = taskListEl.querySelector(`li.task-day-group[data-day="${dayLabel}"]`);
-      if (!dayGroup) {
-        dayGroup = document.createElement('li');
-        dayGroup.className = 'task-day-group';
-        dayGroup.dataset.day = dayLabel;
+      // Check if we're updating an existing task
+      if (currentTaskBeingScheduled) {
+        // Update the existing task
+        const title = currentTaskBeingScheduled.querySelector('.task-item-title');
+        const time = currentTaskBeingScheduled.querySelector('.task-item-time');
+        
+        title.textContent = trimmed;
+        time.textContent = timeLabel || rawWhen;
+        
+        // Check if the day changed
+        const currentDayGroup = currentTaskBeingScheduled.closest('.task-day-group');
+        if (currentDayGroup && currentDayGroup.dataset.day !== dayLabel) {
+          // Day changed, need to move the task to the correct day group
+          currentTaskBeingScheduled.remove();
+          
+          // Find or create the new day group
+          let newDayGroup = taskListEl.querySelector(`li.task-day-group[data-day="${dayLabel}"]`);
+          if (!newDayGroup) {
+            newDayGroup = document.createElement('li');
+            newDayGroup.className = 'task-day-group';
+            newDayGroup.dataset.day = dayLabel;
 
-        const heading = document.createElement('div');
-        heading.className = 'task-day-label';
-        heading.textContent = dayLabel;
+            const heading = document.createElement('div');
+            heading.className = 'task-day-label';
+            heading.textContent = dayLabel;
 
-        const innerList = document.createElement('ul');
-        innerList.className = 'task-day-list';
+            const innerList = document.createElement('ul');
+            innerList.className = 'task-day-list';
 
-        dayGroup.appendChild(heading);
-        dayGroup.appendChild(innerList);
-        taskListEl.appendChild(dayGroup);
+            newDayGroup.appendChild(heading);
+            newDayGroup.appendChild(innerList);
+            taskListEl.appendChild(newDayGroup);
+          }
+
+          const innerList = newDayGroup.querySelector('.task-day-list');
+          innerList.appendChild(currentTaskBeingScheduled);
+        }
+        
+        return currentTaskBeingScheduled;
+      } else {
+        // Create a new task
+        // Find or create a group for this day
+        let dayGroup = taskListEl.querySelector(`li.task-day-group[data-day="${dayLabel}"]`);
+        if (!dayGroup) {
+          dayGroup = document.createElement('li');
+          dayGroup.className = 'task-day-group';
+          dayGroup.dataset.day = dayLabel;
+
+          const heading = document.createElement('div');
+          heading.className = 'task-day-label';
+          heading.textContent = dayLabel;
+
+          const innerList = document.createElement('ul');
+          innerList.className = 'task-day-list';
+
+          dayGroup.appendChild(heading);
+          dayGroup.appendChild(innerList);
+          taskListEl.appendChild(dayGroup);
+        }
+
+        const innerList = dayGroup.querySelector('.task-day-list');
+
+        const li = document.createElement('li');
+        li.className = 'task-item';
+
+        const title = document.createElement('div');
+        title.className = 'task-item-title';
+        title.textContent = trimmed;
+
+        const time = document.createElement('div');
+        time.className = 'task-item-time';
+        time.textContent = timeLabel || rawWhen;
+
+        li.appendChild(title);
+        li.appendChild(time);
+        innerList.appendChild(li);
+        
+        currentTaskBeingScheduled = li;
+        
+        // Update End button visibility since we added a task
+        updateEndButtonVisibility();
+        
+        return li;
+      }
+    }
+
+    // Generate and download CSV with KPI metrics
+    function generateCSV() {
+      if (studyRuns.length === 0) {
+        alert('No data collected yet. Complete at least one task scheduling flow.');
+        return;
       }
 
-      const innerList = dayGroup.querySelector('.task-day-list');
-
-      const li = document.createElement('li');
-      li.className = 'task-item';
-
-      const title = document.createElement('div');
-      title.className = 'task-item-title';
-      title.textContent = trimmed;
-
-      const time = document.createElement('div');
-      time.className = 'task-item-time';
-      time.textContent = timeLabel || rawWhen;
-
-      li.appendChild(title);
-      li.appendChild(time);
-      innerList.appendChild(li);
+      // Calculate KPIs
+      const totalRuns = studyRuns.length;
+      const completedRuns = studyRuns.filter(run => run.completed).length;
+      const completionRate = (completedRuns / totalRuns * 100).toFixed(2);
+      const avgTimeOnTask = (studyRuns.reduce((sum, run) => sum + run.timeOnTaskSec, 0) / totalRuns).toFixed(2);
+      const totalPauses = studyRuns.reduce((sum, run) => sum + run.pauses, 0);
+      const avgPauses = (totalPauses / totalRuns).toFixed(2);
+      
+      // Create CSV content with proper encoding and BOM for Excel compatibility
+      const BOM = '\uFEFF'; // UTF-8 BOM for Excel
+      let csvContent = BOM + "KPI Metrics - Task Scheduling Study\n\n";
+      
+      // Summary KPIs
+      csvContent += "SUMMARY METRICS\n";
+      csvContent += "Metric,Value\n";
+      csvContent += `Total Runs,${totalRuns}\n`;
+      csvContent += `Completed Runs,${completedRuns}\n`;
+      csvContent += `Completion Rate,${completionRate}%\n`;
+      csvContent += `Average Time on Task (seconds),${avgTimeOnTask}\n`;
+      csvContent += `Total Pauses (>=2s),${totalPauses}\n`;
+      csvContent += `Average Pauses per Run,${avgPauses}\n\n`;
+      
+      // Detailed run data
+      csvContent += "DETAILED RUN DATA\n";
+      csvContent += "Run ID,Task Name,Chosen Time,Completed,Time on Task (s),Pauses,Navigation Path\n";
+      
+      studyRuns.forEach(run => {
+        // Replace any special characters in time strings with simple ASCII
+        const cleanChosenTime = (run.chosenTime || 'N/A').replace(/[^\x00-\x7F]/g, '-');
+        
+        // Replace arrows with simple ASCII for better compatibility
+        const navigationPath = run.navigation.join(' -> ');
+        
+        csvContent += `${run.id},"${run.taskName || 'N/A'}","${cleanChosenTime}",${run.completed ? 'Yes' : 'No'},${run.timeOnTaskSec},${run.pauses},"${navigationPath}"\n`;
+      });
+      
+      // Create and trigger download with proper UTF-8 encoding
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `task-scheduling-kpis-${new Date().toISOString().slice(0,19).replace(/:/g,'-')}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
     }
 
     // Task list panel -> Step 1 (start of a run)
     addTaskBtn.addEventListener('click', () => {
+      if (simulationEnded) return;
       trackInteraction('task_list_add_click');
       clearTaskForm();
       startRun();              // RQ2/RQ1: time-on-task & pauses start here
       showStep(1);
     });
 
+    // End simulation and download KPI CSV
+    endBtn.addEventListener('click', () => {
+      if (currentRun) {
+        finishRun({ completed: false, reason: 'simulation_ended' });
+      }
+      generateCSV();
+      simulationEnded = true;
+      showEndScreen();
+    });
+
+    // Download CSV again from end screen
+    downloadAgainBtn.addEventListener('click', () => {
+      generateCSV();
+    });
+
     // Step 1: enable Next when text present (also track typing pauses)
     taskInput.addEventListener('input', () => {
-      trackInteraction('typing_task');
+      if (simulationEnded) return;
+      
+      // Only log typing once per input session
+      if (currentRun && !hasLoggedTyping) {
+        trackInteraction('typing_task');
+        hasLoggedTyping = true;
+      }
+      
       next1.disabled = taskInput.value.trim().length < 2;
+    });
+
+    // Reset typing flag when input loses focus
+    taskInput.addEventListener('blur', () => {
+      if (simulationEnded) return;
+      hasLoggedTyping = false;
     });
 
     // Step 1 -> Step 2
     next1.addEventListener('click', () => {
+      if (simulationEnded) return;
       trackInteraction('next_from_s1');
       s2Task.textContent = taskInput.value.trim() || 'Untitled task';
       if (currentRun) {
@@ -489,13 +802,16 @@ p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
     // Step 2: choose time -> Step 3 (confirmation)
     document.querySelectorAll('.chip').forEach(chip =>
       chip.addEventListener('click', () => {
+        if (simulationEnded) return;
         const taskName = taskInput.value.trim();
         const when = chip.dataset.time;
         trackInteraction(`time_choice:${when}`);
 
         taskLabel.textContent = taskName || 'Untitled task';
         whenLabel.textContent = when;
-        addTaskToList(taskName, when);
+        
+        // Add or update the task in the list
+        addOrUpdateTaskInList(taskName, when);
 
         if (currentRun) {
           currentRun.chosenTime = when;
@@ -513,6 +829,7 @@ p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
     // Back to task list (recommended) on Scheduled! screen
     const backToList = document.getElementById('backToList');
     backToList.addEventListener('click', () => {
+      if (simulationEnded) return;
       trackInteraction('back_to_list_from_s3');
       clearTaskForm();
       showStep(0);
@@ -521,6 +838,7 @@ p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
     // Step 3: Add another task (start a new run)
     const addAnotherBtn = document.getElementById('addAnother');
     addAnotherBtn.addEventListener('click', () => {
+      if (simulationEnded) return;
       trackInteraction('add_another_click');
       clearTaskForm();
       startRun();
@@ -529,22 +847,31 @@ p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
 
     // Back button: go to previous step (or list); if you go back to list, treat as aborted run
     backBtn.addEventListener('click', () => {
+      if (simulationEnded) return;
       if (step > 0) {
         const target = step - 1;
         trackInteraction(`back_from_s${step}_to_s${target}`);
         if (currentRun) {
           currentRun.navigation.push(`back_from_s${step}_to_s${target}`);
         }
-        showStep(target);
-        if (target === 0 && currentRun) {
+        
+        // If going back from step 3 to step 2, don't clear the current task being scheduled
+        // so we can update it if a different time is selected
+        if (step === 3 && target === 2) {
+          // Keep currentTaskBeingScheduled so we can update it
+        } else if (target === 0 && currentRun) {
           // Aborted before scheduling confirmation
           finishRun({ completed: false, reason: 'back_to_list' });
+          currentTaskBeingScheduled = null;
         }
+        
+        showStep(target);
       }
     });
 
     // Cancel: always go back to task list, and if a run is active, mark it as aborted
     cancelBtn.addEventListener('click', () => {
+      if (simulationEnded) return;
       trackInteraction('cancel');
       clearTaskForm();
       if (currentRun) {
@@ -552,5 +879,6 @@ p.help { color: var(--text); margin: 0 0 24px; font-size: 14px; }
       }
       showStep(0);
     });
-  </script></body>
+  </script>
+</body>
 </html>
