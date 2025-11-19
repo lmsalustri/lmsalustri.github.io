@@ -300,6 +300,64 @@
     ];
     let step = 0;
 
+    // --- Instrumentation state for KPIs & research questions ---
+    let runCounter = 0;              // number of task runs
+    let currentRun = null;           // current run object
+    const studyRuns = [];            // all completed / aborted runs
+    let lastInteractionTime = null;  // last interaction timestamp for pause detection
+
+    function startRun() {
+      runCounter += 1;
+      currentRun = {
+        id: runCounter,
+        startTime: performance.now(),
+        endTime: null,
+        timeOnTaskSec: null,
+        completed: false,
+        reason: null,
+        taskName: '',
+        chosenTime: '',
+        pauses: 0,              // pauses ≥2s (proxy for attention drift)
+        navigation: [],         // sequence of interactions / screens
+        errors: 0               // placeholder if you later flag explicit errors
+      };
+      lastInteractionTime = currentRun.startTime;
+      currentRun.navigation.push('start_from_list');
+    }
+
+    function trackInteraction(tag) {
+      const now = performance.now();
+      if (currentRun) {
+        if (lastInteractionTime && now - lastInteractionTime >= 2000) {
+          currentRun.pauses += 1; // RQ1: pauses ≥2s
+        }
+        lastInteractionTime = now;
+        if (tag) currentRun.navigation.push(`interaction:${tag}`);
+      }
+    }
+
+    function finishRun({ completed, reason }) {
+      if (!currentRun) return;
+      currentRun.completed = !!completed;         // for task completion rate
+      currentRun.reason = reason || null;         // 'confirmed', 'cancel', 'back_to_list', etc.
+      if (!currentRun.endTime) {
+        currentRun.endTime = performance.now();
+      }
+      currentRun.timeOnTaskSec = Number(
+        ((currentRun.endTime - currentRun.startTime) / 1000).toFixed(2)
+      );
+
+      studyRuns.push(currentRun);
+      console.log('Study run logged:', currentRun);
+      console.log('All runs so far:', studyRuns);
+
+      currentRun = null;
+      lastInteractionTime = null;
+    }
+
+    // Expose runs so you can export them after a session
+    window.__schedulerStudyRuns = studyRuns;
+
     const backBtn = document.getElementById('backBtn');
     const cancelBtn = document.getElementById('cancelBtn');
     const addTaskBtn = document.getElementById('addTaskBtn');
@@ -354,51 +412,86 @@
       taskListEl.appendChild(li);
     }
 
-    // Task list panel -> Step 1
+    // Task list panel -> Step 1 (start of a run)
     addTaskBtn.addEventListener('click', () => {
+      trackInteraction('task_list_add_click');
       clearTaskForm();
+      startRun();              // RQ2/RQ1: time-on-task & pauses start here
       showStep(1);
     });
 
-    // Step 1: enable Next when text present
+    // Step 1: enable Next when text present (also track typing pauses)
     taskInput.addEventListener('input', () => {
+      trackInteraction('typing_task');
       next1.disabled = taskInput.value.trim().length < 2;
     });
 
     // Step 1 -> Step 2
     next1.addEventListener('click', () => {
+      trackInteraction('next_from_s1');
       s2Task.textContent = taskInput.value.trim() || 'Untitled task';
+      if (currentRun) {
+        currentRun.taskName = taskInput.value.trim() || 'Untitled task';
+        currentRun.navigation.push('s1->s2');
+      }
       showStep(2);
     });
 
-    // Step 2: choose time -> Step 3
+    // Step 2: choose time -> Step 3 (confirmation)
     document.querySelectorAll('.chip').forEach(chip =>
       chip.addEventListener('click', () => {
         const taskName = taskInput.value.trim();
         const when = chip.dataset.time;
+        trackInteraction(`time_choice:${when}`);
+
         taskLabel.textContent = taskName || 'Untitled task';
         whenLabel.textContent = when;
         addTaskToList(taskName, when);
+
+        if (currentRun) {
+          currentRun.chosenTime = when;
+          currentRun.taskName = taskName || 'Untitled task';
+          currentRun.navigation.push('s2->s3');
+          currentRun.endTime = performance.now();
+          // Completed run: used for time-on-task, completion rate, error rate
+          finishRun({ completed: true, reason: 'confirmed' });
+        }
+
         showStep(3);
       })
     );
 
-    // Step 3: Add another task (back to Step 1)
+    // Step 3: Add another task (start a new run)
     addAnother.addEventListener('click', () => {
+      trackInteraction('add_another_click');
       clearTaskForm();
+      startRun();
       showStep(1);
     });
 
-    // Back button: go to previous step (or list)
+    // Back button: go to previous step (or list); if you go back to list, treat as aborted run
     backBtn.addEventListener('click', () => {
       if (step > 0) {
-        showStep(step - 1);
+        const target = step - 1;
+        trackInteraction(`back_from_s${step}_to_s${target}`);
+        if (currentRun) {
+          currentRun.navigation.push(`back_from_s${step}_to_s${target}`);
+        }
+        showStep(target);
+        if (target === 0 && currentRun) {
+          // Aborted before scheduling confirmation
+          finishRun({ completed: false, reason: 'back_to_list' });
+        }
       }
     });
 
-    // Cancel: always go back to task list
+    // Cancel: always go back to task list, and if a run is active, mark it as aborted
     cancelBtn.addEventListener('click', () => {
+      trackInteraction('cancel');
       clearTaskForm();
+      if (currentRun) {
+        finishRun({ completed: false, reason: 'cancel' });
+      }
       showStep(0);
     });
   </script>
