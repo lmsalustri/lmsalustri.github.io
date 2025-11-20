@@ -556,7 +556,7 @@
         cancelBtn.classList.add('hidden');
         updateEndButtonVisibility();
       } else if (step === 3) {
-        // On confirmation screen: hide both Back and Cancel buttons
+        // On confirmation screen: hide Cancel button but show Back button
         backBtn.classList.remove('hidden');
         cancelBtn.classList.add('hidden');
         endBtn.classList.add('hidden');
@@ -630,6 +630,12 @@
         if (currentDayGroup && currentDayGroup.dataset.day !== dayLabel) {
           // Day changed, need to move the task to the correct day group
           currentTaskBeingScheduled.remove();
+          
+          // Check if the old day group is now empty and remove it if so
+          const oldDayList = currentDayGroup.querySelector('.task-day-list');
+          if (oldDayList && oldDayList.children.length === 0) {
+            currentDayGroup.remove();
+          }
           
           // Find or create the new day group
           let newDayGroup = taskListEl.querySelector(`li.task-day-group[data-day="${dayLabel}"]`);
