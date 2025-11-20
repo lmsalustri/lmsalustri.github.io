@@ -304,14 +304,16 @@
       display: flex;
     }
 
-    /* Improved spacing for Step 1 */
-    #s1 > div:first-child {
+    /* Improved spacing for all screens */
+    .screen > div:first-child {
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 100%;
       margin-top: 40px;
     }
+    
+    /* Step 1 specific spacing */
     #s1 h1 {
       margin-bottom: 16px;
     }
@@ -320,6 +322,53 @@
     }
     #s1 .input {
       margin-bottom: 20px;
+    }
+    
+    /* Step 2 specific spacing */
+    #s2 h1 {
+      margin-bottom: 16px;
+    }
+    #s2 .help {
+      margin-bottom: 30px;
+    }
+    #s2 .task-pill {
+      margin-bottom: 30px;
+    }
+    #s2 .option-list {
+      margin-top: 10px;
+    }
+    
+    /* Step 3 specific spacing */
+    #s3 h1 {
+      margin-bottom: 20px;
+    }
+    #s3 .task-pill {
+      margin-bottom: 10px;
+    }
+    #s3 .thumb {
+      margin: 30px auto 20px;
+    }
+    #s3 > div:first-child > p:last-of-type {
+      margin-bottom: 30px;
+    }
+    
+    /* Task list screen spacing */
+    #s0 h1 {
+      margin-bottom: 16px;
+    }
+    #s0 .help {
+      margin-bottom: 30px;
+    }
+    
+    /* End screen spacing */
+    #endScreen h1 {
+      margin-bottom: 20px;
+    }
+    #endScreen .thumb {
+      margin: 30px auto 20px;
+    }
+    #endScreen p {
+      margin-bottom: 30px;
     }
   </style>
 </head>
@@ -369,7 +418,7 @@
         <div>
           <h1>When would you like to start?</h1>
           <p class="help">Don't worry, you can change this later.</p>
-          <p id="s2-task" class="task-pill" style="margin-bottom:18px;"></p>
+          <p id="s2-task" class="task-pill"></p>
           <div class="option-list">
             <button class="chip" data-time="Tomorrow, 3-4 PM">Tomorrow, 3-4 PM</button>
             <button class="chip" data-time="Thursday, 8-9 AM">Thursday, 8-9 AM</button>
