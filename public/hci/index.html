@@ -173,12 +173,12 @@
       transition: all 0.2s ease;
     }
     
-    /* Add disabled state for buttons */
+    /* Improved disabled state for buttons with better contrast */
     .btn:disabled {
-      background: #333;
-      color: #666;
+      background: #2a2a2a;
+      color: #888;
       cursor: not-allowed;
-      opacity: 0.6;
+      opacity: 0.8;
     }
 
     .option-list { display: grid; gap: 14px; }
@@ -206,7 +206,13 @@
     .progress > span { display: block; height: 100%; background: linear-gradient(90deg, var(--lavender), var(--pink)); border-radius: inherit; transition: width .25s ease; }
     .step-label { color: var(--text); font-size: 12px; text-align: center; }
 
-    .thumb { width: 120px; height: 120px; margin: 24px auto; display: block; }
+    .thumb { 
+      width: 120px; 
+      height: 120px; 
+      margin: 24px auto; 
+      display: block;
+      filter: drop-shadow(0 0 15px rgba(198, 178, 255, 0.6));
+    }
     .task-pill {
       display: block;
       margin-top: 10px;
@@ -366,6 +372,8 @@
     }
     #endScreen .thumb {
       margin: 30px auto 20px;
+      filter: drop-shadow(0 0 15px rgba(255, 143, 207, 0.5)) grayscale(0.3);
+      opacity: 0.7;
     }
     #endScreen p {
       margin-bottom: 30px;
@@ -452,7 +460,7 @@
       <section id="endScreen" class="end-screen">
         <div>
           <h1>Simulation Ended</h1>
-          <svg class="thumb" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" style="filter: grayscale(0.3); opacity: 0.7;">
+          <svg class="thumb" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
             <path d="M76 20c4 0 6 3 6 7v14h14c8 0 12 7 10 14l-7 24c-2 6-7 9-13 9H48c-3 0-6-3-6-6V56l22-28c3-4 6-8 12-8Z" fill="url(#g)" stroke="#666" stroke-width="2"/>
           </svg>
           <p>Thank you for participating in the study.</p>
