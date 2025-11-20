@@ -170,6 +170,15 @@
       padding: 14px 16px;
       border-radius: 14px;
       cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    /* Add disabled state for buttons */
+    .btn:disabled {
+      background: #333;
+      color: #666;
+      cursor: not-allowed;
+      opacity: 0.6;
     }
 
     .option-list { display: grid; gap: 14px; }
@@ -546,6 +555,11 @@
         backBtn.classList.add('hidden');
         cancelBtn.classList.add('hidden');
         updateEndButtonVisibility();
+      } else if (step === 3) {
+        // On confirmation screen: hide both Back and Cancel buttons
+        backBtn.classList.add('hidden');
+        cancelBtn.classList.add('hidden');
+        endBtn.classList.add('hidden');
       } else {
         // On other screens: show Back and Cancel, hide End button
         backBtn.classList.remove('hidden');
@@ -789,6 +803,7 @@
     // Step 1 -> Step 2
     next1.addEventListener('click', () => {
       if (simulationEnded) return;
+      if (next1.disabled) return; // Prevent action when button is disabled
       trackInteraction('next_from_s1');
       s2Task.textContent = taskInput.value.trim() || 'Untitled task';
       if (currentRun) {
