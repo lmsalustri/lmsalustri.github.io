@@ -209,9 +209,8 @@
     }
 
     .chip.selected {
-      background: var(--lavender);
+      background: var(--pink);
       color: var(--panel);
-      border-color: var(--lavender);
       box-shadow: 0 0 14px rgba(198,178,255,0.6);
     }
 
@@ -283,7 +282,7 @@
       text-shadow: 0 0 6px rgba(198,178,255,0.3);
     }
 
-    /* Task list screen */
+    /* Task list screen - UPDATED FOR BETTER DELETE BUTTON LAYOUT */
     .task-list {
       list-style: none;
       padding: 0;
@@ -319,12 +318,16 @@
       gap: 8px;
     }
     .task-item {
-      padding: 10px 14px;
+      padding: 14px;
       border-radius: 14px;
       background: #151521;
       border: 1px solid #242436;
       cursor: pointer;
       transition: all 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
     }
     .task-item:hover {
       background: #1a1a29;
@@ -337,32 +340,42 @@
       border: 2px solid var(--lavender);
       box-shadow: 0 0 20px rgba(198, 178, 255, 0.15);
     }
+    .task-item-content {
+      flex: 1;
+      min-width: 0; /* Allows text truncation if needed */
+    }
     .task-item-title {
       font-weight: 600;
       font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .task-item-time {
       font-size: 13px;
       opacity: 0.85;
       margin-top: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    
-    /* Task actions (delete button) */
+
+    /* Task actions (delete button) - FIXED TO BE ON SAME LINE */
     .task-item-actions {
+      flex-shrink: 0;
       display: flex;
-      justify-content: flex-end;
-      margin-top: 8px;
-      gap: 8px;
+      align-items: center;
     }
     .task-delete-btn {
       background: rgba(255, 100, 100, 0.1);
       border: 1px solid rgba(255, 100, 100, 0.3);
       color: rgba(255, 150, 150, 0.9);
       font-size: 12px;
-      padding: 4px 10px;
+      padding: 6px 12px;
       border-radius: 6px;
       cursor: pointer;
       transition: all 0.2s ease;
+      white-space: nowrap;
     }
     .task-delete-btn:hover {
       background: rgba(255, 100, 100, 0.2);
@@ -702,7 +715,7 @@
           <h1>Your tasks</h1>
           <p class="help">Tap "+" to add a new task or tap any task to edit it.</p>
           <ul id="taskList" class="task-list">
-            <li class="task-list-empty">No tasks yet. Tap "+ Add task" to create your first task.</li>
+            <li class="task-list-empty">No tasks yet</li>
           </ul>
         </div>
         <div class="cta">
@@ -1191,6 +1204,9 @@
         li.className = 'task-item';
         li.dataset.time = rawWhen;
 
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'task-item-content';
+
         const title = document.createElement('div');
         title.className = 'task-item-title';
         title.textContent = trimmed;
@@ -1211,10 +1227,11 @@
           deleteTask(li);
         });
         
+        contentDiv.appendChild(title);
+        contentDiv.appendChild(time);
         actions.appendChild(deleteBtn);
         
-        li.appendChild(title);
-        li.appendChild(time);
+        li.appendChild(contentDiv);
         li.appendChild(actions);
         innerList.appendChild(li);
         
