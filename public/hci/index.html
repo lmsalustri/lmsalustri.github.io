@@ -244,7 +244,7 @@
     }
 
     /* End screen thumb - subtle static glow */
-    #endScreen .thumb {
+    #s6 .thumb {
       filter: drop-shadow(0 0 15px rgba(255, 143, 207, 0.5)) 
               drop-shadow(0 0 8px rgba(255, 143, 207, 0.3))
               grayscale(0.3);
@@ -310,7 +310,69 @@
       margin-top: 4px;
     }
 
-    /* End simulation screen */
+    /* SUS Questions screen */
+    #s5 .sus-question {
+      font-size: 16px;
+      line-height: 1.4;
+      margin-bottom: 30px;
+      text-align: left;
+      width: 100%;
+    }
+    
+    .sus-options {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 30px;
+      gap: 8px;
+    }
+    
+    .sus-option {
+      flex: 1;
+      background: #151521;
+      border: 1px solid #242436;
+      color: var(--text);
+      padding: 12px 6px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    
+    .sus-option:hover {
+      background: #1c1d2a;
+      border-color: var(--lavender);
+    }
+    
+    .sus-option.selected {
+      background: var(--lavender);
+      color: var(--panel);
+      border-color: var(--lavender);
+      font-weight: 600;
+    }
+    
+    .sus-option span {
+      display: block;
+      font-size: 12px;
+      margin-top: 4px;
+      opacity: 0.8;
+    }
+    
+    .sus-nav {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 20px;
+    }
+    
+    .sus-progress {
+      color: var(--text);
+      font-size: 14px;
+      opacity: 0.8;
+      align-self: center;
+    }
+    
+    /* End simulation screen (now s6) */
     .end-screen {
       flex: 1;
       padding: 120px 22px 0;
@@ -358,7 +420,7 @@
     
     /* Step 0 (Overview) specific styling */
     #s0 h1 {
-      color: var(--lavender);
+      color: var(--green);
       margin-bottom: 30px;
     }
     #s0 .overview-text {
@@ -422,22 +484,22 @@
       margin-bottom: 30px;
     }
     
-    /* Task list screen spacing */
-    #s1 h1 {
+    /* SUS screen (s5) specific spacing */
+    #s5 h1 {
       margin-bottom: 16px;
     }
-    #s1 .help {
+    #s5 .help {
       margin-bottom: 30px;
     }
     
-    /* End screen spacing */
-    #endScreen h1 {
+    /* End screen (s6) spacing */
+    #s6 h1 {
       margin-bottom: 20px;
     }
-    #endScreen .thumb {
+    #s6 .thumb {
       margin: 30px auto 20px;
     }
-    #endScreen p {
+    #s6 p {
       margin-bottom: 30px;
     }
   </style>
@@ -457,16 +519,19 @@
       <!-- Step 0: Overview screen (new) -->
       <section id="s0" class="screen active">
         <div>
-          <h1>Welcome!</h1>
+          <h1>Task Scheduling Simulation</h1>
           <div class="overview-text">
-            <p>Welcome to this executive functioning scheduler simulation!</p>
-            <p>You will build a schedule by adding time blocks to a task list.</p>
-            <p>Your interactions will be recorded for analysis.</p>
-            <p>There will be a brief survey at the end of the simulation.</p>
+            <p><strong>Welcome!</strong> This simulation will guide you through scheduling tasks using an AI-powered assistant.</p>
+            <p><strong>What you'll do:</strong></p>
+            <p>1. View your task list</p>
+            <p>2. Add new tasks with suggested times</p>
+            <p>3. Schedule tasks for completion</p>
+            <p><strong>Research Purpose:</strong> We're studying how people interact with scheduling interfaces to improve AI assistance.</p>
+            <p>Your interactions will be recorded anonymously for analysis.</p>
           </div>
         </div>
         <div class="cta">
-          <button id="startSimulationBtn" class="btn" style="width: 85%; border-radius: 999px; padding: 16px 0; font-size: 17px;">Start Simulation</button>
+          <button id="startSimulationBtn" class="btn btn-green" style="width: 85%; border-radius: 999px; padding: 16px 0; font-size: 17px;">Start Simulation</button>
         </div>
       </section>
 
@@ -534,8 +599,47 @@
         </div>
       </section>
 
-      <!-- End simulation screen -->
-      <section id="endScreen" class="end-screen">
+      <!-- Step 5: SUS Questions (new) -->
+      <section id="s5" class="screen">
+        <div>
+          <h1>System Usability Scale</h1>
+          <p class="help">Please rate your agreement with the following statements:</p>
+          
+          <div id="susQuestion" class="sus-question"></div>
+          
+          <div class="sus-options">
+            <button class="sus-option" data-value="1">
+              1
+              <span>Strongly disagree</span>
+            </button>
+            <button class="sus-option" data-value="2">
+              2
+              <span></span>
+            </button>
+            <button class="sus-option" data-value="3">
+              3
+              <span>Neutral</span>
+            </button>
+            <button class="sus-option" data-value="4">
+              4
+              <span></span>
+            </button>
+            <button class="sus-option" data-value="5">
+              5
+              <span>Strongly agree</span>
+            </button>
+          </div>
+          
+          <div class="sus-nav">
+            <button id="susBack" class="nav-btn" style="display: none;">Previous</button>
+            <div id="susProgress" class="sus-progress">Question 1 of 10</div>
+            <button id="susNext" class="btn" disabled style="padding: 12px 24px;">Next</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 6: End simulation screen (was endScreen) -->
+      <section id="s6" class="end-screen">
         <div>
           <h1>Simulation Ended</h1>
           <svg class="thumb" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
@@ -561,12 +665,13 @@
 
   <script>
     const screens = [
-      document.getElementById('s0'),  // New overview screen
+      document.getElementById('s0'),  // Overview screen
       document.getElementById('s1'),  // Task list (was s0)
       document.getElementById('s2'),  // Enter task name (was s1)
       document.getElementById('s3'),  // Pick time (was s2)
       document.getElementById('s4'),  // Confirmation (was s3)
-      document.getElementById('endScreen')
+      document.getElementById('s5'),  // SUS Questions (new)
+      document.getElementById('s6')   // End screen (was endScreen)
     ];
     let step = 0;
     let simulationEnded = false;
@@ -582,6 +687,24 @@
 
     // Track the current task being scheduled to avoid duplicates
     let currentTaskBeingScheduled = null;
+
+    // SUS Questions and state
+    const susQuestions = [
+      "I think that I would like to use this system frequently.",
+      "I found the system unnecessarily complex.",
+      "I thought the system was easy to use.",
+      "I think that I would need the support of a technical person to be able to use this system.",
+      "I found the various functions in this system were well integrated.",
+      "I thought there was too much inconsistency in this system.",
+      "I would imagine that most people would learn to use this system very quickly.",
+      "I found the system very cumbersome to use.",
+      "I felt very confident using the system.",
+      "I needed to learn a lot of things before I could get going with this system."
+    ];
+    
+    let susAnswers = new Array(10).fill(null);
+    let currentSusQuestion = 0;
+    let susCompleted = false;
 
     function startRun() {
       if (simulationEnded) return;
@@ -688,21 +811,28 @@
     const endBtn = document.getElementById('endBtn');
     const downloadAgainBtn = document.getElementById('downloadAgain');
     const disabledOverlay = document.getElementById('disabledOverlay');
-    const startSimulationBtn = document.getElementById('startSimulationBtn'); // New button
+    const startSimulationBtn = document.getElementById('startSimulationBtn');
+
+    // SUS elements
+    const susQuestionEl = document.getElementById('susQuestion');
+    const susBackBtn = document.getElementById('susBack');
+    const susNextBtn = document.getElementById('susNext');
+    const susProgressEl = document.getElementById('susProgress');
+    const susOptionButtons = document.querySelectorAll('.sus-option');
 
     const next1 = document.getElementById('next1');
     const taskInput = document.getElementById('taskInput');
     const addAnother = document.getElementById('addAnother');
     const whenLabel = document.getElementById('s4-when');
     const taskLabel = document.getElementById('s4-task');
-    const s3Task = document.getElementById('s3-task'); // Updated from s2-task to s3-task
+    const s3Task = document.getElementById('s3-task');
 
     const taskListEl = document.getElementById('taskList');
 
     function showStep(i) {
       if (simulationEnded) return;
       
-      step = Math.max(0, Math.min(4, i)); // Now 0-4 (overview to confirmation)
+      step = Math.max(0, Math.min(6, i)); // Now 0-6 (overview to end screen)
       screens.forEach((el, idx) => el.classList.toggle('active', idx === step));
       
       if (step === 0) {
@@ -720,6 +850,21 @@
         backBtn.classList.remove('hidden');
         cancelBtn.classList.add('hidden');
         endBtn.classList.add('hidden');
+      } else if (step === 5) {
+        // SUS screen: hide all header buttons
+        backBtn.classList.add('hidden');
+        cancelBtn.classList.add('hidden');
+        endBtn.classList.add('hidden');
+        
+        // Initialize SUS screen if needed
+        if (!susCompleted) {
+          updateSusQuestion();
+        }
+      } else if (step === 6) {
+        // End screen: hide all header buttons
+        backBtn.classList.add('hidden');
+        cancelBtn.classList.add('hidden');
+        endBtn.classList.add('hidden');
       } else {
         // On other screens: show Back and Cancel, hide End button
         backBtn.classList.remove('hidden');
@@ -729,12 +874,7 @@
     }
 
     function showEndScreen() {
-      screens.forEach(screen => screen.classList.remove('active'));
-      document.getElementById('endScreen').classList.add('active');
-      // Hide all header buttons when showing end screen
-      backBtn.classList.add('hidden');
-      cancelBtn.classList.add('hidden');
-      endBtn.classList.add('hidden');
+      showStep(6);
     }
 
     // Function to update End button visibility based on task count
@@ -749,7 +889,7 @@
       }
     }
 
-    // initialize header state on load
+    // Initialize header state on load
     showStep(0);
 
     function clearTaskForm() {
@@ -868,9 +1008,63 @@
       }
     }
 
-    // Generate and download CSV with KPI metrics
+    // SUS Functions
+    function updateSusQuestion() {
+      susQuestionEl.textContent = susQuestions[currentSusQuestion];
+      susProgressEl.textContent = `Question ${currentSusQuestion + 1} of 10`;
+      
+      // Show/hide back button
+      susBackBtn.style.display = currentSusQuestion > 0 ? 'block' : 'none';
+      
+      // Update selected state of options
+      susOptionButtons.forEach(btn => {
+        const value = parseInt(btn.dataset.value);
+        if (susAnswers[currentSusQuestion] === value) {
+          btn.classList.add('selected');
+        } else {
+          btn.classList.remove('selected');
+        }
+      });
+      
+      // Enable/disable next button
+      susNextBtn.disabled = susAnswers[currentSusQuestion] === null;
+      
+      // Update next button text for last question
+      if (currentSusQuestion === 9) {
+        susNextBtn.textContent = 'Finish';
+      } else {
+        susNextBtn.textContent = 'Next';
+      }
+    }
+    
+    function recordSusAnswer(value) {
+      susAnswers[currentSusQuestion] = value;
+      susNextBtn.disabled = false;
+      updateSusQuestion();
+    }
+    
+    function nextSusQuestion() {
+      if (currentSusQuestion < 9) {
+        currentSusQuestion++;
+        updateSusQuestion();
+      } else {
+        // All questions answered
+        susCompleted = true;
+        generateCSV();
+        showStep(6);
+      }
+    }
+    
+    function prevSusQuestion() {
+      if (currentSusQuestion > 0) {
+        currentSusQuestion--;
+        updateSusQuestion();
+      }
+    }
+
+    // Generate and download CSV with KPI metrics and SUS answers
     function generateCSV() {
-      if (studyRuns.length === 0) {
+      if (studyRuns.length === 0 && !susCompleted) {
         alert('No data collected yet. Complete at least one task scheduling flow.');
         return;
       }
@@ -882,6 +1076,24 @@
       const avgTimeOnTask = (studyRuns.reduce((sum, run) => sum + run.timeOnTaskSec, 0) / totalRuns).toFixed(2);
       const totalPauses = studyRuns.reduce((sum, run) => sum + run.pauses, 0);
       const avgPauses = (totalPauses / totalRuns).toFixed(2);
+      
+      // Calculate SUS Score if completed
+      let susScore = null;
+      if (susCompleted) {
+        // Calculate SUS score according to standard formula
+        // For odd-numbered questions (1,3,5,7,9): score = scale position - 1
+        // For even-numbered questions (2,4,6,8,10): score = 5 - scale position
+        let total = 0;
+        for (let i = 0; i < 10; i++) {
+          const answer = susAnswers[i];
+          if (i % 2 === 0) { // Odd questions (0-indexed)
+            total += answer - 1;
+          } else { // Even questions
+            total += 5 - answer;
+          }
+        }
+        susScore = total * 2.5; // Convert to 0-100 scale
+      }
       
       // Create CSV content with proper encoding and BOM for Excel compatibility
       const BOM = '\uFEFF'; // UTF-8 BOM for Excel
@@ -895,7 +1107,11 @@
       csvContent += `Completion Rate,${completionRate}%\n`;
       csvContent += `Average Time on Task (seconds),${avgTimeOnTask}\n`;
       csvContent += `Total Pauses (>=2s),${totalPauses}\n`;
-      csvContent += `Average Pauses per Run,${avgPauses}\n\n`;
+      csvContent += `Average Pauses per Run,${avgPauses}\n`;
+      if (susCompleted) {
+        csvContent += `SUS Score,${susScore.toFixed(2)}\n`;
+      }
+      csvContent += "\n";
       
       // Detailed run data
       csvContent += "DETAILED RUN DATA\n";
@@ -910,6 +1126,34 @@
         
         csvContent += `${run.id},"${run.taskName || 'N/A'}","${cleanChosenTime}",${run.completed ? 'Yes' : 'No'},${run.timeOnTaskSec},${run.pauses},"${navigationPath}"\n`;
       });
+      
+      // Add SUS answers if completed
+      if (susCompleted) {
+        csvContent += "\nSYSTEM USABILITY SCALE (SUS) ANSWERS\n";
+        csvContent += "Question,Answer (1-5)\n";
+        susQuestions.forEach((question, index) => {
+          // Clean question for CSV (remove commas and quotes)
+          const cleanQuestion = question.replace(/"/g, '""');
+          csvContent += `"${cleanQuestion}",${susAnswers[index]}\n`;
+        });
+        
+        // Add SUS score calculation details
+        csvContent += "\nSUS SCORE CALCULATION\n";
+        csvContent += "Raw Score (sum),SUS Score (0-100)\n";
+        if (susScore !== null) {
+          // Calculate raw score for display
+          let rawTotal = 0;
+          for (let i = 0; i < 10; i++) {
+            const answer = susAnswers[i];
+            if (i % 2 === 0) { // Odd questions
+              rawTotal += answer - 1;
+            } else { // Even questions
+              rawTotal += 5 - answer;
+            }
+          }
+          csvContent += `${rawTotal},${susScore.toFixed(2)}\n`;
+        }
+      }
       
       // Create and trigger download with proper UTF-8 encoding
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8' });
@@ -939,14 +1183,16 @@
       showStep(2);
     });
 
-    // End simulation and download KPI CSV
+    // End simulation button - now goes to SUS questions
     endBtn.addEventListener('click', () => {
       if (currentRun) {
         finishRun({ completed: false, reason: 'simulation_ended' });
       }
-      generateCSV();
-      simulationEnded = true;
-      showEndScreen();
+      // Reset SUS state
+      susAnswers = new Array(10).fill(null);
+      currentSusQuestion = 0;
+      susCompleted = false;
+      showStep(5);
     });
 
     // Download CSV again from end screen
@@ -1054,6 +1300,10 @@
           // Going back to overview screen - end current run
           finishRun({ completed: false, reason: 'back_to_overview' });
           currentTaskBeingScheduled = null;
+        } else if (step === 5) {
+          // Going back from SUS screen - don't reset SUS answers
+          // Just update SUS screen
+          updateSusQuestion();
         }
         
         showStep(target);
@@ -1070,6 +1320,19 @@
       }
       showStep(1);
     });
+
+    // SUS Option buttons
+    susOptionButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const value = parseInt(btn.dataset.value);
+        recordSusAnswer(value);
+        trackInteraction(`sus_q${currentSusQuestion + 1}_answer_${value}`);
+      });
+    });
+
+    // SUS Navigation
+    susBackBtn.addEventListener('click', prevSusQuestion);
+    susNextBtn.addEventListener('click', nextSusQuestion);
   </script>
 </body>
 </html>
