@@ -17,7 +17,7 @@
       --focus: #86b7ff;
       --input-bg: #11121a;
       --input-border: #2a2b36;
-      --green: #4caf50;
+      --green: #4CAF50;
     }
 
     * { box-sizing: border-box; }
@@ -174,29 +174,21 @@
       transition: all 0.2s ease;
     }
     
-    /* Green button for start simulation */
-    .btn-green {
-      background: var(--green);
-      border: none;
-      color: #0a130a;
-      font-weight: 700;
-      padding: 14px 16px;
-      border-radius: 14px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .btn-green:hover {
-      background: #5cbf5c;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
-    }
-    
     /* Improved disabled state for buttons with better contrast */
     .btn:disabled {
       background: #2a2a2a;
       color: #888;
       cursor: not-allowed;
       opacity: 0.8;
+    }
+    
+    /* Green start button for step 0 */
+    .btn-green {
+      background: var(--green);
+      color: #fff;
+    }
+    .btn-green:hover {
+      background: #45a049;
     }
 
     .option-list { 
@@ -252,7 +244,7 @@
     }
 
     /* End screen thumb - subtle static glow */
-    #s5 .thumb {
+    #endScreen .thumb {
       filter: drop-shadow(0 0 15px rgba(255, 143, 207, 0.5)) 
               drop-shadow(0 0 8px rgba(255, 143, 207, 0.3))
               grayscale(0.3);
@@ -318,68 +310,41 @@
       margin-top: 4px;
     }
 
-    /* Welcome screen specific styles */
-    .welcome-screen {
+    /* End simulation screen */
+    .end-screen {
       flex: 1;
       padding: 120px 22px 0;
-      display: flex;
+      display: none;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       height: 100%;
       text-align: center;
     }
-    .welcome-screen.active { display: flex; }
-    
-    .welcome-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      margin-top: 40px;
-    }
-    
-    .welcome-icon {
-      width: 140px;
-      height: 140px;
-      margin: 20px auto 30px;
-      display: block;
-      filter: drop-shadow(0 0 25px rgba(198, 178, 255, 0.8)) 
-              drop-shadow(0 0 15px rgba(198, 178, 255, 0.5))
-              drop-shadow(0 0 8px rgba(255, 143, 207, 0.4));
-    }
-    
-    .welcome-bullets {
-      text-align: left;
-      width: 100%;
-      margin: 30px 0;
-      padding: 0 10px;
-    }
-    
-    .welcome-bullet {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 18px;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-    
-    .bullet-icon {
+    .end-screen.active { display: flex; }
+    .end-screen h1 {
       color: var(--pink);
-      font-size: 20px;
-      margin-right: 12px;
-      margin-top: 2px;
-      flex-shrink: 0;
+      margin-bottom: 16px;
     }
-    
-    .welcome-note {
-      font-size: 13px;
-      opacity: 0.7;
-      margin-top: 30px;
-      padding: 15px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      border-left: 3px solid var(--green);
+    .end-screen p {
+      margin-bottom: 24px;
+      opacity: 0.8;
+    }
+    .disabled-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(11, 11, 16, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      border-radius: 36px;
+    }
+    .disabled-overlay.active {
+      display: flex;
     }
 
     /* Improved spacing for all screens */
@@ -391,7 +356,34 @@
       margin-top: 40px;
     }
     
-    /* Step 2 specific spacing (enter task name) */
+    /* Step 0 (Overview) specific styling */
+    #s0 h1 {
+      color: var(--green);
+      margin-bottom: 30px;
+    }
+    #s0 .overview-text {
+      color: var(--text);
+      text-align: left;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      padding: 0 10px;
+    }
+    #s0 .overview-text p {
+      margin-bottom: 15px;
+    }
+    #s0 .cta {
+      bottom: 100px;
+    }
+    
+    /* Step 1 (Task list) specific spacing */
+    #s1 h1 {
+      margin-bottom: 16px;
+    }
+    #s1 .help {
+      margin-bottom: 30px;
+    }
+    
+    /* Step 2 specific spacing */
     #s2 h1 {
       margin-bottom: 16px;
     }
@@ -402,7 +394,7 @@
       margin-bottom: 20px;
     }
     
-    /* Step 3 specific spacing (pick time) */
+    /* Step 3 specific spacing */
     #s3 h1 {
       margin-bottom: 16px;
     }
@@ -416,7 +408,7 @@
       margin-top: 10px;
     }
     
-    /* Step 4 specific spacing (confirmation) */
+    /* Step 4 specific spacing */
     #s4 h1 {
       margin-bottom: 20px;
     }
@@ -430,7 +422,7 @@
       margin-bottom: 30px;
     }
     
-    /* Step 1 specific spacing (task list) */
+    /* Task list screen spacing */
     #s1 h1 {
       margin-bottom: 16px;
     }
@@ -438,14 +430,14 @@
       margin-bottom: 30px;
     }
     
-    /* Step 5 specific spacing (end screen) */
-    #s5 h1 {
+    /* End screen spacing */
+    #endScreen h1 {
       margin-bottom: 20px;
     }
-    #s5 .thumb {
+    #endScreen .thumb {
       margin: 30px auto 20px;
     }
-    #s5 p {
+    #endScreen p {
       margin-bottom: 30px;
     }
   </style>
@@ -462,48 +454,26 @@
     </header>
 
     <main>
-      <!-- Step 0: Welcome/Intro screen -->
-      <section id="s0" class="welcome-screen active">
-        <div class="welcome-content">
+      <!-- Step 0: Overview screen (new) -->
+      <section id="s0" class="screen active">
+        <div>
           <h1>Task Scheduling Simulation</h1>
-          <p class="help">A study on productivity and time management</p>
-          
-          <svg class="welcome-icon" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-            <path d="M76 20c4 0 6 3 6 7v14h14c8 0 12 7 10 14l-7 24c-2 6-7 9-13 9H48c-3 0-6-3-6-6V56l22-28c3-4 6-8 12-8Z" fill="url(#g)" stroke="#e9defe" stroke-width="2"/>
-          </svg>
-          
-          <div class="welcome-bullets">
-            <div class="welcome-bullet">
-              <div class="bullet-icon">✓</div>
-              <div>Simulate scheduling tasks with AI-powered recommendations</div>
-            </div>
-            <div class="welcome-bullet">
-              <div class="bullet-icon">✓</div>
-              <div>Add multiple tasks and organize them by day</div>
-            </div>
-            <div class="welcome-bullet">
-              <div class="bullet-icon">✓</div>
-              <div>Receive smart time suggestions based on your schedule</div>
-            </div>
-            <div class="welcome-bullet">
-              <div class="bullet-icon">✓</div>
-              <div>Complete at least one task to generate KPI metrics</div>
-            </div>
-          </div>
-          
-          <div class="welcome-note">
-            <strong>Note:</strong> This is a prototype for research purposes. All data will be anonymized and used only for academic study.
+          <div class="overview-text">
+            <p><strong>Welcome!</strong> This simulation will guide you through scheduling tasks using an AI-powered assistant.</p>
+            <p><strong>What you'll do:</strong></p>
+            <p>1. View your task list</p>
+            <p>2. Add new tasks with suggested times</p>
+            <p>3. Schedule tasks for completion</p>
+            <p><strong>Research Purpose:</strong> We're studying how people interact with scheduling interfaces to improve AI assistance.</p>
+            <p>Your interactions will be recorded anonymously for analysis.</p>
           </div>
         </div>
-        
         <div class="cta">
-          <button id="startSimulationBtn" class="btn-green" style="width: 85%; border-radius: 999px; padding: 16px 0; font-size: 17px;">
-            Start Simulation
-          </button>
+          <button id="startSimulationBtn" class="btn btn-green" style="width: 85%; border-radius: 999px; padding: 16px 0; font-size: 17px;">Start Simulation</button>
         </div>
       </section>
 
-      <!-- Step 1: Task list panel -->
+      <!-- Step 1: Task list panel (was step 0) -->
       <section id="s1" class="screen">
         <div>
           <h1>Your tasks</h1>
@@ -517,7 +487,7 @@
         </div>
       </section>
 
-      <!-- Step 2: enter task name -->
+      <!-- Step 2: enter task name (was step 1) -->
       <section id="s2" class="screen">
         <div>
           <h1>What are you working on?</h1>
@@ -532,12 +502,12 @@
         </div>
       </section>
 
-      <!-- Step 3: pick time -->
+      <!-- Step 3: pick time (was step 2) -->
       <section id="s3" class="screen">
         <div>
           <h1>When would you like to start?</h1>
           <p class="help">Don't worry, you can change this later.</p>
-          <p id="s2-task" class="task-pill"></p>
+          <p id="s3-task" class="task-pill"></p>
           <div class="option-list">
             <button class="chip" data-time="Tomorrow, 3-4 PM">Tomorrow, 3-4 PM</button>
             <button class="chip" data-time="Thursday, 8-9 AM">Thursday, 8-9 AM</button>
@@ -549,12 +519,12 @@
         </div>
       </section>
 
-      <!-- Step 4: confirmation -->
+      <!-- Step 4: confirmation (was step 3) -->
       <section id="s4" class="screen">
         <div>
           <h1>Scheduled!</h1>
-          <p id="s3-task" class="task-pill" aria-live="polite"></p>
-          <p id="s3-when" style="color:var(--text); font-weight:600; margin-top:6px;">Tomorrow, 3-4 PM</p>
+          <p id="s4-task" class="task-pill" aria-live="polite"></p>
+          <p id="s4-when" style="color:var(--text); font-weight:600; margin-top:6px;">Tomorrow, 3-4 PM</p>
           <svg class="thumb" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><path d="M76 20c4 0 6 3 6 7v14h14c8 0 12 7 10 14l-7 24c-2 6-7 9-13 9H48c-3 0-6-3-6-6V56l22-28c3-4 6-8 12-8Z" fill="url(#g)" stroke="#e9defe" stroke-width="2"/></svg>
           <p style="color:var(--text)">You'll get a reminder when it's time.</p>
           <div class="cta" style="flex-direction: column; gap: 14px; align-items: center;">
@@ -567,8 +537,8 @@
         </div>
       </section>
 
-      <!-- Step 5: End simulation screen -->
-      <section id="s5" class="screen">
+      <!-- End simulation screen -->
+      <section id="endScreen" class="end-screen">
         <div>
           <h1>Simulation Ended</h1>
           <svg class="thumb" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
@@ -594,12 +564,12 @@
 
   <script>
     const screens = [
-      document.getElementById('s0'),
-      document.getElementById('s1'),
-      document.getElementById('s2'),
-      document.getElementById('s3'),
-      document.getElementById('s4'),
-      document.getElementById('s5')
+      document.getElementById('s0'),  // New overview screen
+      document.getElementById('s1'),  // Task list (was s0)
+      document.getElementById('s2'),  // Enter task name (was s1)
+      document.getElementById('s3'),  // Pick time (was s2)
+      document.getElementById('s4'),  // Confirmation (was s3)
+      document.getElementById('endScreen')
     ];
     let step = 0;
     let simulationEnded = false;
@@ -721,58 +691,53 @@
     const endBtn = document.getElementById('endBtn');
     const downloadAgainBtn = document.getElementById('downloadAgain');
     const disabledOverlay = document.getElementById('disabledOverlay');
-    const startSimulationBtn = document.getElementById('startSimulationBtn');
+    const startSimulationBtn = document.getElementById('startSimulationBtn'); // New button
 
     const next1 = document.getElementById('next1');
     const taskInput = document.getElementById('taskInput');
     const addAnother = document.getElementById('addAnother');
-    const whenLabel = document.getElementById('s3-when');
-    const taskLabel = document.getElementById('s3-task');
-    const s2Task = document.getElementById('s2-task');
+    const whenLabel = document.getElementById('s4-when');
+    const taskLabel = document.getElementById('s4-task');
+    const s3Task = document.getElementById('s3-task'); // Updated from s2-task to s3-task
 
     const taskListEl = document.getElementById('taskList');
 
     function showStep(i) {
       if (simulationEnded) return;
       
-      step = Math.max(0, Math.min(5, i));
+      step = Math.max(0, Math.min(4, i)); // Now 0-4 (overview to confirmation)
+      screens.forEach((el, idx) => el.classList.toggle('active', idx === step));
       
-      // Show the selected screen, hide all others
-      screens.forEach((el, idx) => {
-        if (idx === step) {
-          el.classList.add('active');
-        } else {
-          el.classList.remove('active');
-        }
-      });
-      
-      // Header button logic
       if (step === 0) {
-        // Welcome screen: hide all header buttons
+        // Overview screen: hide all header buttons
         backBtn.classList.add('hidden');
         cancelBtn.classList.add('hidden');
         endBtn.classList.add('hidden');
       } else if (step === 1) {
-        // Task list screen: show End button only if there are tasks, hide Back and Cancel
+        // On task list screen: show End button only if there are tasks, hide Back and Cancel
         backBtn.classList.add('hidden');
         cancelBtn.classList.add('hidden');
         updateEndButtonVisibility();
       } else if (step === 4) {
-        // Confirmation screen: hide Cancel button but show Back button
+        // On confirmation screen: hide Cancel button but show Back button
         backBtn.classList.remove('hidden');
         cancelBtn.classList.add('hidden');
         endBtn.classList.add('hidden');
-      } else if (step === 5) {
-        // End screen: hide all header buttons
-        backBtn.classList.add('hidden');
-        cancelBtn.classList.add('hidden');
-        endBtn.classList.add('hidden');
       } else {
-        // Other screens (step 2, 3): show Back and Cancel, hide End button
+        // On other screens: show Back and Cancel, hide End button
         backBtn.classList.remove('hidden');
         cancelBtn.classList.remove('hidden');
         endBtn.classList.add('hidden');
       }
+    }
+
+    function showEndScreen() {
+      screens.forEach(screen => screen.classList.remove('active'));
+      document.getElementById('endScreen').classList.add('active');
+      // Hide all header buttons when showing end screen
+      backBtn.classList.add('hidden');
+      cancelBtn.classList.add('hidden');
+      endBtn.classList.add('hidden');
     }
 
     // Function to update End button visibility based on task count
@@ -787,13 +752,13 @@
       }
     }
 
-    // initialize to show welcome screen (step 0)
+    // initialize header state on load
     showStep(0);
 
     function clearTaskForm() {
       taskInput.value = '';
       next1.disabled = true;
-      s2Task.textContent = '';
+      s3Task.textContent = '';
       taskLabel.textContent = '';
       whenLabel.textContent = 'Tomorrow, 3-4 PM';
       currentTaskBeingScheduled = null;
@@ -961,13 +926,14 @@
       window.URL.revokeObjectURL(url);
     }
 
-    // Step 0 (Welcome) -> Step 1 (Task list)
+    // Step 0: Start simulation button
     startSimulationBtn.addEventListener('click', () => {
+      if (simulationEnded) return;
       trackInteraction('start_simulation');
       showStep(1);
     });
 
-    // Step 1 (Task list) -> Step 2 (enter task name) - start of a run
+    // Step 1: Task list panel -> Step 2 (start of a run)
     addTaskBtn.addEventListener('click', () => {
       if (simulationEnded) return;
       trackInteraction('task_list_add_click');
@@ -983,7 +949,7 @@
       }
       generateCSV();
       simulationEnded = true;
-      showStep(5);
+      showEndScreen();
     });
 
     // Download CSV again from end screen
@@ -1015,7 +981,7 @@
       if (simulationEnded) return;
       if (next1.disabled) return; // Prevent action when button is disabled
       trackInteraction('next_from_s2');
-      s2Task.textContent = taskInput.value.trim() || 'Untitled task';
+      s3Task.textContent = taskInput.value.trim() || 'Untitled task';
       if (currentRun) {
         currentRun.taskName = taskInput.value.trim() || 'Untitled task';
         currentRun.navigation.push('s2->s3');
@@ -1050,7 +1016,7 @@
       })
     );
 
-    // Back to task list (recommended) on Step 4 (Scheduled! screen)
+    // Back to task list (recommended) on Scheduled! screen
     const backToList = document.getElementById('backToList');
     backToList.addEventListener('click', () => {
       if (simulationEnded) return;
@@ -1084,8 +1050,12 @@
         if (step === 4 && target === 3) {
           // Keep currentTaskBeingScheduled so we can update it
         } else if (target === 1 && currentRun) {
-          // Aborted before scheduling confirmation
+          // Aborted before scheduling confirmation (back to task list)
           finishRun({ completed: false, reason: 'back_to_list' });
+          currentTaskBeingScheduled = null;
+        } else if (target === 0 && currentRun) {
+          // Going back to overview screen - end current run
+          finishRun({ completed: false, reason: 'back_to_overview' });
           currentTaskBeingScheduled = null;
         }
         
