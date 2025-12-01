@@ -218,11 +218,36 @@
       box-shadow: 0 0 14px rgba(198,178,255,0.45);
     }
 
-    .progress-container { width: 100%; margin-top: auto; padding-bottom: 20px; }
-    .progress-wrap { width: 100%; padding: 16px 18px 22px; display: grid; gap: 8px; }
-    .progress { width: 100%; height: 6px; border-radius: 999px; background: #1c1d27; overflow: hidden; }
-    .progress > span { display: block; height: 100%; background: linear-gradient(90deg, var(--lavender), var(--pink)); border-radius: inherit; transition: width .25s ease; }
-    .step-label { color: var(--text); font-size: 12px; text-align: center; }
+    .progress-container { 
+      width: 100%; 
+      margin-top: auto; 
+      padding-bottom: 20px; 
+    }
+    .progress-wrap { 
+      width: 100%; 
+      padding: 16px 18px 22px; 
+      display: grid; 
+      gap: 8px; 
+    }
+    .progress { 
+      width: 100%; 
+      height: 6px; 
+      border-radius: 999px; 
+      background: #1c1d27; 
+      overflow: hidden; 
+    }
+    .progress > span { 
+      display: block; 
+      height: 100%; 
+      background: linear-gradient(90deg, var(--lavender), var(--pink)); 
+      border-radius: inherit; 
+      transition: width .25s ease; 
+    }
+    .step-label { 
+      color: var(--text); 
+      font-size: 12px; 
+      text-align: center; 
+    }
 
     .thumb { 
       width: 120px; 
@@ -376,7 +401,7 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
-      margin-bottom: 35px;
+      margin-bottom: 40px;
       gap: 8px;
     }
     
@@ -431,18 +456,8 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      margin-top: 30px;
+      margin-bottom: 30px;
       padding: 0 10px;
-    }
-    
-    .sus-progress {
-      color: var(--text);
-      font-size: 15px;
-      opacity: 0.9;
-      font-weight: 500;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 8px 16px;
-      border-radius: 20px;
     }
     
     .sus-nav-btn {
@@ -594,6 +609,14 @@
       margin-bottom: 30px;
     }
     
+    /* SUS screen (s5) specific spacing - UPDATED */
+    #s5 h1 {
+      margin-bottom: 16px;
+    }
+    #s5 .help {
+      margin-bottom: 30px;
+    }
+    
     /* End screen (s6) spacing */
     #s6 h1 {
       margin-bottom: 20px;
@@ -738,8 +761,17 @@
           
           <div class="sus-navigation">
             <button id="susBack" class="sus-nav-btn sus-prev-btn" disabled>Previous</button>
-            <div id="susProgress" class="sus-progress">Question 1 of 10</div>
             <button id="susNext" class="sus-nav-btn sus-next-btn" disabled>Next</button>
+          </div>
+        </div>
+        
+        <!-- Progress bar for SUS questions - matches task creation steps -->
+        <div class="progress-container">
+          <div class="progress-wrap">
+            <div class="progress">
+              <span id="susProgressBar" style="width:10%"></span>
+            </div>
+            <div id="susProgressLabel" class="step-label">Question 1 of 10</div>
           </div>
         </div>
       </section>
@@ -923,7 +955,8 @@
     const susQuestionEl = document.getElementById('susQuestion');
     const susBackBtn = document.getElementById('susBack');
     const susNextBtn = document.getElementById('susNext');
-    const susProgressEl = document.getElementById('susProgress');
+    const susProgressBar = document.getElementById('susProgressBar');
+    const susProgressLabel = document.getElementById('susProgressLabel');
     const susOptionButtons = document.querySelectorAll('.sus-option');
 
     const next1 = document.getElementById('next1');
@@ -1117,7 +1150,11 @@
     // SUS Functions
     function updateSusQuestion() {
       susQuestionEl.textContent = susQuestions[currentSusQuestion];
-      susProgressEl.textContent = `Question ${currentSusQuestion + 1} of 10`;
+      
+      // Update progress bar (10 questions total, so each question is 10% width)
+      const progressPercentage = ((currentSusQuestion + 1) / 10) * 100;
+      susProgressBar.style.width = `${progressPercentage}%`;
+      susProgressLabel.textContent = `Question ${currentSusQuestion + 1} of 10`;
       
       // Show/hide back button
       susBackBtn.disabled = currentSusQuestion === 0;
