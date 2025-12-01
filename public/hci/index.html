@@ -245,14 +245,14 @@
     }
 
     /* For the confirmation screen specifically - enhanced but still calm glow */
-    #s3 .thumb {
+    #s4 .thumb {
       filter: drop-shadow(0 0 25px rgba(198, 178, 255, 0.8)) 
               drop-shadow(0 0 15px rgba(198, 178, 255, 0.5))
               drop-shadow(0 0 8px rgba(255, 143, 207, 0.4));
     }
 
     /* End screen thumb - subtle static glow */
-    #endScreen .thumb {
+    #s5 .thumb {
       filter: drop-shadow(0 0 15px rgba(255, 143, 207, 0.5)) 
               drop-shadow(0 0 8px rgba(255, 143, 207, 0.3))
               grayscale(0.3);
@@ -316,43 +316,6 @@
       font-size: 13px;
       opacity: 0.85;
       margin-top: 4px;
-    }
-
-    /* End simulation screen */
-    .end-screen {
-      flex: 1;
-      padding: 120px 22px 0;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      text-align: center;
-    }
-    .end-screen.active { display: flex; }
-    .end-screen h1 {
-      color: var(--pink);
-      margin-bottom: 16px;
-    }
-    .end-screen p {
-      margin-bottom: 24px;
-      opacity: 0.8;
-    }
-    .disabled-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(11, 11, 16, 0.9);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-      border-radius: 36px;
-    }
-    .disabled-overlay.active {
-      display: flex;
     }
 
     /* Welcome screen specific styles */
@@ -428,61 +391,61 @@
       margin-top: 40px;
     }
     
-    /* Step 1 specific spacing */
-    #s1 h1 {
-      margin-bottom: 16px;
-    }
-    #s1 .help {
-      margin-bottom: 40px;
-    }
-    #s1 .input {
-      margin-bottom: 20px;
-    }
-    
-    /* Step 2 specific spacing */
+    /* Step 2 specific spacing (enter task name) */
     #s2 h1 {
       margin-bottom: 16px;
     }
     #s2 .help {
+      margin-bottom: 40px;
+    }
+    #s2 .input {
+      margin-bottom: 20px;
+    }
+    
+    /* Step 3 specific spacing (pick time) */
+    #s3 h1 {
+      margin-bottom: 16px;
+    }
+    #s3 .help {
       margin-bottom: 30px;
     }
-    #s2 .task-pill {
+    #s3 .task-pill {
       margin-bottom: 30px;
     }
-    #s2 .option-list {
+    #s3 .option-list {
       margin-top: 10px;
     }
     
-    /* Step 3 specific spacing */
-    #s3 h1 {
+    /* Step 4 specific spacing (confirmation) */
+    #s4 h1 {
       margin-bottom: 20px;
     }
-    #s3 .task-pill {
+    #s4 .task-pill {
       margin-bottom: 10px;
     }
-    #s3 .thumb {
+    #s4 .thumb {
       margin: 30px auto 20px;
     }
-    #s3 > div:first-child > p:last-of-type {
+    #s4 > div:first-child > p:last-of-type {
       margin-bottom: 30px;
     }
     
-    /* Task list screen spacing */
-    #s0 h1 {
+    /* Step 1 specific spacing (task list) */
+    #s1 h1 {
       margin-bottom: 16px;
     }
-    #s0 .help {
+    #s1 .help {
       margin-bottom: 30px;
     }
     
-    /* End screen spacing */
-    #endScreen h1 {
+    /* Step 5 specific spacing (end screen) */
+    #s5 h1 {
       margin-bottom: 20px;
     }
-    #endScreen .thumb {
+    #s5 .thumb {
       margin: 30px auto 20px;
     }
-    #endScreen p {
+    #s5 p {
       margin-bottom: 30px;
     }
   </style>
@@ -499,8 +462,8 @@
     </header>
 
     <main>
-      <!-- Welcome/Intro screen -->
-      <section id="welcomeScreen" class="welcome-screen active">
+      <!-- Step 0: Welcome/Intro screen -->
+      <section id="s0" class="welcome-screen active">
         <div class="welcome-content">
           <h1>Task Scheduling Simulation</h1>
           <p class="help">A study on productivity and time management</p>
@@ -540,8 +503,8 @@
         </div>
       </section>
 
-      <!-- Task list panel (entry screen) -->
-      <section id="s0" class="screen">
+      <!-- Step 1: Task list panel -->
+      <section id="s1" class="screen">
         <div>
           <h1>Your tasks</h1>
           <p class="help">Tap "+" to add a new task.</p>
@@ -554,8 +517,8 @@
         </div>
       </section>
 
-      <!-- Step 1: enter task name -->
-      <section id="s1" class="screen">
+      <!-- Step 2: enter task name -->
+      <section id="s2" class="screen">
         <div>
           <h1>What are you working on?</h1>
           <p class="help">Don't worry, you can change this later.</p>
@@ -569,8 +532,8 @@
         </div>
       </section>
 
-      <!-- Step 2: pick time -->
-      <section id="s2" class="screen">
+      <!-- Step 3: pick time -->
+      <section id="s3" class="screen">
         <div>
           <h1>When would you like to start?</h1>
           <p class="help">Don't worry, you can change this later.</p>
@@ -586,8 +549,8 @@
         </div>
       </section>
 
-      <!-- Step 3: confirmation -->
-      <section id="s3" class="screen">
+      <!-- Step 4: confirmation -->
+      <section id="s4" class="screen">
         <div>
           <h1>Scheduled!</h1>
           <p id="s3-task" class="task-pill" aria-live="polite"></p>
@@ -604,8 +567,8 @@
         </div>
       </section>
 
-      <!-- End simulation screen -->
-      <section id="endScreen" class="end-screen">
+      <!-- Step 5: End simulation screen -->
+      <section id="s5" class="screen">
         <div>
           <h1>Simulation Ended</h1>
           <svg class="thumb" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
@@ -635,9 +598,9 @@
       document.getElementById('s1'),
       document.getElementById('s2'),
       document.getElementById('s3'),
-      document.getElementById('endScreen')
+      document.getElementById('s4'),
+      document.getElementById('s5')
     ];
-    const welcomeScreen = document.getElementById('welcomeScreen');
     let step = 0;
     let simulationEnded = false;
 
@@ -772,52 +735,44 @@
     function showStep(i) {
       if (simulationEnded) return;
       
-      step = Math.max(0, Math.min(3, i));
+      step = Math.max(0, Math.min(5, i));
       
-      // Hide welcome screen if it's showing
-      welcomeScreen.classList.remove('active');
+      // Show the selected screen, hide all others
+      screens.forEach((el, idx) => {
+        if (idx === step) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
+        }
+      });
       
-      screens.forEach((el, idx) => el.classList.toggle('active', idx === step));
-      
+      // Header button logic
       if (step === 0) {
-        // On task list screen: show End button only if there are tasks, hide Back and Cancel
+        // Welcome screen: hide all header buttons
+        backBtn.classList.add('hidden');
+        cancelBtn.classList.add('hidden');
+        endBtn.classList.add('hidden');
+      } else if (step === 1) {
+        // Task list screen: show End button only if there are tasks, hide Back and Cancel
         backBtn.classList.add('hidden');
         cancelBtn.classList.add('hidden');
         updateEndButtonVisibility();
-      } else if (step === 3) {
-        // On confirmation screen: hide Cancel button but show Back button
+      } else if (step === 4) {
+        // Confirmation screen: hide Cancel button but show Back button
         backBtn.classList.remove('hidden');
         cancelBtn.classList.add('hidden');
         endBtn.classList.add('hidden');
+      } else if (step === 5) {
+        // End screen: hide all header buttons
+        backBtn.classList.add('hidden');
+        cancelBtn.classList.add('hidden');
+        endBtn.classList.add('hidden');
       } else {
-        // On other screens: show Back and Cancel, hide End button
+        // Other screens (step 2, 3): show Back and Cancel, hide End button
         backBtn.classList.remove('hidden');
         cancelBtn.classList.remove('hidden');
         endBtn.classList.add('hidden');
       }
-    }
-
-    function showWelcomeScreen() {
-      // Hide all other screens
-      welcomeScreen.classList.add('active');
-      screens.forEach(screen => screen.classList.remove('active'));
-      
-      // Hide all header buttons on welcome screen
-      backBtn.classList.add('hidden');
-      cancelBtn.classList.add('hidden');
-      endBtn.classList.add('hidden');
-    }
-
-    function showEndScreen() {
-      // Hide welcome and all other screens
-      welcomeScreen.classList.remove('active');
-      screens.forEach(screen => screen.classList.remove('active'));
-      document.getElementById('endScreen').classList.add('active');
-      
-      // Hide all header buttons when showing end screen
-      backBtn.classList.add('hidden');
-      cancelBtn.classList.add('hidden');
-      endBtn.classList.add('hidden');
     }
 
     // Function to update End button visibility based on task count
@@ -832,8 +787,8 @@
       }
     }
 
-    // initialize to show welcome screen
-    showWelcomeScreen();
+    // initialize to show welcome screen (step 0)
+    showStep(0);
 
     function clearTaskForm() {
       taskInput.value = '';
@@ -1006,19 +961,19 @@
       window.URL.revokeObjectURL(url);
     }
 
-    // Welcome screen -> Task list
+    // Step 0 (Welcome) -> Step 1 (Task list)
     startSimulationBtn.addEventListener('click', () => {
       trackInteraction('start_simulation');
-      showStep(0);
+      showStep(1);
     });
 
-    // Task list panel -> Step 1 (start of a run)
+    // Step 1 (Task list) -> Step 2 (enter task name) - start of a run
     addTaskBtn.addEventListener('click', () => {
       if (simulationEnded) return;
       trackInteraction('task_list_add_click');
       clearTaskForm();
       startRun();              // RQ2/RQ1: time-on-task & pauses start here
-      showStep(1);
+      showStep(2);
     });
 
     // End simulation and download KPI CSV
@@ -1028,7 +983,7 @@
       }
       generateCSV();
       simulationEnded = true;
-      showEndScreen();
+      showStep(5);
     });
 
     // Download CSV again from end screen
@@ -1036,7 +991,7 @@
       generateCSV();
     });
 
-    // Step 1: enable Next when text present (also track typing pauses)
+    // Step 2: enable Next when text present (also track typing pauses)
     taskInput.addEventListener('input', () => {
       if (simulationEnded) return;
       
@@ -1055,20 +1010,20 @@
       hasLoggedTyping = false;
     });
 
-    // Step 1 -> Step 2
+    // Step 2 -> Step 3
     next1.addEventListener('click', () => {
       if (simulationEnded) return;
       if (next1.disabled) return; // Prevent action when button is disabled
-      trackInteraction('next_from_s1');
+      trackInteraction('next_from_s2');
       s2Task.textContent = taskInput.value.trim() || 'Untitled task';
       if (currentRun) {
         currentRun.taskName = taskInput.value.trim() || 'Untitled task';
-        currentRun.navigation.push('s1->s2');
+        currentRun.navigation.push('s2->s3');
       }
-      showStep(2);
+      showStep(3);
     });
 
-    // Step 2: choose time -> Step 3 (confirmation)
+    // Step 3: choose time -> Step 4 (confirmation)
     document.querySelectorAll('.chip').forEach(chip =>
       chip.addEventListener('click', () => {
         if (simulationEnded) return;
@@ -1085,33 +1040,33 @@
         if (currentRun) {
           currentRun.chosenTime = when;
           currentRun.taskName = taskName || 'Untitled task';
-          currentRun.navigation.push('s2->s3');
+          currentRun.navigation.push('s3->s4');
           currentRun.endTime = performance.now();
           // Completed run: used for time-on-task, completion rate, error rate
           finishRun({ completed: true, reason: 'confirmed' });
         }
 
-        showStep(3);
+        showStep(4);
       })
     );
 
-    // Back to task list (recommended) on Scheduled! screen
+    // Back to task list (recommended) on Step 4 (Scheduled! screen)
     const backToList = document.getElementById('backToList');
     backToList.addEventListener('click', () => {
       if (simulationEnded) return;
-      trackInteraction('back_to_list_from_s3');
+      trackInteraction('back_to_list_from_s4');
       clearTaskForm();
-      showStep(0);
+      showStep(1);
     });
 
-    // Step 3: Add another task (start a new run)
+    // Step 4: Add another task (start a new run)
     const addAnotherBtn = document.getElementById('addAnother');
     addAnotherBtn.addEventListener('click', () => {
       if (simulationEnded) return;
       trackInteraction('add_another_click');
       clearTaskForm();
       startRun();
-      showStep(1);
+      showStep(2);
     });
 
     // Back button: go to previous step (or list); if you go back to list, treat as aborted run
@@ -1124,11 +1079,11 @@
           currentRun.navigation.push(`back_from_s${step}_to_s${target}`);
         }
         
-        // If going back from step 3 to step 2, don't clear the current task being scheduled
+        // If going back from step 4 to step 3, don't clear the current task being scheduled
         // so we can update it if a different time is selected
-        if (step === 3 && target === 2) {
+        if (step === 4 && target === 3) {
           // Keep currentTaskBeingScheduled so we can update it
-        } else if (target === 0 && currentRun) {
+        } else if (target === 1 && currentRun) {
           // Aborted before scheduling confirmation
           finishRun({ completed: false, reason: 'back_to_list' });
           currentTaskBeingScheduled = null;
@@ -1146,7 +1101,7 @@
       if (currentRun) {
         finishRun({ completed: false, reason: 'cancel' });
       }
-      showStep(0);
+      showStep(1);
     });
   </script>
 </body>
