@@ -196,6 +196,7 @@
       font-size: 16px;
       width: 100%;
       text-align: center;
+      transition: all 0.2s ease;
     }
 
     /* Recommended (first) option */
@@ -205,6 +206,12 @@
       font-weight: 700;
       border: none;
       box-shadow: 0 0 14px rgba(198,178,255,0.45);
+    }
+
+    .chip.selected {
+      background: var(--pink);
+      color: var(--panel);
+      box-shadow: 0 0 14px rgba(198,178,255,0.6);
     }
 
     .progress-container { 
@@ -291,6 +298,7 @@
       text-align: center;
       width: 100%;
       display: block;
+      padding: 40px 20px;
     }
     .task-day-group {
       margin-bottom: 18px;
@@ -300,6 +308,7 @@
       font-size: 15px;
       color: var(--lavender);
       margin-bottom: 6px;
+      padding-left: 4px;
     }
     .task-day-list {
       list-style: none;
@@ -313,6 +322,19 @@
       border-radius: 14px;
       background: #151521;
       border: 1px solid #242436;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .task-item:hover {
+      background: #1a1a29;
+      border-color: #2d2d44;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .task-item.editing {
+      background: rgba(198, 178, 255, 0.1);
+      border: 2px solid var(--lavender);
+      box-shadow: 0 0 20px rgba(198, 178, 255, 0.15);
     }
     .task-item-title {
       font-weight: 600;
@@ -322,6 +344,29 @@
       font-size: 13px;
       opacity: 0.85;
       margin-top: 4px;
+    }
+    
+    /* Task actions (delete button) */
+    .task-item-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 8px;
+      gap: 8px;
+    }
+    .task-delete-btn {
+      background: rgba(255, 100, 100, 0.1);
+      border: 1px solid rgba(255, 100, 100, 0.3);
+      color: rgba(255, 150, 150, 0.9);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .task-delete-btn:hover {
+      background: rgba(255, 100, 100, 0.2);
+      color: #ff6666;
+      border-color: rgba(255, 100, 100, 0.5);
     }
 
     /* SUS Questions screen - FIXED VERTICAL SPACING */
@@ -654,7 +699,7 @@
       <section id="s1" class="screen">
         <div>
           <h1>Your tasks</h1>
-          <p class="help">Tap "+" to add a new task.</p>
+          <p class="help">Tap "+" to add a new task or tap any task to edit it.</p>
           <ul id="taskList" class="task-list">
             <li class="task-list-empty">No tasks yet</li>
           </ul>
@@ -667,8 +712,8 @@
       <!-- Step 2: enter task name (was step 1) -->
       <section id="s2" class="screen">
         <div>
-          <h1>What are you working on?</h1>
-          <p class="help">Don't worry, you can change this later.</p>
+          <h1 id="s2-title">What are you working on?</h1>
+          <p id="s2-help" class="help">Don't worry, you can change this later.</p>
           <input id="taskInput" class="input" type="text" placeholder="e.g., Finish biology worksheet" />
         </div>
         <div class="cta">
@@ -682,8 +727,8 @@
       <!-- Step 3: pick time (was step 2) -->
       <section id="s3" class="screen">
         <div>
-          <h1>When would you like to start?</h1>
-          <p class="help">Don't worry, you can change this later.</p>
+          <h1 id="s3-title">When would you like to start?</h1>
+          <p id="s3-help" class="help">Don't worry, you can change this later.</p>
           <p id="s3-task" class="task-pill"></p>
           <div class="option-list">
             <button class="chip" data-time="Tomorrow, 3-4 PM">Tomorrow, 3-4 PM</button>
@@ -699,7 +744,7 @@
       <!-- Step 4: confirmation (was step 3) -->
       <section id="s4" class="screen">
         <div>
-          <h1>Scheduled!</h1>
+          <h1 id="s4-title">Scheduled!</h1>
           <p id="s4-task" class="task-pill" aria-live="polite"></p>
           <p id="s4-when" style="color:var(--text); font-weight:600; margin-top:6px;">Tomorrow, 3-4 PM</p>
           <svg class="thumb" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><path d="M76 20c4 0 6 3 6 7v14h14c8 0 12 7 10 14l-7 24c-2 6-7 9-13 9H48c-3 0-6-3-6-6V56l22-28c3-4 6-8 12-8Z" fill="url(#g)" stroke="#e9defe" stroke-width="2"/></svg>
@@ -815,6 +860,8 @@
 
     // Track the current task being scheduled to avoid duplicates
     let currentTaskBeingScheduled = null;
+    let isEditing = false;           // Track if we're in edit mode
+    let originalTaskTime = null;     // Store original time when editing
 
     // SUS Questions and state
     const susQuestions = [
@@ -849,10 +896,11 @@
         chosenTime: '',
         pauses: 0,              // pauses ≥2s (proxy for attention drift)
         navigation: [],         // sequence of interactions / screens
-        errors: 0               // placeholder if you later flag explicit errors
+        errors: 0,              // placeholder if you later flag explicit errors
+        isEdit: isEditing       // Track if this run is for editing
       };
       lastInteractionTime = currentRun.startTime;
-      currentRun.navigation.push('start_from_list');
+      currentRun.navigation.push(isEditing ? 'start_from_edit' : 'start_from_list');
       isCurrentlyPaused = false;
       hasLoggedTyping = false;
       
@@ -958,6 +1006,13 @@
 
     const taskListEl = document.getElementById('taskList');
 
+    // Update UI text elements for edit mode
+    const s2Title = document.getElementById('s2-title');
+    const s2Help = document.getElementById('s2-help');
+    const s3Title = document.getElementById('s3-title');
+    const s3Help = document.getElementById('s3-help');
+    const s4Title = document.getElementById('s4-title');
+
     function showStep(i) {
       if (simulationEnded) return;
       
@@ -1029,6 +1084,20 @@
       whenLabel.textContent = 'Tomorrow, 3-4 PM';
       currentTaskBeingScheduled = null;
       hasLoggedTyping = false;
+      isEditing = false;
+      originalTaskTime = null;
+      
+      // Reset UI text to default (add mode)
+      s2Title.textContent = 'What are you working on?';
+      s2Help.textContent = 'Don\'t worry, you can change this later.';
+      s3Title.textContent = 'When would you like to start?';
+      s3Help.textContent = 'Don\'t worry, you can change this later.';
+      s4Title.textContent = 'Scheduled!';
+      
+      // Clear any selected chips
+      document.querySelectorAll('.chip').forEach(chip => {
+        chip.classList.remove('selected');
+      });
     }
 
     function addOrUpdateTaskInList(name, whenText) {
@@ -1053,6 +1122,10 @@
         
         title.textContent = trimmed;
         time.textContent = timeLabel || rawWhen;
+        currentTaskBeingScheduled.dataset.time = rawWhen;
+        
+        // Remove editing class if present
+        currentTaskBeingScheduled.classList.remove('editing');
         
         // Check if the day changed
         const currentDayGroup = currentTaskBeingScheduled.closest('.task-day-group');
@@ -1115,6 +1188,7 @@
 
         const li = document.createElement('li');
         li.className = 'task-item';
+        li.dataset.time = rawWhen;
 
         const title = document.createElement('div');
         title.className = 'task-item-title';
@@ -1124,8 +1198,23 @@
         time.className = 'task-item-time';
         time.textContent = timeLabel || rawWhen;
 
+        // Add delete button
+        const actions = document.createElement('div');
+        actions.className = 'task-item-actions';
+        
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'task-delete-btn';
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.addEventListener('click', function(e) {
+          e.stopPropagation(); // Prevent triggering the edit function
+          deleteTask(li);
+        });
+        
+        actions.appendChild(deleteBtn);
+        
         li.appendChild(title);
         li.appendChild(time);
+        li.appendChild(actions);
         innerList.appendChild(li);
         
         currentTaskBeingScheduled = li;
@@ -1136,6 +1225,118 @@
         return li;
       }
     }
+    
+    function deleteTask(taskElement) {
+      if (simulationEnded) return;
+      
+      trackInteraction('delete_task');
+      
+      // Get task info for logging
+      const taskName = taskElement.querySelector('.task-item-title').textContent;
+      const taskTime = taskElement.dataset.time;
+      
+      // Get the day group before removing the task
+      const dayGroup = taskElement.closest('.task-day-group');
+      
+      // Remove the task from the list
+      taskElement.remove();
+      
+      // Check if the day group is now empty and remove it if so
+      if (dayGroup) {
+        // Get the task-day-list within this day group
+        const dayList = dayGroup.querySelector('.task-day-list');
+        
+        // Check if the day list exists and has no children (tasks)
+        if (dayList && dayList.children.length === 0) {
+          // Remove the entire day group
+          dayGroup.remove();
+        }
+      }
+      
+      // If no tasks left at all, show the empty message
+      const totalTasks = taskListEl.querySelectorAll('.task-item').length;
+      
+      if (totalTasks === 0) {
+        // Remove any existing empty message first
+        const existingEmpty = taskListEl.querySelector('.task-list-empty');
+        if (existingEmpty) existingEmpty.remove();
+        
+        const emptyMsg = document.createElement('li');
+        emptyMsg.className = 'task-list-empty';
+        emptyMsg.textContent = 'No tasks yet. Tap "+ Add task" to create your first task.';
+        taskListEl.appendChild(emptyMsg);
+      }
+      
+      // Update End button visibility
+      updateEndButtonVisibility();
+      
+      // Log the deletion in study runs if we're tracking
+      if (currentRun) {
+        currentRun.navigation.push(`deleted: "${taskName}" (${taskTime})`);
+      }
+      
+      console.log(`Task deleted: "${taskName}" (${taskTime})`);
+    }
+
+    // Function to set up task editing
+    function setupTaskEditing(taskElement) {
+      if (simulationEnded) return;
+      
+      // Set editing mode
+      isEditing = true;
+      
+      // Get task details
+      const taskName = taskElement.querySelector('.task-item-title').textContent;
+      const taskTime = taskElement.dataset.time || 'Tomorrow, 3-4 PM';
+      originalTaskTime = taskTime;
+      
+      // Set current task being scheduled to the one we're editing
+      currentTaskBeingScheduled = taskElement;
+      
+      // Highlight the task being edited
+      document.querySelectorAll('.task-item').forEach(item => {
+        item.classList.remove('editing');
+      });
+      taskElement.classList.add('editing');
+      
+      // Update UI text for edit mode
+      s2Title.textContent = 'Edit task name';
+      s2Help.textContent = 'Edit the task name below.';
+      s3Title.textContent = 'Edit time';
+      s3Help.textContent = 'Select a new time for your task.';
+      s4Title.textContent = 'Updated!';
+      
+      // Start a new run for editing
+      startRun();
+      if (currentRun) {
+        currentRun.taskName = taskName;
+        currentRun.chosenTime = taskTime;
+        currentRun.navigation.push(`edit_start: "${taskName}" (${taskTime})`);
+      }
+      
+      // Fill the form with existing data
+      taskInput.value = taskName;
+      next1.disabled = false;
+      
+      // Show step 2 (task name entry)
+      showStep(2);
+    }
+
+    // Event delegation for task list clicks
+    taskListEl.addEventListener('click', function(e) {
+      // Find the closest task item
+      const taskItem = e.target.closest('.task-item');
+      if (!taskItem) return;
+      
+      // Don't trigger if clicking on delete button
+      if (e.target.classList.contains('task-delete-btn')) {
+        return;
+      }
+      
+      // Start editing the task
+      trackInteraction('edit_task_click');
+      setupTaskEditing(taskItem);
+    });
 
     // SUS Functions
     function updateSusQuestion() {
@@ -1248,7 +1449,7 @@
       
       // Detailed run data
       csvContent += "DETAILED RUN DATA\n";
-      csvContent += "Run ID,Task Name,Chosen Time,Completed,Time on Task (s),Pauses,Navigation Path\n";
+      csvContent += "Run ID,Task Name,Chosen Time,Is Edit,Completed,Time on Task (s),Pauses,Navigation Path\n";
       
       studyRuns.forEach(run => {
         // Replace any special characters in time strings with simple ASCII
@@ -1257,7 +1458,7 @@
         // Replace arrows with simple ASCII for better compatibility
         const navigationPath = run.navigation.join(' -> ');
         
-        csvContent += `${run.id},"${run.taskName || 'N/A'}","${cleanChosenTime}",${run.completed ? 'Yes' : 'No'},${run.timeOnTaskSec},${run.pauses},"${navigationPath}"\n`;
+        csvContent += `${run.id},"${run.taskName || 'N/A'}","${cleanChosenTime}",${run.isEdit ? 'Yes' : 'No'},${run.completed ? 'Yes' : 'No'},${run.timeOnTaskSec},${run.pauses},"${navigationPath}"\n`;
       });
       
       // Add SUS answers if completed
@@ -1339,7 +1540,7 @@
       
       // Only log typing once per input session
       if (currentRun && !hasLoggedTyping) {
-        trackInteraction('typing_task');
+        trackInteraction(isEditing ? 'typing_edit' : 'typing_task');
         hasLoggedTyping = true;
       }
       
@@ -1356,12 +1557,14 @@
     next1.addEventListener('click', () => {
       if (simulationEnded) return;
       if (next1.disabled) return; // Prevent action when button is disabled
-      trackInteraction('next_from_s2');
+      trackInteraction(isEditing ? 'next_from_s2_edit' : 'next_from_s2');
       s3Task.textContent = taskInput.value.trim() || 'Untitled task';
       if (currentRun) {
         currentRun.taskName = taskInput.value.trim() || 'Untitled task';
         currentRun.navigation.push('s2->s3');
       }
+      
+      // Show step 3
       showStep(3);
     });
 
@@ -1371,7 +1574,7 @@
         if (simulationEnded) return;
         const taskName = taskInput.value.trim();
         const when = chip.dataset.time;
-        trackInteraction(`time_choice:${when}`);
+        trackInteraction(isEditing ? `time_edit_choice:${when}` : `time_choice:${when}`);
 
         taskLabel.textContent = taskName || 'Untitled task';
         whenLabel.textContent = when;
@@ -1385,7 +1588,7 @@
           currentRun.navigation.push('s3->s4');
           currentRun.endTime = performance.now();
           // Completed run: used for time-on-task, completion rate, error rate
-          finishRun({ completed: true, reason: 'confirmed' });
+          finishRun({ completed: true, reason: isEditing ? 'edit_confirmed' : 'confirmed' });
         }
 
         showStep(4);
@@ -1421,17 +1624,23 @@
           currentRun.navigation.push(`back_from_s${step}_to_s${target}`);
         }
         
-        // If going back from step 4 to step 3, don't clear the current task being scheduled
-        // so we can update it if a different time is selected
         if (step === 4 && target === 3) {
           // Keep currentTaskBeingScheduled so we can update it
         } else if (target === 1 && currentRun) {
           // Aborted before scheduling confirmation (back to task list)
           finishRun({ completed: false, reason: 'back_to_list' });
+          // Remove editing class if we were editing
+          if (currentTaskBeingScheduled) {
+            currentTaskBeingScheduled.classList.remove('editing');
+          }
           currentTaskBeingScheduled = null;
         } else if (target === 0 && currentRun) {
           // Going back to overview screen - end current run
           finishRun({ completed: false, reason: 'back_to_overview' });
+          // Remove editing class if we were editing
+          if (currentTaskBeingScheduled) {
+            currentTaskBeingScheduled.classList.remove('editing');
+          }
           currentTaskBeingScheduled = null;
         } else if (step === 5) {
           // Going back from SUS screen - don't reset SUS answers
@@ -1447,6 +1656,12 @@
     cancelBtn.addEventListener('click', () => {
       if (simulationEnded) return;
       trackInteraction('cancel');
+      
+      // Remove editing class if we were editing
+      if (currentTaskBeingScheduled) {
+        currentTaskBeingScheduled.classList.remove('editing');
+      }
+      
       clearTaskForm();
       if (currentRun) {
         finishRun({ completed: false, reason: 'cancel' });
@@ -1466,6 +1681,23 @@
     // SUS Navigation
     susBackBtn.addEventListener('click', prevSusQuestion);
     susNextBtn.addEventListener('click', nextSusQuestion);
+    
+    // Update showStep to handle chip selection for editing mode
+    const originalShowStep = showStep;
+    showStep = function(i) {
+      originalShowStep(i);
+      
+      // When showing step 3, pre-select chip if editing
+      if (i === 3 && isEditing && originalTaskTime) {
+        // Clear all chip selections
+        document.querySelectorAll('.chip').forEach(chip => {
+          chip.classList.remove('selected');
+          if (chip.dataset.time === originalTaskTime) {
+            chip.classList.add('selected');
+          }
+        });
+      }
+    };
   </script>
 </body>
 </html>
