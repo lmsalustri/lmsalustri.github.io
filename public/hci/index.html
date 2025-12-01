@@ -310,12 +310,65 @@
       margin-top: 4px;
     }
 
-    /* SUS Questions screen */
-    #s5 .sus-question {
-      font-size: 16px;
+    /* SUS Questions screen - FIXED VERTICAL SPACING */
+    #s5 {
+      padding-top: 100px; /* Reduced top padding for more space */
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
+    
+    #s5 > div:first-child {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0;
+      padding-bottom: 40px;
+    }
+    
+    #s5 h1 {
+      color: var(--lavender);
+      font-size: 26px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    #s5 .help {
+      color: var(--text);
+      font-size: 15px;
+      margin-bottom: 40px;
+      text-align: center;
       line-height: 1.4;
+      padding: 0 10px;
+    }
+    
+    .sus-question-container {
+      background: #151521;
+      border: 1px solid #242436;
+      border-radius: 16px;
+      padding: 24px 18px;
       margin-bottom: 30px;
-      text-align: left;
+      width: 100%;
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .sus-question {
+      font-size: 17px;
+      line-height: 1.5;
+      text-align: center;
+      color: var(--text);
+      font-weight: 500;
+      margin: 0;
+    }
+    
+    .sus-instruction {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+      margin-bottom: 25px;
+      text-align: center;
       width: 100%;
     }
     
@@ -323,7 +376,7 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
       gap: 8px;
     }
     
@@ -332,44 +385,101 @@
       background: #151521;
       border: 1px solid #242436;
       color: var(--text);
-      padding: 12px 6px;
-      border-radius: 10px;
+      padding: 14px 6px;
+      border-radius: 12px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 600;
       transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 90px;
     }
     
     .sus-option:hover {
       background: #1c1d2a;
       border-color: var(--lavender);
+      transform: translateY(-2px);
     }
     
     .sus-option.selected {
       background: var(--lavender);
       color: var(--panel);
       border-color: var(--lavender);
-      font-weight: 600;
+      font-weight: 700;
+      box-shadow: 0 0 15px rgba(198, 178, 255, 0.3);
     }
     
-    .sus-option span {
+    .sus-option-label {
       display: block;
-      font-size: 12px;
-      margin-top: 4px;
+      font-size: 14px;
+      margin-top: 8px;
       opacity: 0.8;
+      font-weight: 500;
     }
     
-    .sus-nav {
+    .sus-option-label-full {
+      font-size: 12px;
+      line-height: 1.2;
+      text-align: center;
+    }
+    
+    .sus-navigation {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       width: 100%;
-      margin-top: 20px;
+      margin-top: 30px;
+      padding: 0 10px;
     }
     
     .sus-progress {
       color: var(--text);
-      font-size: 14px;
-      opacity: 0.8;
-      align-self: center;
+      font-size: 15px;
+      opacity: 0.9;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 16px;
+      border-radius: 20px;
+    }
+    
+    .sus-nav-btn {
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      min-width: 120px;
+    }
+    
+    .sus-nav-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .sus-prev-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text);
+    }
+    
+    .sus-prev-btn:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+    
+    .sus-next-btn {
+      background: var(--pink);
+      border: none;
+      color: #120914;
+    }
+    
+    .sus-next-btn:hover:not(:disabled) {
+      background: #ff7ac5;
+      transform: translateY(-2px);
     }
     
     /* End simulation screen (now s6) */
@@ -484,14 +594,6 @@
       margin-bottom: 30px;
     }
     
-    /* SUS screen (s5) specific spacing */
-    #s5 h1 {
-      margin-bottom: 16px;
-    }
-    #s5 .help {
-      margin-bottom: 30px;
-    }
-    
     /* End screen (s6) spacing */
     #s6 h1 {
       margin-bottom: 20px;
@@ -599,41 +701,45 @@
         </div>
       </section>
 
-      <!-- Step 5: SUS Questions (new) -->
+      <!-- Step 5: SUS Questions (new) - IMPROVED SPACING -->
       <section id="s5" class="screen">
         <div>
           <h1>System Usability Scale</h1>
-          <p class="help">Please rate your agreement with the following statements:</p>
+          <p class="help">Please rate your agreement with each statement:</p>
           
-          <div id="susQuestion" class="sus-question"></div>
+          <div class="sus-question-container">
+            <div id="susQuestion" class="sus-question"></div>
+          </div>
+          
+          <p class="sus-instruction">1 = Strongly disagree, 5 = Strongly agree</p>
           
           <div class="sus-options">
             <button class="sus-option" data-value="1">
               1
-              <span>Strongly disagree</span>
+              <span class="sus-option-label sus-option-label-full">Strongly disagree</span>
             </button>
             <button class="sus-option" data-value="2">
               2
-              <span></span>
+              <span class="sus-option-label">Disagree</span>
             </button>
             <button class="sus-option" data-value="3">
               3
-              <span>Neutral</span>
+              <span class="sus-option-label">Neutral</span>
             </button>
             <button class="sus-option" data-value="4">
               4
-              <span></span>
+              <span class="sus-option-label">Agree</span>
             </button>
             <button class="sus-option" data-value="5">
               5
-              <span>Strongly agree</span>
+              <span class="sus-option-label sus-option-label-full">Strongly agree</span>
             </button>
           </div>
           
-          <div class="sus-nav">
-            <button id="susBack" class="nav-btn" style="display: none;">Previous</button>
+          <div class="sus-navigation">
+            <button id="susBack" class="sus-nav-btn sus-prev-btn" disabled>Previous</button>
             <div id="susProgress" class="sus-progress">Question 1 of 10</div>
-            <button id="susNext" class="btn" disabled style="padding: 12px 24px;">Next</button>
+            <button id="susNext" class="sus-nav-btn sus-next-btn" disabled>Next</button>
           </div>
         </div>
       </section>
@@ -1014,7 +1120,7 @@
       susProgressEl.textContent = `Question ${currentSusQuestion + 1} of 10`;
       
       // Show/hide back button
-      susBackBtn.style.display = currentSusQuestion > 0 ? 'block' : 'none';
+      susBackBtn.disabled = currentSusQuestion === 0;
       
       // Update selected state of options
       susOptionButtons.forEach(btn => {
