@@ -70,20 +70,16 @@ export default function PersonalSite() {
     and <span className="italic"> networks</span>, where I’ve developed skills in 
     <span className="font-mono"> C, C++, Python,</span> and <span className="font-mono">Kotlin</span>.  
     I’ve also gained industry experience through an 
-    <span className="italic"> embedded systems firmware,</span> internship 
+    <span className="italic"> embedded systems firmware</span> internship at <span className="font-semibold">THINKLOGICAL</span>.
   </p>
 
   <p className="mb-4 text-lg text-neutral-300">
     Beyond my technical work, I’m passionate about 
-    <span className="font-semibold"> neurodiversity advocacy</span> and creating inclusive 
-    spaces for learning and collaboration.
+    <span className="font-semibold"> neurodiversity advocacy</span>. I co-founded the <span className="font-semibold">Neurodivergent Student Association</span>, a safe space for neurodivergent students at WPI.
   </p>
 
   <p className="text-lg text-neutral-300">
-    Outside of school, you’ll usually find me 
-    <span className="italic"> spending time with my dogs</span> or 
-    <span className="italic"> listening to classic rock</span>.
-  </p>
+    Outside of school, I crochet and sew, and spend time with my 2 wonderful dogs, <span className="font-semibold">Lucy</span> and <span className="font-semibold">Ruby</span>.
 </section>
 
         {/* PROJECTS — case-study style (not bullets) */}
@@ -128,6 +124,7 @@ export default function PersonalSite() {
     </div>
   );
 }
+
 
 
 
