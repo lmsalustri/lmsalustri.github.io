@@ -66,8 +66,8 @@ export default function PersonalSite() {
   </p>
 
   <p className="mb-4 text-lg text-neutral-300">
-    My academic work includes courses in <span className="italic">software engineering, operating systems, </span> 
-    and <span className="italic"> networks</span>, where I’ve developed skills in 
+    My academic work includes courses in <span className="italic">operating systems, UI/UX design, </span> 
+    and <span className="italic"> ubiquitous computing</span>, where I’ve developed skills in 
     <span className="font-mono"> C, C++, Python,</span> and <span className="font-mono">Kotlin</span>.  
     I’ve also gained industry experience through an 
     <span className="italic"> embedded systems firmware</span> internship at <span className="font-semibold">THINKLOGICAL</span>.
@@ -125,6 +125,7 @@ export default function PersonalSite() {
     </div>
   );
 }
+
 
 
 
