@@ -79,7 +79,7 @@ export default function PersonalSite() {
   </p>
 
   <p className="text-lg text-neutral-300">
-    Outside of school, I crochet and sew, and spend time with my 2 wonderful dogs, <span className="font-semibold">Lucy</span> and <span className="font-semibold">Ruby</span>.
+    Outside of school, I crochet and sew, and spend time with my 2 wonderful dogs, <span className="font-semibold">Lucy</span> and <span className="font-semibold">Ruby</span>.</p>
 </section>
 
         {/* PROJECTS — case-study style (not bullets) */}
@@ -124,6 +124,7 @@ export default function PersonalSite() {
     </div>
   );
 }
+
 
 
 
