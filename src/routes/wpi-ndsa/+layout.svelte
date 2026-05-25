@@ -115,7 +115,7 @@
 	{@render children()}
 
 	<footer class="mt-16 bg-[#8F0002] px-4 py-8 text-center text-sm text-white">
-		<p>&copy; 2025 Worcester Polytechnic Institute. All rights reserved.</p>
+		<p>© {new Date().getFullYear()} Worcester Polytechnic Institute. All rights reserved.</p>
 		<p class="mt-1">100 Institute Rd, Worcester, MA 01609</p>
 
 		<nav class="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-2">
