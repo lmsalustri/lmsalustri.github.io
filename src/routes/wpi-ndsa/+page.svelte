@@ -23,23 +23,4 @@
 			Join Us!
 		</a>
 	</section>
-
-	<section class="mx-auto grid max-w-6xl gap-6 px-4 pb-16 md:grid-cols-2">
-		<div class="rounded-2xl border-2 border-[#8F0002] bg-white p-6 text-center shadow-sm">
-			<h2 class="text-3xl font-extrabold text-[#8F0002]">Next Events</h2>
-			<h3 class="mt-4 text-xl font-bold">Fall 2025 General Body Meetings</h3>
-			<p class="mt-3 text-lg text-neutral-700">Mondays, 5-7 PM, Stratton Hall 301</p>
-		</div>
-
-		<div class="rounded-2xl border-2 border-[#8F0002] bg-white p-6 text-center shadow-sm">
-			<h2 class="text-3xl font-extrabold text-[#8F0002]">Latest Post</h2>
-			<h3 class="mt-4 text-xl font-bold">Special Interest Spotlight: Classic Rock</h3>
-			<p class="mt-2 text-sm text-neutral-500">by Laurie Salustri | October 9, 2024</p>
-			<p class="mt-4 text-lg leading-8 text-neutral-700">
-				Classic rock is a special interest of mine that has remained constant throughout
-				my entire life. My parents grew up listening to it, and we always have 80s on 8
-				or Classic Rewind playing on the radio.
-			</p>
-		</div>
-	</section>
 </main>
