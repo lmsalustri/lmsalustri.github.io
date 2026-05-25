@@ -20,7 +20,7 @@
 			role: 'Secretary',
 			name: 'Vaughn Carroll',
 			major: 'Biomedical Engineering, Class of 2029',
-			image: '/wpi-ndsa/images/silhouette.png',
+			image: '/wpi-ndsa/images/carroll.png',
 			alt: 'Vaughn Carroll',
 			bio: `Within academics, I especially like the fields of biomaterials, genetics, and statistics; when I am not in the classroom, I like to watch New England sports teams on TV, go to the beach, and play video games such as Mario Kart with friends. My neurodiversity lies in the fact that I have some strange behaviors that are unusual for a college student, including rubbing my hands against my nose to relieve stress, biting my fingernails, and occasionally having severe overreactions. I look forward to being the secretary for the Neurodivergent Student Association.`
 		},
