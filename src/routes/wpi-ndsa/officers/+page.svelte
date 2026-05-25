@@ -4,7 +4,7 @@
 			role: 'President',
 			name: 'Laurie Salustri',
 			major: 'Computer Science, Class of 2027',
-			image: 'salustri.jpg',
+			image: '/salustri.jpg',
 			alt: 'Laurie Salustri',
 			bio: `I was diagnosed with autism at age 6, and my experiences have shaped my passion for advocacy. My special interests include classic rock, computers, dogs, and crochet. I have two wonderful dogs, Lucy and Ruby, who are a huge part of my life. I enjoy listening to my favorite artists: Billy Joel, Queen, and Van Halen. As president, I’m committed to building an inclusive community where neurodivergent students feel accepted, supported, and empowered. I believe in fostering a community that emphasizes inclusion and understanding, and I’m committed to advocating for our voices to be heard.`
 		},
