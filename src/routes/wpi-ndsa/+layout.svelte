@@ -77,7 +77,7 @@
 
 			<nav class="hidden items-center gap-6 text-base font-semibold md:flex">
 				{#each links as link}
-					<a href={link.href} class="transition hover:text-blue-200 hover:underline">
+					<a href={link.href} class="rounded-md px-4 py-3 transition hover:bg-white/15 hover:text-blue-100">
 						{link.label}
 					</a>
 				{/each}
