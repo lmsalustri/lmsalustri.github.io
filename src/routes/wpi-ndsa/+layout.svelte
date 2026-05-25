@@ -61,7 +61,7 @@
 	</script>
 </svelte:head>
 
-<div class="min-h-screen bg-white text-neutral-900">
+<div class="min-h-screen">
 	<header class="sticky top-0 z-50 bg-[#8F0002] text-white shadow-md">
 		<div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
 			<a href="/wpi-ndsa/" class="flex items-center gap-3">
