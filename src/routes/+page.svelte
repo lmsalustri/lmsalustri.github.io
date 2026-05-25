@@ -127,12 +127,7 @@
 
         <li class="rounded-2xl border border-white/10 p-5 hover:border-white/20">
           <h3 class="text-lg font-semibold text-white">
-            <a
-              href="/wpi-ndsa/index.html"
-              class="underline decoration-white hover:text-blue-400 hover:decoration-blue-400"
-            >
               WPI Neurodivergent Student Association Website
-            </a>
           </h3>
           <p class="mt-1 text-sm text-neutral-400">HTML, CSS</p>
           <p class="mt-3 text-neutral-300">
