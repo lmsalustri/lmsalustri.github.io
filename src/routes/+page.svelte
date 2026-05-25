@@ -80,31 +80,22 @@
       <h1 class="mb-4 text-4xl font-extrabold">Hi, I'm Laurie!</h1>
 
       <p class="mb-4 text-lg text-neutral-300">
-        I’m a junior <span class="font-semibold">Computer Science student</span> at
-        Worcester Polytechnic Institute with a strong interest in
-        <span class="font-semibold">human-computer interaction</span> and
-        <span class="font-semibold">user-centric design</span>.
+        I’m a senior at Worcester Polytechnic Institute studying
+        <span class="font-semibold">Computer Science</span>.
       </p>
 
       <p class="mb-4 text-lg text-neutral-300">
-        My academic work includes courses in
-        <span class="italic">operating systems, UI/UX design,</span>
-        and <span class="italic">human-computer interaction</span>, where I’ve developed
-        skills in <span class="font-mono">C, C++, Python,</span> and
-        <span class="font-mono">Kotlin</span>. I’ve also gained industry experience
-        through an <span class="italic">embedded systems firmware</span> internship at
-        <span class="font-semibold">THINKLOGICAL</span>.
+        My area of expertise is <span class="font-semibold">human-computer interaction</span>, particularly user-centric, accessible design.
       </p>
 
       <p class="mb-4 text-lg text-neutral-300">
-        Beyond my technical work, I’m passionate about
-        <span class="font-semibold">neurodiversity advocacy</span>. I co-founded the
+        I am the founding president of WPI's
         <span class="font-semibold">Neurodivergent Student Association</span>, a safe
-        space for neurodivergent students at WPI.
+        space for neurodivergent students to bond.
       </p>
 
       <p class="text-lg text-neutral-300">
-        Outside of school, I crochet and sew, and spend time with my 2 wonderful dogs,
+        I have 2 wonderful dogs,
         <span class="font-semibold">Lucy</span> and
         <span class="font-semibold">Ruby</span>.
       </p>
@@ -116,7 +107,7 @@
 
       <ul class="grid gap-6 md:grid-cols-2">
         <li class="rounded-2xl border border-white/10 p-5 hover:border-white/20">
-          <h3 class="text-lg font-semibold text-white">Embedded Switch Configurator</h3>
+          <h3 class="text-lg font-semibold text-white">Embedded Switch Configurator @ THINKLOGICAL</h3>
           <p class="mt-1 text-sm text-neutral-400">C, NIOS, memory-mapped I/O</p>
           <p class="mt-3 text-neutral-300">
             Wrote embedded C to configure duplex/speed modes on proprietary KVM switches
