@@ -24,23 +24,4 @@
 			</a>
 		</p>
 	</section>
-
-	<section class="event-blog-container">
-		<div class="event-box">
-			<h2>Next Events</h2>
-			<h3>Fall 2025 General Body Meetings</h3>
-			<p>Mondays, 5-7 PM, Stratton Hall 301</p>
-		</div>
-
-		<div class="blog-box">
-			<h2>Latest Post</h2>
-			<h3>Special Interest Spotlight: Classic Rock</h3>
-			<p class="author">by Laurie Salustri | October 9, 2024</p>
-			<p>
-				Classic rock is a special interest of mine that has remained constant throughout
-				my entire life. My parents grew up listening to it, and we always have 80s on 8
-				or Classic Rewind playing on the radio.
-			</p>
-		</div>
-	</section>
 </main>
