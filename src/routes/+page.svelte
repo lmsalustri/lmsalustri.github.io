@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-  <title>xxx</title>
+  <title>Laurie Salustri</title>
   <meta
     name="description"
     content="Personal portfolio website"
@@ -15,7 +15,7 @@
   <header class="sticky top-0 z-50 bg-[#c00000] text-white shadow">
     <div class="mx-auto flex max-w-[1100px] items-center justify-between px-4 py-3">
       <div class="flex items-center gap-3">
-        <span class="text-[1.05rem] font-extrabold tracking-tight">xxx</span>
+        <span class="text-[1.05rem] font-extrabold tracking-tight">Laurie Salustri</span>
       </div>
 
       <!-- Desktop nav -->
@@ -72,12 +72,12 @@
     <!-- ABOUT -->
     <section id="about" class="mx-auto max-w-[820px] px-4 pt-14 pb-10 text-center">
       <img
-        src="/xxx.jpg"
-        alt="xxx"
+        src="/salustri.jpg"
+        alt="Laurie Salustri"
         class="mx-auto mb-6 h-64 w-64 rounded-full object-cover shadow-lg"
       />
 
-      <h1 class="mb-4 text-4xl font-extrabold">Hi, I'm xxx!</h1>
+      <h1 class="mb-4 text-4xl font-extrabold">Hi, I'm Laurie!</h1>
 
       <p class="mb-4 text-lg text-neutral-300">
         I’m a junior <span class="font-semibold">Computer Science student</span> at
@@ -147,13 +147,13 @@
       <h2 class="mb-4 text-2xl font-extrabold">Contact</h2>
 
       <p class="text-neutral-300">
-        <a class="underline decoration-white/70 hover:text-white" href="mailto:xxx@email.com">
+        <a class="underline decoration-white/70 hover:text-white" href="mailto:lauriesalustri+work@proton.me">
           Email
         </a>
         ·
         <a
           class="underline decoration-white/70 hover:text-white"
-          href="https://github.com/xxx"
+          href="https://github.com/lmsalustri"
           target="_blank"
           rel="noreferrer noopener"
         >
@@ -162,7 +162,7 @@
         ·
         <a
           class="underline decoration-white/70 hover:text-white"
-          href="/xxx.docx"
+          href="/laurie-salustri-resume.docx"
           target="_blank"
           rel="noreferrer noopener"
         >
@@ -173,6 +173,6 @@
   </main>
 
   <footer class="border-t border-white/10 px-4 py-6 text-center text-sm text-neutral-400">
-    © {new Date().getFullYear()} xxx. Built with SvelteKit + Tailwind.
+    © {new Date().getFullYear()} Laurie Salustri. Built with SvelteKit + Tailwind.
   </footer>
 </div>
