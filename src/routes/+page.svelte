@@ -146,15 +146,6 @@
         >
           GitHub
         </a>
-        ·
-        <a
-          class="underline decoration-white/70 hover:text-white"
-          href="/laurie_salustri_resume.docx"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Résumé (Download)
-        </a>
       </p>
     </section>
   </main>
