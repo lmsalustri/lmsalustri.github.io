@@ -9,7 +9,7 @@
 
 		<p class="mx-auto mt-8 max-w-3xl text-2xl leading-9 text-neutral-700">
 			We are here to help support your experience at WPI through bonding activities,
-			support on navigating neurodiverse issues, and fun social events.
+			support on neurodiverse issues, and fun social events.
 		</p>
 
 		<p class="mt-6 text-3xl font-extrabold text-neutral-900">No formal diagnosis required.</p>
