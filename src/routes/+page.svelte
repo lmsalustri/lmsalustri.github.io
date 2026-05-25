@@ -80,7 +80,7 @@
       <h1 class="mb-4 text-4xl font-extrabold">Hi, I'm Laurie!</h1>
 
       <p class="mb-4 text-lg text-neutral-300">
-        I’m a senior at Worcester Polytechnic Institute studying
+        I'm a senior at Worcester Polytechnic Institute studying
         <span class="font-semibold">Computer Science</span>.
       </p>
 
