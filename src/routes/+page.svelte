@@ -108,17 +108,18 @@
       <ul class="grid gap-6 md:grid-cols-2">
         <li class="rounded-2xl border border-white/10 p-5 hover:border-white/20">
           <h3 class="text-lg font-semibold text-white">Embedded Switch Configurator @ THINKLOGICAL</h3>
-          <p class="mt-1 text-sm text-neutral-400">C, NIOS, memory-mapped I/O</p>
+          <p class="mt-1 text-sm text-neutral-400">C, NIOS</p>
           <p class="mt-3 text-neutral-300">
             Wrote embedded C to configure duplex/speed modes on proprietary KVM switches
-            via NIOS MMIO. Debugged timing with serial tools and logic analysis;
-            documented safe defaults and rollback paths.
+            via NIOS MMIO.
           </p>
         </li>
 
         <li class="rounded-2xl border border-white/10 p-5 hover:border-white/20">
           <h3 class="text-lg font-semibold text-white">
+            <a href="/wpi-ndsa/
               WPI Neurodivergent Student Association Website
+            </a>
           </h3>
           <p class="mt-1 text-sm text-neutral-400">HTML, CSS</p>
           <p class="mt-3 text-neutral-300">
