@@ -1,10 +1,9 @@
 @import "tailwindcss";
 
-/* minimal globals */
 :root {
-  color-scheme: dark;
+	color-scheme: light dark;
 }
 
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
