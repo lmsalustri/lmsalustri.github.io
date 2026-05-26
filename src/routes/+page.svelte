@@ -104,17 +104,19 @@
     <!-- PROJECTS -->
     <section id="projects" class="mx-auto max-w-[980px] px-4 py-12">
       <h2 class="mb-6 text-center text-2xl font-extrabold">Projects</h2>
-
-      <ul class="grid gap-6 md:grid-cols-2">
+    
+      <ul class="grid gap-6 md:grid-cols-3">
         <li class="rounded-2xl border border-white/10 p-5 hover:border-white/20">
-          <h3 class="text-lg font-semibold text-white">Embedded Switch Configurator @ THINKLOGICAL</h3>
-          <p class="mt-1 text-sm text-neutral-400">C, NIOS</p>
+          <h3 class="text-lg font-semibold text-white">
+            Developing Opportunities for a Sustainability Dashboard
+          </h3>
+          <p class="mt-1 text-sm text-neutral-400">Publication Pending</p>
           <p class="mt-3 text-neutral-300">
-            Wrote embedded C to configure duplex/speed modes on proprietary KVM switches
-            via NIOS MMIO.
+            Applied participatory design, iterative prototyping, and stakeholder-informed
+            HCI methods to develop sustainability-focused dashboard concepts.
           </p>
         </li>
-
+    
         <li class="rounded-2xl border border-white/10 p-5 hover:border-white/20">
           <h3 class="text-lg font-semibold text-white">
             <a href="/wpi-ndsa/">
@@ -124,6 +126,15 @@
           <p class="mt-1 text-sm text-neutral-400">HTML, CSS</p>
           <p class="mt-3 text-neutral-300">
             Built and maintained a website for WPI's Neurodivergent Student Association.
+          </p>
+        </li>
+    
+        <li class="rounded-2xl border border-white/10 p-5 hover:border-white/20">
+          <h3 class="text-lg font-semibold text-white">Embedded Switch Configurator @ THINKLOGICAL</h3>
+          <p class="mt-1 text-sm text-neutral-400">C, NIOS</p>
+          <p class="mt-3 text-neutral-300">
+            Wrote embedded C to configure duplex/speed modes on proprietary KVM switches
+            via NIOS MMIO.
           </p>
         </li>
       </ul>
