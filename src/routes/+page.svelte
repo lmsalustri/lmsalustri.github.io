@@ -11,7 +11,6 @@
 </svelte:head>
 
 <div class="min-h-screen bg-[#0f0b0a] text-neutral-100 antialiased">
-  <div class="min-h-screen bg-[#0f0b0a] text-neutral-100 antialiased">
   <!-- HEADER -->
   <header class="sticky top-0 z-50 bg-[#8F0002] text-white shadow-md">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
