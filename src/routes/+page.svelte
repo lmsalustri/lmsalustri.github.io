@@ -85,9 +85,6 @@
     {/if}
   </header>
 
-  <!-- main and footer continue here -->
-</div>
-
   <main>
     <!-- ABOUT -->
     <section id="about" class="mx-auto max-w-[820px] px-4 pt-14 pb-10 text-center">
