@@ -73,10 +73,10 @@
 						class="mx-auto h-64 w-64 rounded-2xl object-cover shadow-md md:mx-0"
 					/>
 
-					<div>
+					<div class="text-center md:text-left">
 						<p class="text-2xl font-bold text-[#8F0002]">{officer.name}</p>
 						<p class="mt-1 text-lg italic text-neutral-500">{officer.major}</p>
-						<p class="mt-4 text-lg leading-8 text-neutral-700">{officer.bio}</p>
+						<p class="mt-4 text-left text-lg leading-8 text-neutral-700">{officer.bio}</p>
 					</div>
 				</div>
 			</article>
