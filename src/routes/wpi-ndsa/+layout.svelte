@@ -1,6 +1,6 @@
 <script lang="ts">
 	let { children } = $props();
-	let open = false;
+	let open = $state(false);
 
 	const links = [
 		{ href: '/wpi-ndsa/', label: 'Home' },
@@ -77,7 +77,10 @@
 
 			<nav class="hidden items-center gap-6 text-base font-semibold md:flex">
 				{#each links as link}
-					<a href={link.href} class="rounded-md px-4 py-3 transition hover:bg-white/15 hover:text-blue-100">
+					<a
+						href={link.href}
+						class="rounded-md px-4 py-3 transition hover:bg-white/15 hover:text-blue-100"
+					>
 						{link.label}
 					</a>
 				{/each}
@@ -87,7 +90,7 @@
 				class="rounded-md p-2 md:hidden"
 				aria-label="Toggle menu"
 				aria-expanded={open}
-				on:click={() => (open = !open)}
+				onclick={() => (open = !open)}
 			>
 				<span class="mb-1.5 block h-0.5 w-7 bg-white"></span>
 				<span class="mb-1.5 block h-0.5 w-7 bg-white"></span>
@@ -101,7 +104,7 @@
 					{#each links as link}
 						<a
 							href={link.href}
-							on:click={() => (open = false)}
+							onclick={() => (open = false)}
 							class="font-semibold hover:underline"
 						>
 							{link.label}
