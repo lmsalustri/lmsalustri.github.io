@@ -11,18 +11,36 @@
 </svelte:head>
 
 <div class="min-h-screen bg-[#0f0b0a] text-neutral-100 antialiased">
+  <div class="min-h-screen bg-[#0f0b0a] text-neutral-100 antialiased">
   <!-- HEADER -->
-  <header class="sticky top-0 z-50 bg-[#8F0002] text-white shadow">
-    <div class="mx-auto flex max-w-[1100px] items-center justify-between px-4 py-3">
+  <header class="sticky top-0 z-50 bg-[#8F0002] text-white shadow-md">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
       <div class="flex items-center gap-3">
-        <span class="text-[1.05rem] font-extrabold tracking-tight">Laurie Salustri</span>
+        <span class="text-base font-extrabold leading-tight sm:text-xl md:text-2xl">
+          Laurie Salustri
+        </span>
       </div>
 
       <!-- Desktop nav -->
-      <nav class="hidden items-center gap-6 text-[0.95rem] font-medium md:flex">
-        <a href="#about" class="hover:underline">About</a>
-        <a href="#projects" class="hover:underline">Projects</a>
-        <a href="#contact" class="hover:underline">Contact</a>
+      <nav class="hidden items-center gap-6 text-base font-semibold md:flex">
+        <a
+          href="#about"
+          class="rounded-md px-4 py-3 transition hover:bg-white/15 hover:text-blue-100"
+        >
+          About
+        </a>
+        <a
+          href="#projects"
+          class="rounded-md px-4 py-3 transition hover:bg-white/15 hover:text-blue-100"
+        >
+          Projects
+        </a>
+        <a
+          href="#contact"
+          class="rounded-md px-4 py-3 transition hover:bg-white/15 hover:text-blue-100"
+        >
+          Contact
+        </a>
       </nav>
 
       <!-- Mobile toggle -->
@@ -67,6 +85,9 @@
       </div>
     {/if}
   </header>
+
+  <!-- main and footer continue here -->
+</div>
 
   <main>
     <!-- ABOUT -->
