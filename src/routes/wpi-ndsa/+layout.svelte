@@ -100,12 +100,12 @@
 
 		{#if open}
 			<nav class="border-t border-white/20 px-4 py-3 md:hidden">
-				<div class="mx-auto flex max-w-6xl flex-col gap-3">
+				<div class="mx-auto flex max-w-6xl flex-col items-end gap-3 text-right">
 					{#each links as link}
 						<a
 							href={link.href}
 							onclick={() => (open = false)}
-							class="font-semibold hover:underline"
+							class="rounded-md px-4 py-2 text-right font-semibold hover:bg-white/15 hover:text-blue-100"
 						>
 							{link.label}
 						</a>
