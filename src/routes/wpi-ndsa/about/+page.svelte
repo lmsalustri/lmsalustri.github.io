@@ -39,19 +39,19 @@
 
 		<article class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
 			<h2 class="text-3xl font-bold text-[#8F0002]">Our Founder</h2>
-
+		
 			<div class="mt-6 grid gap-6 md:grid-cols-[260px_1fr] md:items-start">
 				<img
 					src="/wpi-ndsa/images/stovall.jpg"
 					alt="Kathryn Stovall"
-					class="h-64 w-64 rounded-2xl object-cover shadow-md"
+					class="mx-auto h-64 w-64 rounded-2xl object-cover shadow-md md:mx-0"
 				/>
-
-				<div>
+		
+				<div class="text-center md:text-left">
 					<p class="text-2xl font-bold text-[#8F0002]">Kathryn Stovall</p>
 					<p class="mt-1 text-lg italic text-neutral-500">Robotics Engineering, Alumni 2024</p>
-
-					<p class="mt-4 text-lg leading-8 text-neutral-700">
+		
+					<p class="mt-4 text-left text-lg leading-8 text-neutral-700">
 						I was evaluated for autism around the age of 7 because my mother wanted to
 						prove to my autistic father that I was "normal." However, the testing
 						revealed that I likely had autism and definitely had severe ADHD. Instead of
