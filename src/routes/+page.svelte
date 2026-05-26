@@ -19,7 +19,7 @@
           Laurie Salustri
         </span>
       </div>
-
+  
       <!-- Desktop nav -->
       <nav class="hidden items-center gap-6 text-base font-semibold md:flex">
         <a
@@ -41,42 +41,42 @@
           Contact
         </a>
       </nav>
-
-      <!-- Mobile toggle -->
+  
+      <!-- Mobile toggle: same functionality, NDSA-style sizing -->
       <button
-        class="rounded-md px-2 py-1 md:hidden"
+        class="rounded-md p-2 md:hidden"
         aria-expanded={open}
         aria-label="Toggle menu"
         on:click={() => (open = !open)}
       >
         <span
-          class="relative block h-[2px] w-6 bg-white before:absolute before:-top-[7px] before:block before:h-[2px] before:w-6 before:bg-white after:absolute after:top-[7px] after:block after:h-[2px] after:w-6 after:bg-white"
+          class="relative block h-0.5 w-7 bg-white before:absolute before:-top-[8px] before:block before:h-0.5 before:w-7 before:bg-white after:absolute after:top-[8px] after:block after:h-0.5 after:w-7 after:bg-white"
         ></span>
       </button>
     </div>
-
-    <!-- Mobile menu -->
+  
+    <!-- Mobile menu: same functionality, NDSA-style spacing -->
     {#if open}
-      <div class="border-t border-white/20 md:hidden">
-        <nav class="mx-auto max-w-[1100px] px-4 py-2">
+      <div class="border-t border-white/20 px-4 py-3 md:hidden">
+        <nav class="mx-auto flex max-w-6xl flex-col gap-3">
           <a
             href="#about"
             on:click={() => (open = false)}
-            class="block py-1 hover:underline"
+            class="font-semibold hover:underline"
           >
             About
           </a>
           <a
             href="#projects"
             on:click={() => (open = false)}
-            class="block py-1 hover:underline"
+            class="font-semibold hover:underline"
           >
             Projects
           </a>
           <a
             href="#contact"
             on:click={() => (open = false)}
-            class="block py-1 hover:underline"
+            class="font-semibold hover:underline"
           >
             Contact
           </a>
