@@ -12,7 +12,7 @@
 
 <div class="min-h-screen bg-[#0f0b0a] text-neutral-100 antialiased">
   <!-- HEADER -->
-  <header class="sticky top-0 z-50 bg-[#c00000] text-white shadow">
+  <header class="sticky top-0 z-50 bg-[#8F0002] text-white shadow">
     <div class="mx-auto flex max-w-[1100px] items-center justify-between px-4 py-3">
       <div class="flex items-center gap-3">
         <span class="text-[1.05rem] font-extrabold tracking-tight">Laurie Salustri</span>
