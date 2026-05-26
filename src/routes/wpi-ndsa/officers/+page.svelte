@@ -41,7 +41,7 @@
 			bio: `[Under Construction]`
 		},
 		{
-			role: 'Advisor',
+			role: 'Faculty Advisor',
 			name: 'Dr. Stacy Shaw, Ph.D.',
 			major: 'Assistant Professor, Learning Science & Technology, Psychological Science',
 			image: '/wpi-ndsa/images/shaw.jpg',
