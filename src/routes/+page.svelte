@@ -145,7 +145,7 @@
       <h2 class="mb-4 text-2xl font-extrabold">Contact</h2>
 
       <p class="text-neutral-300">
-        <a class="underline decoration-white/70 hover:text-white" href="mailto:lauriesalustri+work@proton.me">
+        <a class="underline decoration-white/70 hover:text-white" href="mailto:lauriesalustri+website@proton.me">
           Email
         </a>
         ·
