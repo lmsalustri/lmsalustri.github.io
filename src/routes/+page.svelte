@@ -94,7 +94,7 @@
         class="mx-auto mb-6 h-64 w-64 rounded-full object-cover shadow-lg"
       />
 
-      <h1 class="mb-4 text-4xl font-extrabold">Hi, I'm Laurie!</h1>
+      <h1 class="mb-4 text-4xl font-extrabold text-[#8F0002]">Hi, I'm Laurie!</h1>
 
       <p class="mb-4 text-lg text-neutral-300">
         I'm a senior at Worcester Polytechnic Institute studying
