@@ -87,7 +87,7 @@
 				class="rounded-md p-2 md:hidden"
 				aria-label="Toggle menu"
 				aria-expanded={open}
-				onclick={() => (open = !open)}
+				on:click={() => (open = !open)}
 			>
 				<span class="mb-1.5 block h-0.5 w-7 bg-white"></span>
 				<span class="mb-1.5 block h-0.5 w-7 bg-white"></span>
@@ -101,7 +101,7 @@
 					{#each links as link}
 						<a
 							href={link.href}
-							onclick={() => (open = false)}
+							on:click={() => (open = false)}
 							class="font-semibold hover:underline"
 						>
 							{link.label}
