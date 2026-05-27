@@ -129,7 +129,7 @@
           </h3>
           <p class="mt-1 text-sm text-neutral-400">Publication Pending</p>
           <p class="mt-3 text-neutral-300">
-            Applied participatory design, iterative prototyping, and stakeholder-informed
+            Applied iterative prototyping and stakeholder-informed
             HCI methods to develop sustainability-focused dashboard concepts.
           </p>
         </li>
