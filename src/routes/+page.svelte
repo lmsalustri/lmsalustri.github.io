@@ -135,6 +135,11 @@
         </li>
     
         <li class="rounded-2xl border border-white/10 p-5 hover:border-white/20">
+        <img
+          src="/wpi-ndsa/images/ndsa.png"
+          alt="WPI Neurodivergent Student Association logo"
+          class="mx-auto mb-4 h-16 w-16 rounded-full object-contain"
+        />
           <h3 class="text-lg font-semibold text-white">
             <a href="/wpi-ndsa/" class="underline decoration-white/40 underline-offset-4 hover:text-blue-300 hover:decoration-blue-300">
               WPI Neurodivergent Student Association Website
