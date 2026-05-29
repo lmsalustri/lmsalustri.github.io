@@ -152,10 +152,10 @@
           <h3 class="text-lg font-semibold text-white">
             <a
               href="/wpi-ndsa/"
-              class="inline-flex items-center justify-center gap-2 underline decoration-white/40 underline-offset-4 hover:text-blue-300 hover:decoration-blue-300"
+              class="underline decoration-white/40 underline-offset-4 hover:text-blue-300 hover:decoration-blue-300"
             >
-              <span>WPI Neurodivergent Student Association Website</span>
-              <span aria-hidden="true" class="text-base">↗</span>
+              WPI Neurodivergent Student Association Website
+              <span aria-hidden="true" class="ml-1 inline-block text-base no-underline">↗</span>
             </a>
           </h3>
         
