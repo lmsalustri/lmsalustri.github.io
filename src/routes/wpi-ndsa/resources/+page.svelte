@@ -56,7 +56,7 @@
 	</section>
 
 	<section class="mt-10">
-		<h2 class="text-3xl font-bold text-[#8F0002]">WPI Resources</h2>
+		<h2 class="text-3xl text-center font-bold text-[#8F0002]">WPI Resources</h2>
 
 		<div class="mt-6 grid gap-5">
 			{#each wpiResources as resource}
@@ -76,7 +76,7 @@
 	</section>
 
 	<section class="mt-12">
-		<h2 class="text-3xl font-bold text-[#8F0002]">External Resources</h2>
+		<h2 class="text-3xl text-center font-bold text-[#8F0002]">External Resources</h2>
 
 		<div class="mt-6 grid gap-5">
 			{#each externalResources as resource}
