@@ -5,6 +5,12 @@
 
 <main>
 	<section class="mx-auto max-w-5xl px-4 py-20 text-center md:py-28">
+		<img
+			src="/wpi-ndsa/images/ndsa.png"
+			alt="WPI Neurodivergent Student Association logo"
+			class="mx-auto mb-8 h-44 w-44 object-contain md:h-56 md:w-56"
+		/>
+
 		<h1 class="text-5xl font-extrabold text-[#8F0002] md:text-6xl">Welcome!</h1>
 
 		<p class="mx-auto mt-8 max-w-3xl text-2xl leading-9 text-neutral-700">
