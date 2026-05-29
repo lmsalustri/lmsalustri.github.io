@@ -10,7 +10,7 @@
 
 	<section class="mt-10 grid gap-8">
 		<article class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
-			<h2 class="text-3xl font-bold text-[#8F0002]">Our Mission</h2>
+			<h2 class="text-3xl text-center font-bold text-[#8F0002]">Our Mission</h2>
 			<p class="mt-4 text-lg leading-8 text-neutral-700">
 				The WPI Neurodivergent Student Association (NDSA) is dedicated to building a
 				supportive and empowering community for neurodivergent students of all identities.
@@ -24,7 +24,7 @@
 		</article>
 
 		<article class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
-			<h2 class="text-3xl font-bold text-[#8F0002]">History</h2>
+			<h2 class="text-3xl text-center font-bold text-[#8F0002]">History</h2>
 			<p class="mt-4 text-lg leading-8 text-neutral-700">
 				The Neurodivergent Student Association, formerly known as Spectrum Friends, was
 				founded in 2021 by Kathryn Stovall '24 to provide a voice and support system for
@@ -38,7 +38,7 @@
 		</article>
 
 		<article class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
-			<h2 class="text-3xl font-bold text-[#8F0002]">Our Founder</h2>
+			<h2 class="text-3xl text-center font-bold text-[#8F0002]">Our Founder</h2>
 		
 			<div class="mt-6 grid gap-6 md:grid-cols-[260px_1fr] md:items-start">
 				<img
