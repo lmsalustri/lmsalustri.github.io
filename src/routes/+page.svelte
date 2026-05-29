@@ -122,7 +122,7 @@
     <section id="projects" class="mx-auto max-w-[980px] px-4 py-12">
       <h2 class="mb-6 text-center text-2xl font-extrabold">Projects</h2>
     
-      <ul class="grid gap-6 md:grid-cols-3">
+      <ul class="grid gap-6 md:grid-cols-2">
         <li class="rounded-2xl border border-white/10 p-5 hover:border-white/20">
           <h3 class="text-lg font-semibold text-white">
             Developing Opportunities for a Sustainability Dashboard
