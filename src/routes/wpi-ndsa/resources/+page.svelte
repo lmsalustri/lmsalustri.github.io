@@ -50,13 +50,14 @@
 <main class="mx-auto max-w-6xl px-4 py-12">
 	<section class="text-center">
 		<h1 class="text-4xl font-extrabold text-[#8F0002] md:text-5xl">Resources</h1>
+
 		<p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-neutral-700">
 			A collection of WPI and external resources for neurodivergent students and allies.
 		</p>
 	</section>
 
 	<section class="mt-10">
-		<h2 class="text-3xl text-center font-bold text-[#8F0002]">WPI Resources</h2>
+		<h2 class="text-center text-3xl font-bold text-[#8F0002]">WPI Resources</h2>
 
 		<div class="mt-6 grid gap-5">
 			{#each wpiResources as resource}
@@ -65,10 +66,12 @@
 						href={resource.href}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="text-2xl font-bold text-[#8F0002] hover:text-blue-600 hover:underline"
+						class="inline-flex items-center gap-2 text-2xl font-bold text-[#8F0002] underline decoration-[#8F0002]/40 underline-offset-4 hover:text-blue-600 hover:decoration-blue-600"
 					>
 						{resource.name}
+						<span aria-hidden="true" class="text-lg">↗</span>
 					</a>
+
 					<p class="mt-3 text-lg leading-8 text-neutral-700">{resource.description}</p>
 				</article>
 			{/each}
@@ -76,7 +79,7 @@
 	</section>
 
 	<section class="mt-12">
-		<h2 class="text-3xl text-center font-bold text-[#8F0002]">External Resources</h2>
+		<h2 class="text-center text-3xl font-bold text-[#8F0002]">External Resources</h2>
 
 		<div class="mt-6 grid gap-5">
 			{#each externalResources as resource}
@@ -85,10 +88,12 @@
 						href={resource.href}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="text-2xl font-bold text-[#8F0002] hover:text-blue-600 hover:underline"
+						class="inline-flex items-center gap-2 text-2xl font-bold text-[#8F0002] underline decoration-[#8F0002]/40 underline-offset-4 hover:text-blue-600 hover:decoration-blue-600"
 					>
 						{resource.name}
+						<span aria-hidden="true" class="text-lg">↗</span>
 					</a>
+
 					<p class="mt-3 text-lg leading-8 text-neutral-700">{resource.description}</p>
 				</article>
 			{/each}
