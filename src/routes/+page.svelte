@@ -148,18 +148,19 @@
               class="h-full w-full object-contain"
             />
           </div>
-    
+        
           <h3 class="text-lg font-semibold text-white">
             <a
               href="/wpi-ndsa/"
-              class="underline decoration-white/40 underline-offset-4 hover:text-blue-300 hover:decoration-blue-300"
+              class="inline-flex items-center justify-center gap-2 underline decoration-white/40 underline-offset-4 hover:text-blue-300 hover:decoration-blue-300"
             >
-              WPI Neurodivergent Student Association Website
+              <span>WPI Neurodivergent Student Association Website</span>
+              <span aria-hidden="true" class="text-base">↗</span>
             </a>
           </h3>
-    
+        
           <p class="mt-1 text-sm text-neutral-400">Svelte</p>
-    
+        
           <p class="mt-3 text-neutral-300">
             A website for WPI's Neurodivergent Student Association.
           </p>
