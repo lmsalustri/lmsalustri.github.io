@@ -124,6 +124,10 @@
     
       <ul class="grid gap-6 md:grid-cols-2">
         <li class="rounded-2xl border border-white/10 p-5 text-center hover:border-white/20">
+          <div class="mx-auto mb-8 flex h-40 w-40 items-center justify-center rounded-full border border-white/10 bg-white/5 text-6xl">
+            📊
+          </div>
+    
           <h3 class="text-lg font-semibold text-white">
             Developing Opportunities for a Sustainability Dashboard
           </h3>
