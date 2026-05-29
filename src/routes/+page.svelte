@@ -123,11 +123,13 @@
       <h2 class="mb-6 text-center text-2xl font-extrabold">Projects</h2>
     
       <ul class="grid gap-6 md:grid-cols-2">
-        <li class="rounded-2xl border border-white/10 p-5 hover:border-white/20">
+        <li class="rounded-2xl border border-white/10 p-5 text-center hover:border-white/20">
           <h3 class="text-lg font-semibold text-white">
             Developing Opportunities for a Sustainability Dashboard
           </h3>
+    
           <p class="mt-1 text-sm text-neutral-400">Publication Pending</p>
+    
           <p class="mt-3 text-neutral-300">
             An IQP applying iterative prototyping and stakeholder-informed
             HCI methods to developing sustainability-focused dashboard concepts.
@@ -142,8 +144,8 @@
               class="h-full w-full object-contain"
             />
           </div>
-        
-          <h3 class="text-center text-lg font-semibold text-white">
+    
+          <h3 class="text-lg font-semibold text-white">
             <a
               href="/wpi-ndsa/"
               class="underline decoration-white/40 underline-offset-4 hover:text-blue-300 hover:decoration-blue-300"
@@ -151,10 +153,10 @@
               WPI Neurodivergent Student Association Website
             </a>
           </h3>
-        
-          <p class="mt-1 text-center text-sm text-neutral-400">Svelte</p>
-        
-          <p class="mt-3 text-center text-neutral-300">
+    
+          <p class="mt-1 text-sm text-neutral-400">Svelte</p>
+    
+          <p class="mt-3 text-neutral-300">
             A website for WPI's Neurodivergent Student Association.
           </p>
         </li>
