@@ -134,19 +134,27 @@
           </p>
         </li>
     
-        <li class="rounded-2xl border border-white/10 p-5 hover:border-white/20">
-        <img
-          src="/wpi-ndsa/images/ndsa.png"
-          alt="WPI Neurodivergent Student Association logo"
-          class="mx-auto mb-8 h-44 w-44 object-contain"
-        />
-          <h3 class="text-lg font-semibold text-white">
-            <a href="/wpi-ndsa/" class="underline decoration-white/40 underline-offset-4 hover:text-blue-300 hover:decoration-blue-300">
+        <li class="rounded-2xl border border-white/10 p-5 text-center hover:border-white/20">
+          <div class="mx-auto mb-8 flex h-40 w-40 items-center justify-center">
+            <img
+              src="/wpi-ndsa/images/ndsa.png"
+              alt="WPI Neurodivergent Student Association logo"
+              class="h-full w-full object-contain"
+            />
+          </div>
+        
+          <h3 class="text-center text-lg font-semibold text-white">
+            <a
+              href="/wpi-ndsa/"
+              class="underline decoration-white/40 underline-offset-4 hover:text-blue-300 hover:decoration-blue-300"
+            >
               WPI Neurodivergent Student Association Website
             </a>
           </h3>
-          <p class="mt-1 text-sm text-neutral-400">Svelte</p>
-          <p class="mt-3 text-neutral-300">
+        
+          <p class="mt-1 text-center text-sm text-neutral-400">Svelte</p>
+        
+          <p class="mt-3 text-center text-neutral-300">
             A website for WPI's Neurodivergent Student Association.
           </p>
         </li>
