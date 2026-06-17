@@ -9,9 +9,9 @@
 	const siteDescription = 'Personal portfolio website';
 
 	const navItems = [
-		{ label: 'About', href: '#about' },
-		{ label: 'Projects', href: '#projects' },
-		{ label: 'Contact', href: '#contact' }
+		{ label: 'About', href: '/#about' },
+		{ label: 'Projects', href: '/#projects' },
+		{ label: 'Contact', href: '/#contact' }
 	];
 
 	const footerText = 'Built with SvelteKit + Tailwind.';
