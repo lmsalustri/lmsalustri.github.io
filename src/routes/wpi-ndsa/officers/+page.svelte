@@ -7,6 +7,7 @@
 			{
 				role: 'President',
 				name: 'Laurie Salustri',
+				href: 'https://lmsalustri.github.io/',
 				major: 'Computer Science, Class of 2027',
 				image: '/salustri.jpg',
 				alt: 'Laurie Salustri',
@@ -47,6 +48,7 @@
 			{
 				role: 'Faculty Advisor',
 				name: 'Dr. Stacy Shaw, Ph.D.',
+				href: 'https://www.wpi.edu/people/faculty/sshaw',
 				major: 'Assistant Professor, Learning Science & Technology, Psychological Science',
 				image: '/wpi-ndsa/images/shaw.jpg',
 				alt: 'Dr. Stacy Shaw, Ph.D.',
@@ -84,7 +86,18 @@
 
 					<div class="text-center md:text-left">
 						<p class="text-2xl font-bold text-(--color-site-primary)">
-							{officer.name}
+							{#if 'href' in officer}
+								<a
+										href={officer.href}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="underline decoration-(--color-site-primary)/40 underline-offset-4 hover:text-blue-600 hover:decoration-blue-600"
+								>
+									{officer.name}
+								</a>
+							{:else}
+								{officer.name}
+							{/if}
 						</p>
 
 						<p class="mt-1 text-lg italic text-neutral-500">
