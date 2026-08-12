@@ -33,7 +33,7 @@
 				role: 'Treasurer',
 				name: 'Devin Engelbrecht',
 				major: 'Aerospace Engineering & Physics, Class of 2029',
-				image: '/wpi-ndsa/images/silhouette.png',
+				image: '/wpi-ndsa/images/engelbrecht.JPG',
 				alt: 'Devin Engelbrecht',
 				bio: `As far back as elementary school, I have been a huge space nerd and more generally interested in math and physics. I was also diagnosed with dyslexia in elementary school. My passion for learning has often come into conflict with the academic challenges I face daily. To counteract this, I have long looked for and tried to build environments where neurodiversity is celebrated and supported. This has included everything from starting a club in high school to advocating for education policy on Capitol Hill. Now, at WPI and as part of NDSA, I hope to support and advocate for the wonderful community of neurodiverse students I have found here.`
 			},
