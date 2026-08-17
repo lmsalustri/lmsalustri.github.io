@@ -41,9 +41,9 @@
 				role: 'Public Relations Chair',
 				name: 'Emma Boyd',
 				major: 'Mechanical Engineering, Class of 2029',
-				image: '/wpi-ndsa/images/silhouette.png',
+				image: '/wpi-ndsa/images/boyd.jpg',
 				alt: 'Emma Boyd',
-				bio: `[Under Construction]`
+				bio: `I have had difficulties with my mental health for a long time, and only more recently realized that neurodivergence checked all the boxes for explaining what was going on. My interests have always sat at an intersection between creativity and problem-solving, including engineering, 3D modeling, spaceflight, writing, film, and art. I hope to bring my media experience to the role of PR Chair to keep our fantastic community updated in style!`
 			},
 			{
 				role: 'Faculty Advisor',
