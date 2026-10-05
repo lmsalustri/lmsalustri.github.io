@@ -80,7 +80,7 @@
         },
         after: ' console.',
         icon: '🎮'
-      }
+      },
       {
         title: 'Developing Opportunities for a Sustainability Dashboard',
         subtitle: 'Interactive Qualifying Project',
