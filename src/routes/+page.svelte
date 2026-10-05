@@ -30,6 +30,7 @@
         before: 'My philosophy is to never forget the ',
         emphasis: 'human',
         after: ' component of HCI.'
+      },
       {
         before: "I am the founding president of WPI's ",
         emphasis: 'Neurodivergent Student Association (NDSA)',
