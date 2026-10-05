@@ -23,13 +23,17 @@
       },
       {
         before: 'My area of expertise is ',
-        emphasis: 'human-computer interaction',
-        after: ', particularly user-centric, accessible design.'
+        emphasis: 'human-computer interaction (HCI)',
+        after: ', with an emphasis in user-centric, accessible design.'
       },
       {
+        before: 'My philosophy is to never forget the ',
+        emphasis: 'human',
+        after: ' component of HCI.'
+      {
         before: "I am the founding president of WPI's ",
-        emphasis: 'Neurodivergent Student Association',
-        after: ', a safe space for neurodivergent students to bond.'
+        emphasis: 'Neurodivergent Student Association (NDSA)',
+        after: ', a safe space for neurodivergent students to bond, increasing advocacy and acceptance around the WPI community.'
       }
     ],
     dogs: {
@@ -66,16 +70,28 @@
     heading: 'Projects',
     items: [
       {
+        title: 'Spatial & Tangible UI',
+        subtitle: 'Major Qualifying Project',
+        description: 'Final title TBD. Combines Computer Science and Interactive Media & Game Development disciplines to develop a hybrid tabletop game for the ',
+        link: {
+          text: 'Board.fun',
+          href: 'https://board.fun/'
+        },
+        after: ' console.',
+        icon: '🎮'
+      }
+      {
         title: 'Developing Opportunities for a Sustainability Dashboard',
-        subtitle: 'Publication Pending',
+        subtitle: 'Interactive Qualifying Project',
         description:
-                'An IQP applying iterative prototyping and stakeholder-informed HCI methods to developing sustainability-focused dashboard concepts.',
-        icon: '📊'
+                'A publication detailing recommendations for a sustainability dashboard at WPI. HCI methods, such as iterative prototyping, were used to inform the design process.',
+        icon: '📊',
+        href: 'https://digital.wpi.edu/pdfviewer/1z40kz509'
       },
       {
         title: 'WPI Neurodivergent Student Association Website',
-        subtitle: 'Svelte',
-        description: "A website for WPI's Neurodivergent Student Association.",
+        subtitle: 'Humanities & Arts Project',
+        description: "A routinely updated website for WPI's Neurodivergent Student Association. Originally in static HTML/CSS, but has since migrated to the SvelteKit framework.",
         image: {
           src: '/wpi-ndsa/images/ndsa.png',
           alt: 'WPI Neurodivergent Student Association logo'
@@ -90,7 +106,7 @@
     links: [
       {
         label: 'Email',
-        href: 'mailto:lauriesalustri+website@proton.me',
+        href: 'mailto:lmsalustri@wpi.edu',
         external: false
       },
       {
@@ -229,13 +245,18 @@
 
             <p class="mt-3 text-neutral-300">
               {project.description}
+                {#if project.link}
+                  <a href={project.link.href} target="_blank" rel="noopener noreferrer">
+                    {project.link.text}
+                  </a>
+                {/if}
+                {#if project.after} {project.after} {/if}
             </p>
           </li>
         {/each}
       </ul>
     </section>
 
-    <!-- CONTACT -->
     <!-- CONTACT -->
     <section id="contact" class="mx-auto max-w-205 px-4 py-12 text-center">
       <h2 class="mb-4 text-2xl font-extrabold">
