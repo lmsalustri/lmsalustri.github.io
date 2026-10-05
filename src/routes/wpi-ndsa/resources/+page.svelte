@@ -10,16 +10,16 @@
 				heading: 'WPI Resources',
 				resources: [
 					{
-						name: 'Office of Diversity, Inclusion, & Multicultural Education (ODIME)',
-						href: 'https://www.wpi.edu/offices/diversity',
-						description:
-								'Supports students from diverse backgrounds, including neurodiversity, through programs, resources, and advocacy focused on cultural acceptance, social justice, and community building.'
-					},
-					{
 						name: 'Office of Accessibility Services (OAS)',
 						href: 'https://www.wpi.edu/offices/office-accessibility-services/',
 						description:
 								'Coordinates accommodation services and support to assist students with documented physical, learning, sensory, psychological, and developmental disabilities during their time at WPI.'
+					},
+					{
+						name: 'Office of Diversity, Inclusion, & Multicultural Education (ODIME)',
+						href: 'https://www.wpi.edu/offices/diversity',
+						description:
+								'Supports students from diverse backgrounds, including neurodiversity, through programs, resources, and advocacy focused on cultural acceptance, social justice, and community building.'
 					}
 				]
 			},
