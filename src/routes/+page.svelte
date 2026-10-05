@@ -247,7 +247,7 @@
             <p class="mt-3 text-neutral-300">
               {project.description}
                 {#if project.link}
-                  <a href={project.link.href} target="_blank" rel="noopener noreferrer">
+                  <a class="font-bold underline" href={project.link.href} target="_blank" rel="noopener noreferrer">
                     {project.link.text}
                   </a>
                 {/if}
