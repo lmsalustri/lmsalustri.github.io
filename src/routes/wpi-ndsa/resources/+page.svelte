@@ -10,12 +10,6 @@
 				heading: 'WPI Resources',
 				resources: [
 					{
-						name: 'Heebner Career Development Center',
-						href: 'https://cdc.wpi.edu/channels/neurodiverse/',
-						description:
-								'Provides career resources for neurodivergent students, including the Night with Industry, which takes place the night before the semiannual career fair. Students can network with recruiters in a more relaxed setting. No formal dress code is enforced.'
-					},
-					{
 						name: 'Office of Diversity, Inclusion, & Multicultural Education (ODIME)',
 						href: 'https://www.wpi.edu/offices/diversity',
 						description:
